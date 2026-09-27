@@ -162,3 +162,31 @@ def test_ensemble_backend_not_string_only():
     result = clf.classify(wish)
     assert result.backend == "ensemble"
     assert result.confidence > 0.4
+
+
+def test_normalize_proxy_env_rewrites_socks_scheme(monkeypatch):
+    import os
+
+    from opportunity_miner.sources.http import normalize_proxy_env
+
+    monkeypatch.setenv("ALL_PROXY", "socks://127.0.0.1:7897/")
+    monkeypatch.setenv("https_proxy", "socks://127.0.0.1:7897")
+    monkeypatch.setenv("HTTP_PROXY", "http://127.0.0.1:7890")
+    normalize_proxy_env()
+    assert os.environ["ALL_PROXY"] == "socks5://127.0.0.1:7897/"
+    assert os.environ["https_proxy"] == "socks5://127.0.0.1:7897"
+    assert os.environ["HTTP_PROXY"] == "http://127.0.0.1:7890"
+
+
+def test_make_client_accepts_clash_socks_proxy(monkeypatch):
+    import httpx
+
+    from opportunity_miner.sources.http import make_client
+
+    monkeypatch.delenv("HTTP_PROXY", raising=False)
+    monkeypatch.delenv("http_proxy", raising=False)
+    monkeypatch.delenv("HTTPS_PROXY", raising=False)
+    monkeypatch.delenv("https_proxy", raising=False)
+    monkeypatch.setenv("ALL_PROXY", "socks://127.0.0.1:7897/")
+    with make_client("test-agent") as client:
+        assert isinstance(client, httpx.Client)

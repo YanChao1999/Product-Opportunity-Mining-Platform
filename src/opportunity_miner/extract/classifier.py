@@ -24,6 +24,7 @@ from typing import Any, Iterable
 import httpx
 
 from opportunity_miner.models import RawSignal
+from opportunity_miner.sources.http import normalize_proxy_env
 
 ROOT = Path(__file__).resolve().parents[3]
 DEFAULT_MODEL_PATH = ROOT / "data" / "models" / "need_nb.json"
@@ -294,6 +295,7 @@ def classify_ollama(signal: RawSignal, host: str, model: str, timeout: float = 8
         f"TEXT:\n{signal.text[:1500]}"
     )
     try:
+        normalize_proxy_env()
         with httpx.Client(timeout=timeout) as client:
             resp = client.post(
                 f"{host.rstrip('/')}/api/generate",
