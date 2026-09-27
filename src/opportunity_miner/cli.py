@@ -133,5 +133,51 @@ def show_latest(config_path: str | None) -> None:
     console.print(latest.read_text(encoding="utf-8"))
 
 
+@main.command("train-classifier")
+@click.option("--out", "out_path", type=click.Path(), default="data/models/need_nb.json")
+def train_classifier_cmd(out_path: str) -> None:
+    """Train & save the local Naive Bayes need classifier from built-in seed corpus."""
+    from opportunity_miner.extract.classifier import save_model, train_naive_bayes
+
+    model = train_naive_bayes()
+    path = save_model(model, Path(out_path))
+    console.print(
+        f"[green]Saved[/green] Naive Bayes model → {path} "
+        f"(vocab={len(model.vocab)} tokens)"
+    )
+
+
+@main.command("classify")
+@click.argument("text")
+@click.option("--backend", default=None, help="ensemble | naive_bayes | logistic | ollama")
+@click.option("--config", "config_path", type=click.Path(exists=True), default=None)
+def classify_cmd(text: str, backend: str | None, config_path: str | None) -> None:
+    """Classify a single text as unmet-need vs noise using the local AI."""
+    from opportunity_miner.extract.classifier import NeedClassifier, ensure_default_model
+    from opportunity_miner.models import RawSignal, SourceName
+
+    ensure_default_model()
+    config = load_config(config_path)
+    clf_cfg = dict((config.get("extraction") or {}).get("classifier") or {})
+    if backend:
+        clf_cfg["backend"] = backend
+    clf = NeedClassifier(clf_cfg)
+    signal = RawSignal(source=SourceName.RSS, external_id="cli", title=text, body="")
+    result = clf.classify(signal)
+    click.echo(
+        json.dumps(
+            {
+                "text": text,
+                "is_need": result.is_need,
+                "confidence": result.confidence,
+                "backend": result.backend,
+                "threshold": clf.threshold,
+            },
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
+
+
 if __name__ == "__main__":
     main()

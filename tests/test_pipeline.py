@@ -3,7 +3,12 @@
 from __future__ import annotations
 
 from opportunity_miner.config import load_config
-from opportunity_miner.extract.classifier import NeedClassifier, classify_logistic
+from opportunity_miner.extract.classifier import (
+    NeedClassifier,
+    classify_logistic,
+    classify_naive_bayes,
+    train_naive_bayes,
+)
 from opportunity_miner.extract.needs import extract_opportunity_candidates, filter_unmet_signals
 from opportunity_miner.models import DimensionScores, RawSignal, SourceName
 from opportunity_miner.pipeline.demo_data import demo_signals
@@ -125,3 +130,35 @@ def test_classifier_backend_logistic_filter():
     clf = NeedClassifier({"backend": "logistic", "threshold": 0.45})
     out = clf.filter(demo_signals())
     assert any(c.is_need for _, c in out)
+
+
+def test_naive_bayes_trained_local_model():
+    model = train_naive_bayes()
+    wish = RawSignal(
+        source=SourceName.REDDIT,
+        external_id="nb1",
+        title="I wish there was a tool for offline CRM",
+        body="Would pay. No good alternative.",
+    )
+    noise = RawSignal(
+        source=SourceName.RSS,
+        external_id="nb2",
+        title="We're hiring a senior engineer",
+        body="Changelog and launch day giveaway",
+    )
+    assert classify_naive_bayes(wish, model).confidence > 0.6
+    assert classify_naive_bayes(noise, model).confidence < 0.4
+
+
+def test_ensemble_backend_not_string_only():
+    clf = NeedClassifier({"backend": "ensemble", "threshold": 0.45, "blend_patterns": False})
+    wish = RawSignal(
+        source=SourceName.HACKERNEWS,
+        external_id="e1",
+        title="Need a local-first habit tracker without accounts",
+        body="Privacy focused. Willing to subscribe monthly.",
+    )
+    # No exact POS_PHRASES match required — NB n-grams + logistic features decide
+    result = clf.classify(wish)
+    assert result.backend == "ensemble"
+    assert result.confidence > 0.4

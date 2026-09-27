@@ -14,10 +14,17 @@ from opportunity_miner.sources.http import make_client
 
 
 def run_scan(config: dict[str, Any], *, demo: bool = False) -> tuple[ScanResult, dict]:
+    from opportunity_miner.extract.classifier import ensure_default_model
+
+    # Ensure local NB model exists before extraction
+    clf_cfg = ((config.get("extraction") or {}).get("classifier") or {})
+    if clf_cfg.get("enabled", True):
+        ensure_default_model()
+
     scan_cfg = config.get("scan") or {}
     ua = scan_cfg.get(
         "user_agent",
-        "OpportunityMiner/0.1 (+https://github.com/YanChao1999/Product-Opportunity-Mining-Platform)",
+        "OpportunityMiner/0.2 (+https://github.com/YanChao1999/Product-Opportunity-Mining-Platform)",
     )
 
     if demo:

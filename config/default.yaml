@@ -139,12 +139,14 @@ extraction:
     - "求推荐.*(但|但是).*(没有|找不到)"
   min_signal_score: 0.35
   cluster_similarity_threshold: 0.55
-  # Local need classifier (logistic by default; set backend: ollama for local LLM)
+  # Local need classifier — ML, not string-compare only
+  # backends: ensemble (default) | naive_bayes | logistic | ollama
   classifier:
     enabled: true
-    backend: logistic   # logistic | ollama
+    backend: ensemble
     threshold: 0.48
     blend_patterns: true
+    model_path: data/models/need_nb.json
     ollama_host: "http://127.0.0.1:11434"
     ollama_model: "llama3.2:1b"
 

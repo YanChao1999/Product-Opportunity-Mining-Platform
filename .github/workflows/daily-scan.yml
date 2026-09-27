@@ -31,8 +31,9 @@ jobs:
           REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
           REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CLASSIFIER_BACKEND: logistic
+          CLASSIFIER_BACKEND: ensemble
         run: |
+          opportunity-miner train-classifier
           opportunity-miner scan --json-out | tee scan-summary.json
           # If live sources are heavily rate-limited, still produce a demo artifact for CI visibility
           if [ ! -f data/reports/latest.md ]; then

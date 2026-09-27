@@ -43,14 +43,24 @@
 
 在 `scoring.dimensions` 增删改权重即可；未知 `id` 会落在默认分 5。
 
-## Local need classifier（不只是字符串匹配）
+## Local need classifier（小模型，不只字符串匹配）
 
-`extraction.classifier`：
+`extraction.classifier` — 判断「是未满足需求 / 还是噪音」：
 
-- **`logistic`**（默认）：本地轻量逻辑回归，特征 = 短语/词袋/互动/是否 listing 等
-- **`ollama`**：可选调用本机 Ollama（`OLLAMA_HOST` / `OLLAMA_MODEL`）做 need vs noise 分类
+| Backend | 说明 |
+|---------|------|
+| **`ensemble`**（默认） | Logistic 特征模型 + **Naive Bayes n-gram** 本地训练模型加权 |
+| **`naive_bayes`** | 纯 Python 多项式 NB，种子语料训练，权重存 `data/models/need_nb.json` |
+| **`logistic`** | 手工特征 + 逻辑回归 |
+| **`ollama`** | 本机小 LLM（如 `llama3.2:1b`），挂了会回退 ensemble |
 
-与 regex 模式**混合**（`blend_patterns: true`）。
+```bash
+opportunity-miner train-classifier
+opportunity-miner classify "I wish there was an offline CRM for freelancers"
+opportunity-miner classify "We're hiring a senior engineer" --backend naive_bayes
+```
+
+可与 regex **混合**（`blend_patterns: true`），但分类主路径是 ML 概率，不是 `if "wish" in text`。
 
 ## Quick start
 
