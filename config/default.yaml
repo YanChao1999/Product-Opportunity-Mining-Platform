@@ -1,0 +1,126 @@
+# Product Opportunity Mining Platform — default config
+
+scan:
+  lookback_hours: 48
+  max_items_per_source: 80
+  user_agent: "OpportunityMiner/0.1 (+https://github.com/YanChao1999/Product-Opportunity-Mining-Platform)"
+
+sources:
+  hackernews:
+    enabled: true
+    endpoints:
+      top: "https://hacker-news.firebaseio.com/v0/topstories.json"
+      new: "https://hacker-news.firebaseio.com/v0/newstories.json"
+      ask: "https://hacker-news.firebaseio.com/v0/askstories.json"
+      item: "https://hacker-news.firebaseio.com/v0/item/{id}.json"
+    max_stories: 60
+
+  reddit:
+    enabled: true
+    # Public JSON endpoints; set REDDIT_CLIENT_ID/SECRET for higher limits later.
+    subreddits:
+      - startups
+      - SaaS
+      - Entrepreneur
+      - indiehackers
+      - SideProject
+      - SomebodyMakeThis
+      - AppIdeas
+      - gamedev
+      - androidapps
+      - ios
+    sort: "new"
+    limit: 40
+
+  steam:
+    enabled: true
+    # Steam community discussions / wishlist / "I wish" style threads via search API
+    search_url: "https://store.steampowered.com/api/storesearch/"
+    news_url: "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/"
+    feature_requests_query: "wishlist OR missing OR 'wish there was' OR 'please add'"
+    # Sample popular apps for news/feature-request mining
+    app_ids:
+      - 730      # CS2
+      - 570      # Dota 2
+      - 440      # TF2
+      - 578080   # PUBG
+      - 1172470  # Apex
+      - 252950   # Rocket League
+      - 1245620  # Elden Ring
+      - 1091500  # Cyberpunk
+      - 892970   # Valheim
+      - 1086940  # Baldur's Gate 3
+
+  app_store:
+    enabled: true
+    # iTunes Search / RSS — no API key required
+    search_url: "https://itunes.apple.com/search"
+    rss_url: "https://itunes.apple.com/{country}/rss/customerreviews/id={app_id}/sortBy=mostRecent/json"
+    countries: ["us", "cn", "jp", "gb"]
+    # Categories / search terms that surface pain + gap language
+    search_terms:
+      - "todo productivity"
+      - "habit tracker"
+      - "budget finance"
+      - "note taking"
+      - "meditation"
+      - "language learning"
+      - "password manager"
+      - "calorie tracker"
+      - "time tracking"
+      - "ai writing"
+    max_apps_per_term: 8
+    reviews_per_app: 20
+
+  product_hunt:
+    enabled: true
+    # Needs PRODUCT_HUNT_API_TOKEN for live GraphQL; demo fixtures used otherwise.
+    graphql_url: "https://api.producthunt.com/v2/api/graphql"
+    posts_limit: 40
+
+extraction:
+  # Phrases that signal unmet / underserved demand
+  unmet_need_patterns:
+    - "i wish (there|someone|an? app|a tool|a game)"
+    - "why (isn'?t|is there no|doesn'?t).*(app|tool|product|software|game)"
+    - "looking for (an? )?(app|tool|saas|software|game|alternative)"
+    - "no (good |decent )?(alternative|option|solution|app|tool)"
+    - "somebody (please )?(make|build)"
+    - "is there (an? )?(app|tool|saas|software)"
+    - "missing (feature|option|integration)"
+    - "still can'?t find"
+    - "gap in the market"
+    - "would pay for"
+    - "shut up and take my money"
+    - "need an? (app|tool|saas)"
+    - "please (add|build|make|create)"
+    - "找不到.*(软件|工具|应用|app)"
+    - "有没有.*(软件|工具|应用|app)"
+    - "希望有.*(软件|工具|应用)"
+    - "谁来做"
+    - "求推荐.*(但|但是).*(没有|找不到)"
+  min_signal_score: 0.35
+  cluster_similarity_threshold: 0.55
+
+scoring:
+  # Final opportunity score =
+  #   demand × competition_gap × feasibility × monetization
+  # where competition_gap = (11 - competition) / 10
+  #       feasibility     = (11 - difficulty) / 10
+  weights:
+    demand: 1.0
+    competition_gap: 1.0
+    feasibility: 1.0
+    monetization: 1.0
+  # Hard floors so empty signals don't dominate
+  min_dimension: 1.0
+  max_dimension: 10.0
+
+output:
+  dir: "data/reports"
+  formats: ["markdown", "csv", "json"]
+  top_n: 50
+
+schedule:
+  # Local daemon time (use GitHub Actions cron for cloud daily runs)
+  daily_at: "08:00"

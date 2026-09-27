@@ -216,3 +216,17 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local env / caches
+.venv/
+venv/
+.env
+*.log
+
+# Generated timestamped reports (keep latest.* for daily bot commits)
+data/reports/opportunities_*.md
+data/reports/opportunities_*.csv
+data/reports/opportunities_*.json
+!data/reports/latest.md
+!data/reports/latest.csv
+!data/reports/latest.json
