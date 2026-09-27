@@ -72,6 +72,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 
 uv sync                          # create .venv + install deps from uv.lock
 uv run opportunity-miner scan --demo
+uv run opportunity-miner scan -v -j 8   # verbose timings + parallel collectors
 uv run opportunity-miner scan
 uv run opportunity-miner schedule --at 08:00
 uv run opportunity-miner show-latest

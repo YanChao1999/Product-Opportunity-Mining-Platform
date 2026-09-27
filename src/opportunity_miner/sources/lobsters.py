@@ -11,6 +11,15 @@ from opportunity_miner.models import RawSignal, SourceName
 from opportunity_miner.sources.http import get_json
 
 
+def _author(item: dict[str, Any]) -> str:
+    submitter = item.get("submitter_user")
+    if isinstance(submitter, dict):
+        return str(submitter.get("username") or "")
+    if isinstance(submitter, str):
+        return submitter
+    return ""
+
+
 class LobstersCollector:
     name = SourceName.LOBSTERS.value
 
@@ -27,12 +36,14 @@ class LobstersCollector:
         out: list[RawSignal] = []
         for url in urls:
             try:
-                data = get_json(self.client, url)
+                data = get_json(self.client, url, timeout=10.0)
             except Exception:
                 continue
             if not isinstance(data, list):
                 continue
             for item in data[: int(self.cfg.get("limit", 40))]:
+                if not isinstance(item, dict):
+                    continue
                 created = None
                 if item.get("created_at"):
                     try:
@@ -40,14 +51,16 @@ class LobstersCollector:
                     except ValueError:
                         created = None
                 tags = item.get("tags") or []
+                if not isinstance(tags, list):
+                    tags = []
                 out.append(
                     RawSignal(
                         source=SourceName.LOBSTERS,
                         external_id=str(item.get("short_id") or ""),
                         title=item.get("title") or "",
-                        body=" ".join(tags) + "\n" + (item.get("description") or ""),
+                        body=" ".join(str(t) for t in tags) + "\n" + (item.get("description") or ""),
                         url=item.get("url") or item.get("comments_url") or "",
-                        author=((item.get("submitter_user") or {}).get("username") or ""),
+                        author=_author(item),
                         score=int(item.get("score") or 0),
                         comments=int(item.get("comment_count") or 0),
                         created_at=created,

@@ -3,8 +3,10 @@
 from __future__ import annotations
 
 import json
+import threading
 import time
 from pathlib import Path
+from typing import Any
 
 import click
 import schedule
@@ -15,6 +17,54 @@ from opportunity_miner.config import load_config
 from opportunity_miner.pipeline.scan import run_scan
 
 console = Console()
+
+
+def _resolve_jobs(config: dict[str, Any], jobs: int | None) -> int:
+    if jobs is not None:
+        return max(1, int(jobs))
+    configured = (config.get("scan") or {}).get("jobs")
+    if configured is not None:
+        return max(1, int(configured))
+    return 1
+
+
+def _print_timings(
+    timings: dict[str, Any],
+    *,
+    source_stats: dict[str, int] | None = None,
+) -> None:
+    phases = timings.get("phases") or {}
+    sources = timings.get("sources") or {}
+    errors = timings.get("errors") or {}
+    # Prefer pre-cap collect counts so empty/failed sources still show 0
+    counts = timings.get("source_counts") or source_stats or {}
+
+    if sources:
+        table = Table(title="Source timings (slowest first)")
+        table.add_column("Source")
+        table.add_column("Items", justify="right")
+        table.add_column("Seconds", justify="right", style="yellow")
+        table.add_column("Status")
+        for name, secs in sorted(sources.items(), key=lambda kv: kv[1], reverse=True):
+            err = errors.get(name)
+            table.add_row(
+                name,
+                str(counts.get(name, 0)),
+                f"{secs:.2f}",
+                f"[red]{err}[/red]" if err else "[green]ok[/green]",
+            )
+        console.print(table)
+
+    phase_table = Table(title="Phase timings")
+    phase_table.add_column("Phase")
+    phase_table.add_column("Seconds", justify="right", style="yellow")
+    for name in ("ensure_model", "collect", "extract", "rank", "write_reports", "total"):
+        if name in phases:
+            phase_table.add_row(name, f"{phases[name]:.2f}")
+    console.print(phase_table)
+    console.print(
+        f"[dim]workers={timings.get('workers', 1)} demo={timings.get('demo', False)}[/dim]"
+    )
 
 
 def _print_table(result) -> None:
@@ -57,11 +107,54 @@ def main() -> None:
 @click.option("--config", "config_path", type=click.Path(exists=True), default=None)
 @click.option("--demo", is_flag=True, help="Use offline demo fixtures (no network).")
 @click.option("--json-out", is_flag=True, help="Print machine-readable JSON summary.")
-def scan_cmd(config_path: str | None, demo: bool, json_out: bool) -> None:
+@click.option(
+    "-v",
+    "--verbose",
+    is_flag=True,
+    help="Print live per-source progress and phase timings.",
+)
+@click.option(
+    "-j",
+    "--jobs",
+    type=click.IntRange(1, 32),
+    default=None,
+    help="Parallel source collectors (default: scan.jobs in config, else 1).",
+)
+def scan_cmd(
+    config_path: str | None,
+    demo: bool,
+    json_out: bool,
+    verbose: bool,
+    jobs: int | None,
+) -> None:
     """Run one scan cycle and write ranked reports."""
     config = load_config(config_path)
-    with console.status("Scanning sources & ranking opportunities..."):
-        result, paths = run_scan(config, demo=demo)
+    workers = _resolve_jobs(config, jobs)
+    print_lock = threading.Lock()
+
+    def on_source_done(name: str, count: int, elapsed: float, err: str | None) -> None:
+        if not verbose:
+            return
+        with print_lock:
+            if err:
+                console.print(f"  [red]✗[/red] {name}: {elapsed:.2f}s — {err}")
+            else:
+                console.print(f"  [green]✓[/green] {name}: {count} items in {elapsed:.2f}s")
+
+    if verbose:
+        console.print(f"[cyan]Scanning[/cyan] with jobs={workers}" + (" (demo)" if demo else ""))
+        result, paths, timings = run_scan(
+            config, demo=demo, workers=workers, on_source_done=on_source_done
+        )
+    else:
+        with console.status(f"Scanning sources & ranking opportunities (jobs={workers})..."):
+            result, paths, timings = run_scan(
+                config, demo=demo, workers=workers, on_source_done=on_source_done
+            )
+
+    if verbose:
+        _print_timings(timings, source_stats=result.source_stats)
+
     if json_out:
         top = []
         for i, o in enumerate(result.opportunities[:20], start=1):
@@ -74,20 +167,17 @@ def scan_cmd(config_path: str | None, demo: bool, json_out: bool) -> None:
                 "dimensions": o.dimensions.raw,
             }
             top.append(item)
-        click.echo(
-            json.dumps(
-                {
-                    "scanned_at": result.scanned_at.isoformat(),
-                    "raw_count": result.raw_count,
-                    "opportunity_count": result.opportunity_count,
-                    "source_stats": result.source_stats,
-                    "reports": {k: str(v) for k, v in paths.items()},
-                    "top": top,
-                },
-                ensure_ascii=False,
-                indent=2,
-            )
-        )
+        payload: dict[str, Any] = {
+            "scanned_at": result.scanned_at.isoformat(),
+            "raw_count": result.raw_count,
+            "opportunity_count": result.opportunity_count,
+            "source_stats": result.source_stats,
+            "reports": {k: str(v) for k, v in paths.items()},
+            "top": top,
+        }
+        if verbose:
+            payload["timings"] = timings
+        click.echo(json.dumps(payload, ensure_ascii=False, indent=2))
     else:
         console.print(
             f"[bold]Done.[/bold] raw={result.raw_count} opportunities={result.opportunity_count} "
@@ -102,17 +192,34 @@ def scan_cmd(config_path: str | None, demo: bool, json_out: bool) -> None:
 @click.option("--config", "config_path", type=click.Path(exists=True), default=None)
 @click.option("--at", "at_time", default=None, help="HH:MM local time (default from config).")
 @click.option("--demo", is_flag=True)
-def schedule_cmd(config_path: str | None, at_time: str | None, demo: bool) -> None:
+@click.option("-v", "--verbose", is_flag=True, help="Print per-source and phase timings.")
+@click.option(
+    "-j",
+    "--jobs",
+    type=click.IntRange(1, 32),
+    default=None,
+    help="Parallel source collectors (default: scan.jobs in config, else 1).",
+)
+def schedule_cmd(
+    config_path: str | None,
+    at_time: str | None,
+    demo: bool,
+    verbose: bool,
+    jobs: int | None,
+) -> None:
     """Run forever, scanning once per day."""
     config = load_config(config_path)
     when = at_time or ((config.get("schedule") or {}).get("daily_at") or "08:00")
+    workers = _resolve_jobs(config, jobs)
 
     def job() -> None:
-        console.print("[cyan]Scheduled scan starting…[/cyan]")
-        result, paths = run_scan(config, demo=demo)
+        console.print(f"[cyan]Scheduled scan starting…[/cyan] (jobs={workers})")
+        result, paths, timings = run_scan(config, demo=demo, workers=workers)
         console.print(
             f"raw={result.raw_count} opportunities={result.opportunity_count} → {paths.get('markdown_latest')}"
         )
+        if verbose:
+            _print_timings(timings)
 
     schedule.every().day.at(when).do(job)
     console.print(f"Scheduler armed for daily {when}. Ctrl+C to stop. Running first scan now.")

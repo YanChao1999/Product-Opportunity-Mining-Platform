@@ -33,6 +33,13 @@ def tokenize(text: str) -> list[str]:
 
 # Marketplace listings are competition context, not unmet-need seeds.
 _COMPETITION_ONLY_KINDS = frozenset({"app_listing", "store_result", "news"})
+# Curated placeholders used when live APIs are thin — exclude from live ranking.
+_SEED_KINDS = frozenset({"seed_wish", "fallback_post"})
+# Conventional-commit titles from GitHub search are almost never product gaps.
+_COMMIT_TITLE = re.compile(
+    r"^(feat|fix|docs|chore|refactor|test|ci|style|perf|build)(\([^)]*\))?:\s+",
+    re.IGNORECASE,
+)
 
 
 def signal_strength(signal: RawSignal, patterns: list[re.Pattern[str]]) -> float:
@@ -69,6 +76,8 @@ def filter_unmet_signals(
     signals: Iterable[RawSignal],
     patterns: list[str],
     min_score: float = 0.35,
+    *,
+    include_seeds: bool = False,
 ) -> list[tuple[RawSignal, float]]:
     compiled = _compile_patterns(patterns)
     scored: list[tuple[RawSignal, float]] = []
@@ -96,6 +105,10 @@ def filter_unmet_signals(
     for s in signals:
         kind = (s.metadata or {}).get("kind")
         if kind in _COMPETITION_ONLY_KINDS:
+            continue
+        if kind in _SEED_KINDS and not include_seeds:
+            continue
+        if s.source == SourceName.GITHUB and _COMMIT_TITLE.match(s.title or ""):
             continue
 
         # App Store reviews: only low-star complaints with pattern hits
@@ -244,19 +257,29 @@ def extract_opportunity_candidates(signals: list[RawSignal], extract_cfg: dict[s
     patterns = extract_cfg.get("unmet_need_patterns") or []
     min_score = float(extract_cfg.get("min_signal_score", 0.35))
     threshold = float(extract_cfg.get("cluster_similarity_threshold", 0.55))
+    include_seeds = bool(extract_cfg.get("include_seeds", False))
     clf_cfg = extract_cfg.get("classifier") or {}
     use_classifier = bool(clf_cfg.get("enabled", True))
 
-    pattern_scored = filter_unmet_signals(signals, patterns, min_score=min_score)
+    pattern_scored = filter_unmet_signals(
+        signals, patterns, min_score=min_score, include_seeds=include_seeds
+    )
     pattern_map = {s.external_id: st for s, st in pattern_scored}
 
     need_confidences: dict[str, float] = {}
     if use_classifier:
         clf = NeedClassifier(clf_cfg)
-        # Classify all non-listing signals; blend with pattern strengths
-        candidates_raw = [
-            s for s in signals if (s.metadata or {}).get("kind") not in _COMPETITION_ONLY_KINDS
-        ]
+        # Classify all non-listing / non-seed signals; blend with pattern strengths
+        candidates_raw = []
+        for s in signals:
+            kind = (s.metadata or {}).get("kind")
+            if kind in _COMPETITION_ONLY_KINDS:
+                continue
+            if kind in _SEED_KINDS and not include_seeds:
+                continue
+            if s.source == SourceName.GITHUB and _COMMIT_TITLE.match(s.title or ""):
+                continue
+            candidates_raw.append(s)
         classified = clf.filter(candidates_raw, pattern_strengths=pattern_map)
         scored = [(s, max(c.confidence, pattern_map.get(s.external_id, 0.0))) for s, c in classified]
         need_confidences = {s.external_id: c.confidence for s, c in classified}

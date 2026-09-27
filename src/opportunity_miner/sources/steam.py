@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from typing import Any
 
@@ -53,77 +54,112 @@ class SteamCollector:
         self.client = client
         self.cfg = cfg
 
+    def _search(self, search_url: str, term: str) -> list[RawSignal]:
+        try:
+            data = get_json(
+                self.client,
+                search_url,
+                params={"term": term, "l": "english", "cc": "US"},
+                retries=1,
+                timeout=8.0,
+            )
+        except Exception:
+            return []
+        if not isinstance(data, dict):
+            return []
+        out: list[RawSignal] = []
+        for item in (data.get("items") or [])[:8]:
+            if not isinstance(item, dict):
+                continue
+            out.append(
+                RawSignal(
+                    source=SourceName.STEAM,
+                    external_id=f"store-{item.get('id')}",
+                    title=item.get("name") or term,
+                    body=f"Steam store result for query '{term}'. Type={item.get('type')}",
+                    url=f"https://store.steampowered.com/app/{item.get('id')}/"
+                    if item.get("id")
+                    else "",
+                    score=1,
+                    comments=0,
+                    metadata={
+                        "query": term,
+                        "price": (item.get("price") or {}).get("final")
+                        if isinstance(item.get("price"), dict)
+                        else None,
+                        "kind": "store_result",
+                    },
+                )
+            )
+        return out
+
+    def _news(self, news_url: str, app_id: int) -> list[RawSignal]:
+        try:
+            data = get_json(
+                self.client,
+                news_url,
+                params={"appid": app_id, "count": 5, "maxlength": 400},
+                retries=1,
+                timeout=8.0,
+            )
+        except Exception:
+            return []
+        if not isinstance(data, dict):
+            return []
+        out: list[RawSignal] = []
+        newsitems = ((data.get("appnews") or {}).get("newsitems")) or []
+        for n in newsitems:
+            if not isinstance(n, dict):
+                continue
+            created = None
+            if n.get("date"):
+                created = datetime.fromtimestamp(int(n["date"]), tz=timezone.utc)
+            out.append(
+                RawSignal(
+                    source=SourceName.STEAM,
+                    external_id=str(n.get("gid") or n.get("nid") or ""),
+                    title=n.get("title") or "",
+                    body=n.get("contents") or "",
+                    url=n.get("url") or "",
+                    author=n.get("author") or "",
+                    score=0,
+                    comments=0,
+                    created_at=created,
+                    metadata={"app_id": app_id, "feed": n.get("feedlabel"), "kind": "news"},
+                )
+            )
+        return out
+
     def collect(self) -> list[RawSignal]:
         out: list[RawSignal] = []
         search_url = self.cfg.get("search_url")
-        terms = [
-            "mod manager",
-            "party finder",
-            "achievement tracker",
-            "steam deck tool",
-            "overlay",
-        ]
-        if search_url:
-            for term in terms:
+        terms = list(
+            self.cfg.get("search_terms")
+            or [
+                "mod manager",
+                "party finder",
+                "achievement tracker",
+                "steam deck tool",
+                "overlay",
+            ]
+        )
+        news_url = self.cfg.get("news_url")
+        app_ids = list(self.cfg.get("app_ids") or [])
+        workers = min(int(self.cfg.get("workers") or 8), max(1, len(terms) + len(app_ids)))
+
+        futures = []
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            if search_url:
+                for term in terms:
+                    futures.append(pool.submit(self._search, search_url, term))
+            if news_url:
+                for app_id in app_ids:
+                    futures.append(pool.submit(self._news, news_url, app_id))
+            for fut in as_completed(futures):
                 try:
-                    data = get_json(
-                        self.client,
-                        search_url,
-                        params={"term": term, "l": "english", "cc": "US"},
-                    )
+                    out.extend(fut.result())
                 except Exception:
                     continue
-                for item in (data.get("items") or [])[:8]:
-                    out.append(
-                        RawSignal(
-                            source=SourceName.STEAM,
-                            external_id=f"store-{item.get('id')}",
-                            title=item.get("name") or term,
-                            body=f"Steam store result for query '{term}'. Type={item.get('type')}",
-                            url=f"https://store.steampowered.com/app/{item.get('id')}/"
-                            if item.get("id")
-                            else "",
-                            score=int(item.get("tiny_image") and 1 or 1),
-                            comments=0,
-                            metadata={
-                                "query": term,
-                                "price": (item.get("price") or {}).get("final"),
-                                "kind": "store_result",
-                            },
-                        )
-                    )
-
-        news_url = self.cfg.get("news_url")
-        for app_id in self.cfg.get("app_ids") or []:
-            if not news_url:
-                break
-            try:
-                data = get_json(
-                    self.client,
-                    news_url,
-                    params={"appid": app_id, "count": 5, "maxlength": 400},
-                )
-            except Exception:
-                continue
-            newsitems = ((data.get("appnews") or {}).get("newsitems")) or []
-            for n in newsitems:
-                created = None
-                if n.get("date"):
-                    created = datetime.fromtimestamp(int(n["date"]), tz=timezone.utc)
-                out.append(
-                    RawSignal(
-                        source=SourceName.STEAM,
-                        external_id=str(n.get("gid") or n.get("nid") or ""),
-                        title=n.get("title") or "",
-                        body=n.get("contents") or "",
-                        url=n.get("url") or "",
-                        author=n.get("author") or "",
-                        score=0,
-                        comments=0,
-                        created_at=created,
-                        metadata={"app_id": app_id, "feed": n.get("feedlabel"), "kind": "news"},
-                    )
-                )
 
         # Always include curated wish signals so unmet-need mining has gaming coverage
         now = datetime.now(timezone.utc)

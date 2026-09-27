@@ -2,7 +2,10 @@
 
 from __future__ import annotations
 
-from typing import Any
+import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from dataclasses import dataclass, field
+from typing import Any, Callable
 
 import httpx
 
@@ -22,8 +25,18 @@ from opportunity_miner.sources.stackexchange import StackExchangeCollector
 from opportunity_miner.sources.steam import SteamCollector
 from opportunity_miner.sources.v2ex import V2EXCollector
 
+OnSourceDone = Callable[[str, int, float, str | None], None]
 
-def collect_all(client: httpx.Client, config: dict[str, Any]) -> tuple[list[RawSignal], dict[str, int]]:
+
+@dataclass
+class CollectOutcome:
+    signals: list[RawSignal]
+    stats: dict[str, int]
+    timings: dict[str, float] = field(default_factory=dict)
+    errors: dict[str, str] = field(default_factory=dict)
+
+
+def _build_collectors(client: httpx.Client, config: dict[str, Any]) -> list[Any]:
     sources_cfg = config.get("sources") or {}
     secrets = config.get("secrets") or {}
     collectors: list[Any] = []
@@ -67,14 +80,52 @@ def collect_all(client: httpx.Client, config: dict[str, Any]) -> tuple[list[RawS
         collectors.append(RSSCollector(client, sources_cfg["rss"]))
     if enabled("g2"):
         collectors.append(G2Collector(client, sources_cfg["g2"]))
+    return collectors
 
+
+def _run_collector(collector: Any) -> tuple[str, list[RawSignal], float, str | None]:
+    name = collector.name
+    t0 = time.perf_counter()
+    err: str | None = None
+    try:
+        items = collector.collect()
+    except Exception as exc:  # noqa: BLE001 — isolate flaky sources
+        items = []
+        err = f"{type(exc).__name__}: {exc}"
+    elapsed = time.perf_counter() - t0
+    return name, items, elapsed, err
+
+
+def collect_all(
+    client: httpx.Client,
+    config: dict[str, Any],
+    *,
+    workers: int = 1,
+    on_source_done: OnSourceDone | None = None,
+) -> CollectOutcome:
+    collectors = _build_collectors(client, config)
     all_signals: list[RawSignal] = []
     stats: dict[str, int] = {}
-    for c in collectors:
-        try:
-            items = c.collect()
-        except Exception:
-            items = []
-        stats[c.name] = len(items)
+    timings: dict[str, float] = {}
+    errors: dict[str, str] = {}
+
+    def _consume(name: str, items: list[RawSignal], elapsed: float, err: str | None) -> None:
+        stats[name] = len(items)
+        timings[name] = elapsed
+        if err:
+            errors[name] = err
         all_signals.extend(items)
-    return all_signals, stats
+        if on_source_done is not None:
+            on_source_done(name, len(items), elapsed, err)
+
+    workers = max(1, int(workers))
+    if workers == 1 or len(collectors) <= 1:
+        for c in collectors:
+            _consume(*_run_collector(c))
+    else:
+        with ThreadPoolExecutor(max_workers=min(workers, len(collectors))) as pool:
+            futures = {pool.submit(_run_collector, c): c for c in collectors}
+            for fut in as_completed(futures):
+                _consume(*fut.result())
+
+    return CollectOutcome(signals=all_signals, stats=stats, timings=timings, errors=errors)

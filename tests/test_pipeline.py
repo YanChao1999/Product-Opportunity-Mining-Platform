@@ -36,7 +36,9 @@ def test_dimension_opportunity_score_prefers_high_demand_low_competition():
 
 def test_extended_dimensions_change_ranking():
     cfg = load_config()
-    candidates = extract_opportunity_candidates(demo_signals(), cfg["extraction"])
+    extract_cfg = dict(cfg["extraction"])
+    extract_cfg["include_seeds"] = True
+    candidates = extract_opportunity_candidates(demo_signals(), extract_cfg)
     ranked = rank_opportunities(candidates, cfg["scoring"])
     assert ranked
     dims = ranked[0].dimensions.raw
@@ -74,6 +76,7 @@ def test_unmet_need_patterns_catch_wish_language():
         demo_signals(),
         cfg["extraction"]["unmet_need_patterns"],
         min_score=0.35,
+        include_seeds=True,
     )
     assert len(scored) >= 4
     titles = " ".join(s.title for s, _ in scored).lower()
@@ -87,7 +90,7 @@ def test_demo_pipeline_produces_ranked_table(tmp_path):
         "formats": ["markdown", "csv", "json"],
         "top_n": 20,
     }
-    result, paths = run_scan(cfg, demo=True)
+    result, paths, timings = run_scan(cfg, demo=True)
     assert result.opportunity_count >= 1
     assert result.opportunities[0].opportunity_score >= result.opportunities[-1].opportunity_score
     assert paths["markdown_latest"].exists()
@@ -97,6 +100,8 @@ def test_demo_pipeline_produces_ranked_table(tmp_path):
     assert "紧迫" in md or "urgency" in md.lower()
     assert paths["csv_latest"].exists()
     assert paths["json_latest"].exists()
+    assert "phases" in timings
+    assert timings["phases"]["total"] >= 0
     # Expanded demo sources present in stats
     assert result.source_stats.get("github", 0) >= 1
     assert result.source_stats.get("g2", 0) >= 1
@@ -162,6 +167,109 @@ def test_ensemble_backend_not_string_only():
     result = clf.classify(wish)
     assert result.backend == "ensemble"
     assert result.confidence > 0.4
+
+
+def test_live_extract_drops_seed_and_commit_noise():
+    cfg = load_config()
+    extract_cfg = dict(cfg["extraction"])
+    extract_cfg["include_seeds"] = False
+    signals = [
+        RawSignal(
+            source=SourceName.PRODUCT_HUNT,
+            external_id="seed1",
+            title="GapFinder AI: I wish there was a daily digest",
+            body="Would pay for automated opportunity scanning",
+            metadata={"kind": "fallback_post"},
+        ),
+        RawSignal(
+            source=SourceName.GITHUB,
+            external_id="c1",
+            title="feat: Product Opportunity Mining — multi-source",
+            body="I wish there was something",
+        ),
+        RawSignal(
+            source=SourceName.HACKERNEWS,
+            external_id="hn1",
+            title="Ask HN: Is there a tool for refund-risk analytics?",
+            body="Looking for a SaaS. Would pay. No good alternative.",
+            score=40,
+            comments=12,
+        ),
+    ]
+    cands = extract_opportunity_candidates(signals, extract_cfg)
+    titles = " ".join(c["title"] for c in cands).lower()
+    assert "gapfinder" not in titles
+    assert "feat: product opportunity" not in titles
+    assert "refund" in titles or "ask hn" in titles
+
+
+def test_lobsters_author_handles_string_submitter():
+    from opportunity_miner.sources.lobsters import _author
+
+    assert _author({"submitter_user": {"username": "alice"}}) == "alice"
+    assert _author({"submitter_user": "bob"}) == "bob"
+    assert _author({}) == ""
+
+
+def test_get_json_does_not_retry_timeouts(httpx_mock):
+    import httpx
+
+    from opportunity_miner.sources.http import get_json
+
+    httpx_mock.add_exception(httpx.ReadTimeout("slow"))
+    with httpx.Client() as client:
+        try:
+            get_json(client, "https://example.com/x.json", retries=3)
+            raise AssertionError("expected timeout")
+        except httpx.ReadTimeout:
+            pass
+    # Only one request attempted — no retry storm
+    assert len(httpx_mock.get_requests()) == 1
+
+
+def test_collect_all_parallel_aggregates_results():
+    import time
+
+    import httpx
+
+    from opportunity_miner.sources import collect_all
+
+    class _FakeCollector:
+        def __init__(self, name: str, n: int, delay: float = 0.08):
+            self.name = name
+            self._n = n
+            self._delay = delay
+
+        def collect(self):
+            time.sleep(self._delay)
+            return [
+                RawSignal(
+                    source=SourceName.RSS,
+                    external_id=f"{self.name}-{i}",
+                    title=f"{self.name}-{i}",
+                )
+                for i in range(self._n)
+            ]
+
+    def fake_build(client, config):
+        return [_FakeCollector("a", 2), _FakeCollector("b", 3)]
+
+    import opportunity_miner.sources as sources_mod
+
+    original = sources_mod._build_collectors
+    sources_mod._build_collectors = fake_build  # type: ignore[method-assign]
+    try:
+        with httpx.Client() as client:
+            t0 = time.perf_counter()
+            out = collect_all(client, {}, workers=2)
+            elapsed = time.perf_counter() - t0
+        assert out.stats == {"a": 2, "b": 3}
+        assert len(out.signals) == 5
+        assert set(out.timings) == {"a", "b"}
+        # Parallel ≈ max(delay); sequential would be ~0.16s
+        assert elapsed < 0.14
+    finally:
+        sources_mod._build_collectors = original  # type: ignore[method-assign]
 
 
 def test_normalize_proxy_env_rewrites_socks_scheme(monkeypatch):

@@ -4,11 +4,16 @@
 scan:
   lookback_hours: 48
   max_items_per_source: 60
+  # Parallel source collectors (override with `scan -j N`)
+  jobs: 4
+  # Per-request HTTP timeout (seconds). Keep low — blocked hosts fail fast.
+  request_timeout: 12
   user_agent: "OpportunityMiner/0.2 (+https://github.com/YanChao1999/Product-Opportunity-Mining-Platform)"
 
 sources:
   hackernews:
     enabled: true
+    workers: 20
     endpoints:
       top: "https://hacker-news.firebaseio.com/v0/topstories.json"
       new: "https://hacker-news.firebaseio.com/v0/newstories.json"
@@ -18,6 +23,7 @@ sources:
 
   reddit:
     enabled: true
+    workers: 6
     subreddits:
       - startups
       - SaaS
@@ -34,6 +40,7 @@ sources:
 
   steam:
     enabled: true
+    workers: 8
     search_url: "https://store.steampowered.com/api/storesearch/"
     news_url: "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/"
     app_ids: [730, 570, 440, 578080, 1172470, 252950, 1245620, 1091500, 892970, 1086940]
@@ -79,8 +86,9 @@ sources:
       - "https://lobste.rs/newest.json"
       - "https://lobste.rs/t/ask.json"
 
+  # Often fails under poisoned DNS (resolves to unreachable IPv6). Re-enable if your DNS is clean.
   v2ex:
-    enabled: true
+    enabled: false
     limit: 40
     urls:
       - "https://www.v2ex.com/api/topics/hot.json"
@@ -118,6 +126,8 @@ sources:
         url: "https://betalist.com/feed"
 
 extraction:
+  # Curated seed_wish / fallback_post rows (PH/G2/Chrome/…). Off for live scans.
+  include_seeds: false
   unmet_need_patterns:
     - "i wish (there|someone|an? app|a tool|a game)"
     - "why (isn'?t|is there no|doesn'?t).*(app|tool|product|software|game)"
