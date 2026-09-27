@@ -1,100 +1,99 @@
 # Product Opportunity Mining Platform
 
-每天自动扫描 **Reddit · Steam · App Store · Product Hunt · Hacker News**，抓取「人们想要但市场上没有 / 供给不足」的需求信号，并按：
+每天自动扫描多个社区与商店，抓取「人们想要但市场上没有 / 供给不足」的需求，按**可扩展多维评分**排成表。
 
-**需求强度 × 竞争缺口 × 可开发性 × 付费可能性**
+## Sources（可扩展）
 
-排成可落地的机会表（Markdown / CSV / JSON）。
+| Source | 说明 |
+|--------|------|
+| Hacker News | Ask/New/Top |
+| Reddit | 创业/产品相关 subreddit |
+| Steam | 商店搜索 + 新闻 + wish seeds |
+| App Store | iTunes 搜索 + 低星评价 |
+| Product Hunt | GraphQL（无 token 时用 fallback） |
+| **GitHub** | Issues 搜索 wish / feature-request |
+| **Lobsters** | hottest / ask JSON |
+| **V2EX** | 中文热点 / 最新 |
+| **Stack Exchange** | feature-request / recommendation |
+| **Indie Hackers** | RSS + fallback |
+| **Google Play** | wish seeds（可接自定义 search URL） |
+| **Chrome Web Store** | extension wish seeds |
+| **G2** | B2B 替代品 / 缺口 seeds |
+| **RSS** | 任意订阅源（配置 `sources.rss.feeds`） |
 
-> 公式说明：竞争程度、开发难度越高对创业越不利，因此排行使用其**取反分**  
-> `竞争缺口 = (11 − 竞争) / 10 × 10`，`可开发性 = (11 − 难度) / 10 × 10`，再与需求、付费相乘后归一到 0–100。
+在 `config/default.yaml` 里对任意源设 `enabled: true/false`，或增加自己的 RSS。
 
----
+## Scoring dimensions（可扩展）
+
+默认 **11 维**（不止原来的 4 维），最终分为各维贡献值的**几何平均**（0–100）：
+
+| ID | 含义 | 取反？ |
+|----|------|--------|
+| demand | 需求强度 | |
+| competition | 竞争程度 | ✓ |
+| difficulty | 开发难度 | ✓ |
+| monetization | 付费可能性 | |
+| urgency | 紧迫性 | |
+| market_size | 市场规模 | |
+| time_to_revenue | 变现速度 | |
+| trend | 趋势热度 | |
+| defensibility | 护城河 | |
+| viral | 传播潜力 | |
+| regulatory_risk | 监管风险 | ✓ |
+
+在 `scoring.dimensions` 增删改权重即可；未知 `id` 会落在默认分 5。
+
+## Local need classifier（不只是字符串匹配）
+
+`extraction.classifier`：
+
+- **`logistic`**（默认）：本地轻量逻辑回归，特征 = 短语/词袋/互动/是否 listing 等
+- **`ollama`**：可选调用本机 Ollama（`OLLAMA_HOST` / `OLLAMA_MODEL`）做 need vs noise 分类
+
+与 regex 模式**混合**（`blend_patterns: true`）。
 
 ## Quick start
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
+python -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"
 
-# Offline demo (no API keys / network required)
 opportunity-miner scan --demo
-
-# Live scan (HN / Reddit public JSON / iTunes / Steam; PH needs token)
 opportunity-miner scan
-
-# Print latest report
-opportunity-miner show-latest
-
-# Local daily daemon
 opportunity-miner schedule --at 08:00
+opportunity-miner show-latest
 ```
 
-Reports land in `data/reports/` (`latest.md`, `latest.csv`, `latest.json`).
+Reports → `data/reports/latest.{md,csv,json}`
 
-### Optional secrets
-
-Copy `.env.example` → `.env` (or set GitHub Actions secrets):
+### Secrets / env
 
 | Variable | Purpose |
 |----------|---------|
-| `PRODUCT_HUNT_API_TOKEN` | Product Hunt GraphQL (fallback curated posts if missing) |
-| `REDDIT_CLIENT_ID` / `REDDIT_CLIENT_SECRET` | Reserved for OAuth rate limits (public JSON works today) |
-
----
-
-## Ranking table columns
-
-| Column | Meaning |
-|--------|---------|
-| Score | Composite opportunity score (0–100) |
-| 需求 | Demand intensity from engagement + wish-language strength + multi-source corroboration |
-| 竞争 | How crowded the space looks (store listings, “alternative to X” language) |
-| 难度 | Build difficulty heuristics (AI/infra/compliance ↑, extension/template ↓) |
-| 付费 | Monetization signals (“would pay”, B2B/SaaS, category priors) |
-| Signals / Sources | Evidence count and which platforms contributed |
-
----
+| `PRODUCT_HUNT_API_TOKEN` | Product Hunt GraphQL |
+| `GITHUB_TOKEN` | 提高 GitHub Search 限额 |
+| `CLASSIFIER_BACKEND` | `logistic` / `ollama` |
+| `OLLAMA_HOST` / `OLLAMA_MODEL` | 本地 LLM 分类 |
 
 ## Architecture
 
 ```
 src/opportunity_miner/
-  sources/     # HN, Reddit, Steam, App Store, Product Hunt collectors
-  extract/     # unmet-need regex + clustering
-  scoring/     # 4-dimension scorer + ranker
-  report/      # markdown table / csv / json writers
-  pipeline/    # orchestration + demo fixtures
-  cli.py       # `scan` / `schedule` / `show-latest`
+  sources/       # 14 collectors
+  extract/       # patterns + local classifier + clustering
+  scoring/       # pluggable multi-dimension engine
+  report/        # markdown / csv / json
+  pipeline/      # orchestration
+  cli.py
 config/default.yaml
-.github/workflows/daily-scan.yml   # cron 00:00 UTC
+.github/workflows/daily-scan.yml
 ```
-
-### Unmet-need detection
-
-Signals match patterns such as *I wish there was*, *looking for an app*, *no good alternative*, *somebody make*, *would pay for*, *找不到/有没有/希望有*… plus Ask HN / low-star App Store reviews.
-
-### Daily automation
-
-- **GitHub Actions**: `.github/workflows/daily-scan.yml` runs every day, uploads artifacts, and commits `data/reports/latest.*` on `main`.
-- **Local**: `opportunity-miner schedule --at 08:00`.
-
----
-
-## Configure
-
-Edit `config/default.yaml` to toggle sources, subreddits, App Store search terms, Steam app IDs, pattern lists, and scoring weights.
-
----
 
 ## Tests
 
 ```bash
 pytest -q
 ```
-
----
 
 ## License
 

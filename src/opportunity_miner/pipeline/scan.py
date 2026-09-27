@@ -44,14 +44,20 @@ def run_scan(config: dict[str, Any], *, demo: bool = False) -> tuple[ScanResult,
                 signals = capped
                 stats = counts
 
+    scoring_cfg = config.get("scoring") or {}
     candidates = extract_opportunity_candidates(signals, config.get("extraction") or {})
-    opportunities = rank_opportunities(candidates, config.get("scoring") or {})
+    opportunities = rank_opportunities(candidates, scoring_cfg)
+    dim_labels = [
+        str(d.get("label") or d.get("id"))
+        for d in (scoring_cfg.get("dimensions") or [])
+    ]
     result = ScanResult(
         scanned_at=datetime.now(timezone.utc),
         raw_count=len(signals),
         opportunity_count=len(opportunities),
         opportunities=opportunities,
         source_stats=stats,
+        dimension_labels=dim_labels,
     )
-    paths = write_reports(result, config.get("output") or {})
+    paths = write_reports(result, config.get("output") or {}, scoring_cfg=scoring_cfg)
     return result, paths

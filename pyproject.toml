@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "opportunity-miner"
-version = "0.1.0"
-description = "Daily product-opportunity miner across Reddit, Steam, App Store, Product Hunt, and Hacker News"
+version = "0.2.0"
+description = "Extensible product-opportunity miner: multi-source scan + multi-dimension ranking + local need classifier"
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }

@@ -185,8 +185,10 @@ def _title_from_cluster(cluster: list[tuple[RawSignal, float]]) -> str:
 
 def clusters_to_opportunities(
     clusters: list[list[tuple[RawSignal, float]]],
+    need_confidences: dict[str, float] | None = None,
 ) -> list[dict[str, Any]]:
     """Return intermediate opportunity dicts (scoring applied later)."""
+    need_confidences = need_confidences or {}
     results: list[dict[str, Any]] = []
     for cluster in clusters:
         if not cluster:
@@ -201,9 +203,12 @@ def clusters_to_opportunities(
         text_blob = " ".join(s.text for s in signals)[:4000]
         title = _title_from_cluster(cluster)
         oid = hashlib.sha1(title.lower().encode("utf-8")).hexdigest()[:12]
+        confs = [need_confidences[s.external_id] for s in signals if s.external_id in need_confidences]
+        need_confidence = sum(confs) / len(confs) if confs else (sum(strengths) / len(strengths))
         summary = (
             f"{len(signals)} signals across {', '.join(s.value for s in sources)}. "
-            f"Top keywords: {', '.join(keywords[:5]) or 'n/a'}."
+            f"Top keywords: {', '.join(keywords[:5]) or 'n/a'}. "
+            f"Need-confidence={need_confidence:.2f}."
         )
         results.append(
             {
@@ -215,6 +220,7 @@ def clusters_to_opportunities(
                 "evidence": signals,
                 "keywords": keywords,
                 "avg_strength": sum(strengths) / len(strengths),
+                "need_confidence": need_confidence,
                 "total_score": sum(max(0, s.score) for s in signals),
                 "total_comments": sum(max(0, s.comments) for s in signals),
                 "text_blob": text_blob,
@@ -233,12 +239,40 @@ def competition_context(signals: list[RawSignal]) -> list[RawSignal]:
 
 
 def extract_opportunity_candidates(signals: list[RawSignal], extract_cfg: dict[str, Any]) -> list[dict[str, Any]]:
+    from opportunity_miner.extract.classifier import NeedClassifier
+
     patterns = extract_cfg.get("unmet_need_patterns") or []
     min_score = float(extract_cfg.get("min_signal_score", 0.35))
     threshold = float(extract_cfg.get("cluster_similarity_threshold", 0.55))
-    scored = filter_unmet_signals(signals, patterns, min_score=min_score)
+    clf_cfg = extract_cfg.get("classifier") or {}
+    use_classifier = bool(clf_cfg.get("enabled", True))
+
+    pattern_scored = filter_unmet_signals(signals, patterns, min_score=min_score)
+    pattern_map = {s.external_id: st for s, st in pattern_scored}
+
+    need_confidences: dict[str, float] = {}
+    if use_classifier:
+        clf = NeedClassifier(clf_cfg)
+        # Classify all non-listing signals; blend with pattern strengths
+        candidates_raw = [
+            s for s in signals if (s.metadata or {}).get("kind") not in _COMPETITION_ONLY_KINDS
+        ]
+        classified = clf.filter(candidates_raw, pattern_strengths=pattern_map)
+        scored = [(s, max(c.confidence, pattern_map.get(s.external_id, 0.0))) for s, c in classified]
+        need_confidences = {s.external_id: c.confidence for s, c in classified}
+        # Always keep strong pattern hits even if logistic is shy
+        seen = {s.external_id for s, _ in scored}
+        for s, st in pattern_scored:
+            if s.external_id not in seen and st >= max(min_score, 0.5):
+                scored.append((s, st))
+                need_confidences[s.external_id] = st
+    else:
+        scored = pattern_scored
+        need_confidences = {s.external_id: st for s, st in scored}
+
+    scored.sort(key=lambda t: t[1], reverse=True)
     clusters = cluster_signals(scored, threshold=threshold)
-    candidates = clusters_to_opportunities(clusters)
+    candidates = clusters_to_opportunities(clusters, need_confidences=need_confidences)
     # Attach marketplace listings so competition scoring sees existing supply
     catalog = competition_context(signals)
     if catalog:

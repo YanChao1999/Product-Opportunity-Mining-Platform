@@ -18,38 +18,39 @@ console = Console()
 
 
 def _print_table(result) -> None:
-    table = Table(title="Product Opportunities (需求×竞争缺口×可开发性×付费)")
+    if not result.opportunities:
+        console.print("[yellow]No opportunities found.[/yellow]")
+        return
+    spec = [d for d in result.opportunities[0].dimensions.spec if d.get("table", True)]
+    title = "Product Opportunities — multi-dimension rank"
+    table = Table(title=title)
     table.add_column("#", justify="right", style="cyan")
     table.add_column("Opportunity", style="bold")
     table.add_column("Cat")
     table.add_column("Score", justify="right", style="green")
-    table.add_column("需求", justify="right")
-    table.add_column("竞争", justify="right")
-    table.add_column("难度", justify="right")
-    table.add_column("付费", justify="right")
+    for d in spec[:7]:  # keep terminal readable
+        table.add_column(d.get("short") or d["id"], justify="right")
     table.add_column("Src")
 
     for i, o in enumerate(result.opportunities[:30], start=1):
-        d = o.dimensions
-        title = o.title if len(o.title) <= 56 else o.title[:53] + "..."
-        table.add_row(
+        t = o.title if len(o.title) <= 48 else o.title[:45] + "..."
+        cells = [
             str(i),
-            title,
+            t,
             o.category,
             f"{o.opportunity_score:.1f}",
-            f"{d.demand:.1f}",
-            f"{d.competition:.1f}",
-            f"{d.difficulty:.1f}",
-            f"{d.monetization:.1f}",
-            ",".join(s.value[:2] for s in o.sources),
-        )
+        ]
+        for d in spec[:7]:
+            cells.append(f"{o.dimensions.get(d['id']):.1f}")
+        cells.append(",".join(s.value[:2] for s in o.sources))
+        table.add_row(*cells)
     console.print(table)
 
 
 @click.group()
 @click.version_option(package_name="opportunity-miner")
 def main() -> None:
-    """Daily product-opportunity miner across Reddit / Steam / App Store / PH / HN."""
+    """Multi-source product-opportunity miner with extensible scoring dimensions."""
 
 
 @main.command("scan")
@@ -62,6 +63,17 @@ def scan_cmd(config_path: str | None, demo: bool, json_out: bool) -> None:
     with console.status("Scanning sources & ranking opportunities..."):
         result, paths = run_scan(config, demo=demo)
     if json_out:
+        top = []
+        for i, o in enumerate(result.opportunities[:20], start=1):
+            item = {
+                "rank": i,
+                "title": o.title,
+                "score": o.opportunity_score,
+                "need_confidence": o.need_confidence,
+                "sources": [s.value for s in o.sources],
+                "dimensions": o.dimensions.raw,
+            }
+            top.append(item)
         click.echo(
             json.dumps(
                 {
@@ -70,18 +82,7 @@ def scan_cmd(config_path: str | None, demo: bool, json_out: bool) -> None:
                     "opportunity_count": result.opportunity_count,
                     "source_stats": result.source_stats,
                     "reports": {k: str(v) for k, v in paths.items()},
-                    "top": [
-                        {
-                            "rank": i,
-                            "title": o.title,
-                            "score": o.opportunity_score,
-                            "demand": o.dimensions.demand,
-                            "competition": o.dimensions.competition,
-                            "difficulty": o.dimensions.difficulty,
-                            "monetization": o.dimensions.monetization,
-                        }
-                        for i, o in enumerate(result.opportunities[:20], start=1)
-                    ],
+                    "top": top,
                 },
                 ensure_ascii=False,
                 indent=2,
@@ -107,7 +108,7 @@ def schedule_cmd(config_path: str | None, at_time: str | None, demo: bool) -> No
     when = at_time or ((config.get("schedule") or {}).get("daily_at") or "08:00")
 
     def job() -> None:
-        console.print(f"[cyan]Scheduled scan starting…[/cyan]")
+        console.print("[cyan]Scheduled scan starting…[/cyan]")
         result, paths = run_scan(config, demo=demo)
         console.print(
             f"raw={result.raw_count} opportunities={result.opportunity_count} → {paths.get('markdown_latest')}"

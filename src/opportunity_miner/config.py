@@ -31,4 +31,15 @@ def load_config(path: str | Path | None = None) -> dict[str, Any]:
     data["secrets"]["openai_api_key"] = os.getenv(
         "OPENAI_API_KEY", data["secrets"].get("openai_api_key", "")
     )
+    data["secrets"]["github_token"] = os.getenv(
+        "GITHUB_TOKEN", data["secrets"].get("github_token", "")
+    )
+    # Optional Ollama override for local LLM classifier
+    clf = (data.get("extraction") or {}).setdefault("classifier", {})
+    if os.getenv("OLLAMA_HOST"):
+        clf["ollama_host"] = os.getenv("OLLAMA_HOST")
+    if os.getenv("OLLAMA_MODEL"):
+        clf["ollama_model"] = os.getenv("OLLAMA_MODEL")
+    if os.getenv("CLASSIFIER_BACKEND"):
+        clf["backend"] = os.getenv("CLASSIFIER_BACKEND")
     return data
