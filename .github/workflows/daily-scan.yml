@@ -15,15 +15,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
         with:
+          enable-cache: true
           python-version: "3.12"
-          cache: pip
 
-      - name: Install
-        run: |
-          python -m pip install --upgrade pip
-          pip install -e ".[dev]"
+      - name: Sync dependencies
+        run: uv sync --frozen
 
       - name: Run scan
         env:
@@ -33,11 +32,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CLASSIFIER_BACKEND: ensemble
         run: |
-          opportunity-miner train-classifier
-          opportunity-miner scan --json-out | tee scan-summary.json
-          # If live sources are heavily rate-limited, still produce a demo artifact for CI visibility
+          uv run opportunity-miner train-classifier
+          uv run opportunity-miner scan --json-out | tee scan-summary.json
           if [ ! -f data/reports/latest.md ]; then
-            opportunity-miner scan --demo
+            uv run opportunity-miner scan --demo
           fi
 
       - name: Upload reports

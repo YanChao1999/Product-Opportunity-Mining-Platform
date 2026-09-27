@@ -62,16 +62,31 @@ opportunity-miner classify "We're hiring a senior engineer" --backend naive_baye
 
 可与 regex **混合**（`blend_patterns: true`），但分类主路径是 ML 概率，不是 `if "wish" in text`。
 
-## Quick start
+## Quick start (uv)
+
+This project is managed with [uv](https://docs.astral.sh/uv/).
 
 ```bash
-python -m venv .venv && source .venv/bin/activate
-pip install -e ".[dev]"
+# Install uv: https://docs.astral.sh/uv/getting-started/installation/
+curl -LsSf https://astral.sh/uv/install.sh | sh
 
-opportunity-miner scan --demo
-opportunity-miner scan
-opportunity-miner schedule --at 08:00
-opportunity-miner show-latest
+uv sync                          # create .venv + install deps from uv.lock
+uv run opportunity-miner scan --demo
+uv run opportunity-miner scan
+uv run opportunity-miner schedule --at 08:00
+uv run opportunity-miner show-latest
+uv run opportunity-miner train-classifier
+uv run opportunity-miner classify "I wish there was an offline CRM"
+```
+
+Common uv commands:
+
+```bash
+uv add httpx                     # add runtime dep
+uv add --group dev ruff          # add dev dep
+uv lock                          # refresh uv.lock
+uv run pytest -q                 # run tests
+uv sync --frozen                 # CI-style install from lockfile
 ```
 
 Reports → `data/reports/latest.{md,csv,json}`
@@ -82,7 +97,7 @@ Reports → `data/reports/latest.{md,csv,json}`
 |----------|---------|
 | `PRODUCT_HUNT_API_TOKEN` | Product Hunt GraphQL |
 | `GITHUB_TOKEN` | 提高 GitHub Search 限额 |
-| `CLASSIFIER_BACKEND` | `logistic` / `ollama` |
+| `CLASSIFIER_BACKEND` | `ensemble` / `naive_bayes` / `logistic` / `ollama` |
 | `OLLAMA_HOST` / `OLLAMA_MODEL` | 本地 LLM 分类 |
 
 ## Architecture
@@ -96,13 +111,14 @@ src/opportunity_miner/
   pipeline/      # orchestration
   cli.py
 config/default.yaml
+uv.lock
 .github/workflows/daily-scan.yml
 ```
 
 ## Tests
 
 ```bash
-pytest -q
+uv run pytest -q
 ```
 
 ## License
