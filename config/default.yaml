@@ -1,0 +1,177 @@
+# Product Opportunity Mining Platform — default config
+# Sources and scoring dimensions are both extensible: add entries below.
+
+scan:
+  lookback_hours: 48
+  max_items_per_source: 60
+  user_agent: "OpportunityMiner/0.2 (+https://github.com/YanChao1999/Product-Opportunity-Mining-Platform)"
+
+sources:
+  hackernews:
+    enabled: true
+    endpoints:
+      top: "https://hacker-news.firebaseio.com/v0/topstories.json"
+      new: "https://hacker-news.firebaseio.com/v0/newstories.json"
+      ask: "https://hacker-news.firebaseio.com/v0/askstories.json"
+      item: "https://hacker-news.firebaseio.com/v0/item/{id}.json"
+    max_stories: 60
+
+  reddit:
+    enabled: true
+    subreddits:
+      - startups
+      - SaaS
+      - Entrepreneur
+      - indiehackers
+      - SideProject
+      - SomebodyMakeThis
+      - AppIdeas
+      - gamedev
+      - androidapps
+      - ios
+    sort: "new"
+    limit: 40
+
+  steam:
+    enabled: true
+    search_url: "https://store.steampowered.com/api/storesearch/"
+    news_url: "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/"
+    app_ids: [730, 570, 440, 578080, 1172470, 252950, 1245620, 1091500, 892970, 1086940]
+
+  app_store:
+    enabled: true
+    search_url: "https://itunes.apple.com/search"
+    rss_url: "https://itunes.apple.com/{country}/rss/customerreviews/id={app_id}/sortBy=mostRecent/json"
+    countries: ["us", "cn", "jp", "gb"]
+    search_terms:
+      - "todo productivity"
+      - "habit tracker"
+      - "budget finance"
+      - "note taking"
+      - "meditation"
+      - "language learning"
+      - "password manager"
+      - "calorie tracker"
+      - "time tracking"
+      - "ai writing"
+    max_apps_per_term: 6
+    reviews_per_app: 15
+
+  product_hunt:
+    enabled: true
+    graphql_url: "https://api.producthunt.com/v2/api/graphql"
+    posts_limit: 40
+
+  # --- expanded sources ---
+  github:
+    enabled: true
+    per_query: 15
+    queries:
+      - '"I wish there was" OR "looking for a tool" in:title,body'
+      - '"feature request" "would be nice" in:title,body'
+      - '"no good alternative" OR "gap in the market" in:title,body'
+
+  lobsters:
+    enabled: true
+    limit: 40
+    urls:
+      - "https://lobste.rs/hottest.json"
+      - "https://lobste.rs/newest.json"
+      - "https://lobste.rs/t/ask.json"
+
+  v2ex:
+    enabled: true
+    limit: 40
+    urls:
+      - "https://www.v2ex.com/api/topics/hot.json"
+      - "https://www.v2ex.com/api/topics/latest.json"
+
+  stackexchange:
+    enabled: true
+    pagesize: 15
+    sites: ["stackoverflow", "softwareengineering", "apple"]
+    tagged: ["feature-request", "recommendation"]
+
+  indie_hackers:
+    enabled: true
+    limit: 30
+    urls:
+      - "https://www.indiehackers.com/feed.xml"
+
+  google_play:
+    enabled: true
+    search_terms: ["habit tracker", "budget", "note taking", "password manager"]
+
+  chrome_web_store:
+    enabled: true
+
+  g2:
+    enabled: true
+
+  rss:
+    enabled: true
+    limit_per_feed: 20
+    feeds:
+      - name: hn_best
+        url: "https://hnrss.org/newest?q=Ask+HN"
+      - name: beta_list
+        url: "https://betalist.com/feed"
+
+extraction:
+  unmet_need_patterns:
+    - "i wish (there|someone|an? app|a tool|a game)"
+    - "why (isn'?t|is there no|doesn'?t).*(app|tool|product|software|game)"
+    - "looking for (an? )?(app|tool|saas|software|game|alternative)"
+    - "no (good |decent )?(alternative|option|solution|app|tool)"
+    - "somebody (please )?(make|build)"
+    - "is there (an? )?(app|tool|saas|software)"
+    - "missing (feature|option|integration)"
+    - "still can'?t find"
+    - "gap in the market"
+    - "would pay for"
+    - "shut up and take my money"
+    - "need an? (app|tool|saas)"
+    - "please (add|build|make|create)"
+    - "找不到.*(软件|工具|应用|app)"
+    - "有没有.*(软件|工具|应用|app)"
+    - "希望有.*(软件|工具|应用)"
+    - "谁来做"
+    - "求推荐.*(但|但是).*(没有|找不到)"
+  min_signal_score: 0.35
+  cluster_similarity_threshold: 0.55
+  # Local need classifier — ML, not string-compare only
+  # backends: ensemble (default) | naive_bayes | logistic | ollama
+  classifier:
+    enabled: true
+    backend: ensemble
+    threshold: 0.48
+    blend_patterns: true
+    model_path: data/models/need_nb.json
+    ollama_host: "http://127.0.0.1:11434"
+    ollama_model: "llama3.2:1b"
+
+scoring:
+  # Geometric mean of contributions. Set invert:true for "higher is worse" dims.
+  # Add/remove rows freely — engine ignores unknown ids with default:5.
+  dimensions:
+    - { id: demand,            label: 需求强度,   short: 需求, invert: false, weight: 1.0,  table: true }
+    - { id: competition,       label: 竞争程度,   short: 竞争, invert: true,  weight: 1.0,  table: true }
+    - { id: difficulty,        label: 开发难度,   short: 难度, invert: true,  weight: 0.95, table: true }
+    - { id: monetization,      label: 付费可能性, short: 付费, invert: false, weight: 1.0,  table: true }
+    - { id: urgency,           label: 紧迫性,     short: 紧迫, invert: false, weight: 0.85, table: true }
+    - { id: market_size,       label: 市场规模,   short: 市场, invert: false, weight: 0.9,  table: true }
+    - { id: time_to_revenue,   label: 变现速度,   short: 变现, invert: false, weight: 0.85, table: true }
+    - { id: trend,             label: 趋势热度,   short: 趋势, invert: false, weight: 0.8,  table: false }
+    - { id: defensibility,     label: 护城河,     short: 护城, invert: false, weight: 0.75, table: false }
+    - { id: viral,             label: 传播潜力,   short: 传播, invert: false, weight: 0.7,  table: false }
+    - { id: regulatory_risk,   label: 监管风险,   short: 监管, invert: true,  weight: 0.7,  table: false }
+  min_dimension: 1.0
+  max_dimension: 10.0
+
+output:
+  dir: "data/reports"
+  formats: ["markdown", "csv", "json"]
+  top_n: 50
+
+schedule:
+  daily_at: "08:00"

@@ -1,0 +1,59 @@
+name: Daily Opportunity Scan
+
+on:
+  schedule:
+    # 00:00 UTC daily ≈ 08:00 CST
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          python-version: "3.12"
+
+      - name: Sync dependencies
+        run: uv sync --frozen
+
+      - name: Run scan
+        env:
+          PRODUCT_HUNT_API_TOKEN: ${{ secrets.PRODUCT_HUNT_API_TOKEN }}
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CLASSIFIER_BACKEND: ensemble
+        run: |
+          uv run opportunity-miner train-classifier
+          uv run opportunity-miner scan --json-out | tee scan-summary.json
+          if [ ! -f data/reports/latest.md ]; then
+            uv run opportunity-miner scan --demo
+          fi
+
+      - name: Upload reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: opportunity-reports
+          path: data/reports/
+
+      - name: Commit latest report (optional branch)
+        if: github.ref == 'refs/heads/main'
+        run: |
+          git config user.name "opportunity-miner-bot"
+          git config user.email "bot@users.noreply.github.com"
+          mkdir -p data/reports
+          git add data/reports/latest.md data/reports/latest.csv data/reports/latest.json || true
+          if git diff --staged --quiet; then
+            echo "No report changes"
+          else
+            git commit -m "chore: daily opportunity report $(date -u +%Y-%m-%d)"
+            git push
+          fi

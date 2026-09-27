@@ -94,10 +94,7 @@ ipython_config.py
 #   install all needed dependencies.
 # Pipfile.lock
 
-# UV
-#   Similar to Pipfile.lock, it is generally recommended to include uv.lock in version control.
-#   This is especially recommended for binary packages to ensure reproducibility, and is more
-#   commonly ignored for libraries.
+# UV — keep uv.lock committed for reproducible installs
 # uv.lock
 
 # poetry
@@ -216,3 +213,21 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local env / caches
+.venv/
+venv/
+.env
+*.log
+
+# Generated timestamped reports (keep latest.* for daily bot commits)
+data/reports/opportunities_*.md
+data/reports/opportunities_*.csv
+data/reports/opportunities_*.json
+!data/reports/latest.md
+!data/reports/latest.csv
+!data/reports/latest.json
+
+# Keep trained local classifier weights
+!data/models/
+!data/models/*.json
