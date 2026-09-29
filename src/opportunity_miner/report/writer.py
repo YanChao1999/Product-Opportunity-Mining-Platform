@@ -21,6 +21,7 @@ def opportunities_to_rows(opportunities: list[Opportunity]) -> list[dict[str, An
     spec = _spec_from_opps(opportunities)
     rows: list[dict[str, Any]] = []
     for i, o in enumerate(opportunities, start=1):
+        primary_url = next((e.url for e in o.evidence if e.url), "")
         row: dict[str, Any] = {
             "rank": i,
             "title": o.title,
@@ -31,6 +32,7 @@ def opportunities_to_rows(opportunities: list[Opportunity]) -> list[dict[str, An
             "sources": ",".join(s.value for s in o.sources),
             "keywords": ",".join(o.keywords[:8]),
             "summary": o.summary,
+            "url": primary_url,
             "evidence_urls": " | ".join(e.url for e in o.evidence[:5] if e.url),
         }
         for dim in spec:
@@ -93,27 +95,29 @@ def write_markdown(path: Path, result: ScanResult) -> None:
     lines.append("")
     header = ["Rank", "Opportunity", "Category", "Score"]
     header += [d.get("short") or d.get("label") or d["id"] for d in table_dims]
-    header += ["Signals", "Sources"]
-    lines.append("| " + " | ".join(header) + " |")
-    lines.append("| " + " | ".join("---:" if h in {"Rank", "Score", "Signals"} or h in {d.get("short") for d in table_dims} else "---" for h in header) + " |")
-    # Simpler align row
+    header += ["Signals", "Sources", "Link"]
     aligns = []
     for h in header:
-        if h in {"Opportunity", "Category", "Sources"}:
+        if h in {"Opportunity", "Category", "Sources", "Link"}:
             aligns.append("---")
         else:
             aligns.append("---:")
-    lines[-1] = "| " + " | ".join(aligns) + " |"
+    lines.append("| " + " | ".join(header) + " |")
+    lines.append("| " + " | ".join(aligns) + " |")
 
     for row in rows:
         title = row["title"].replace("|", "/")
         if len(title) > 70:
             title = title[:67] + "..."
-        cells = [str(row["rank"]), title, row["category"], str(row["score"])]
+        url = (row.get("url") or "").strip()
+        link = f"[open]({url})" if url else ""
+        cells = [str(row["rank"]), title, row["category"], f"{row['score']:.1f}"]
         for d in table_dims:
-            cells.append(str(row.get(d["id"], "")))
+            val = row.get(d["id"], "")
+            cells.append(f"{val:.1f}" if isinstance(val, float) else str(val))
         cells.append(str(row["signals"]))
         cells.append(f"`{row['sources']}`")
+        cells.append(link)
         lines.append("| " + " | ".join(cells) + " |")
     lines.append("")
     lines.append("## All dimensions")
@@ -130,10 +134,20 @@ def write_markdown(path: Path, result: ScanResult) -> None:
         lines.append(o.summary)
         lines.append("")
         for e in o.evidence[:5]:
-            lines.append(
-                f"- [{e.source.value}] {e.title[:100] or '(no title)'} "
-                f"(score={e.score}, comments={e.comments}) — {e.url or 'n/a'}"
-            )
+            title = (e.title[:100] or "(no title)").replace("[", "\\[").replace("]", "\\]")
+            if e.url:
+                lines.append(
+                    f"- [{e.source.value}] [{title}]({e.url}) "
+                    f"(score={e.score}, comments={e.comments})"
+                )
+                external = (e.metadata or {}).get("external_url") or ""
+                if external and external != e.url:
+                    lines.append(f"  - article: {external}")
+            else:
+                lines.append(
+                    f"- [{e.source.value}] {title} "
+                    f"(score={e.score}, comments={e.comments}) — n/a"
+                )
         lines.append("")
     path.write_text("\n".join(lines), encoding="utf-8")
 

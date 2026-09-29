@@ -169,6 +169,17 @@ def test_ensemble_backend_not_string_only():
     assert result.confidence > 0.4
 
 
+def test_category_uses_whole_tokens_not_substrings():
+    from opportunity_miner.extract.needs import _category_for
+
+    # "ai" must not match inside "running"; "mod" must not match inside "mode"/"model"
+    assert _category_for([], "What filesystem are you running on your NAS?") == "general"
+    assert _category_for([], "Tell HN: Substack obfuscating text to break reading mode") == "general"
+    assert _category_for(["agent", "access"], "Allow agents access to cloud files") == "ai"
+    assert _category_for(["steam", "mod"], "Steam Workshop mod conflict detector") == "gaming"
+    assert _category_for(["api", "deploy"], "CI deploy API for SaaS developers") == "devtools"
+
+
 def test_live_extract_drops_seed_and_commit_noise():
     cfg = load_config()
     extract_cfg = dict(cfg["extraction"])

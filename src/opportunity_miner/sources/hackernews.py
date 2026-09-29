@@ -34,18 +34,24 @@ class HackerNewsCollector:
         created = None
         if item.get("time"):
             created = datetime.fromtimestamp(int(item["time"]), tz=timezone.utc)
+        hn_id = item.get("id", sid)
+        discussion = f"https://news.ycombinator.com/item?id={hn_id}"
+        external = (item.get("url") or "").strip()
         return RawSignal(
             source=SourceName.HACKERNEWS,
-            external_id=str(item.get("id", sid)),
+            external_id=str(hn_id),
             title=item.get("title") or "",
             body=item.get("text") or "",
-            url=item.get("url")
-            or f"https://news.ycombinator.com/item?id={item.get('id', sid)}",
+            # Always link to the HN thread — external article URLs confuse opportunity evidence.
+            url=discussion,
             author=item.get("by") or "",
             score=int(item.get("score") or 0),
             comments=int(item.get("descendants") or 0),
             created_at=created,
-            metadata={"type": item.get("type")},
+            metadata={
+                "type": item.get("type"),
+                "external_url": external,
+            },
         )
 
     def collect(self) -> list[RawSignal]:

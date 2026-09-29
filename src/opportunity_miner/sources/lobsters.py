@@ -53,18 +53,25 @@ class LobstersCollector:
                 tags = item.get("tags") or []
                 if not isinstance(tags, list):
                     tags = []
+                comments_url = (item.get("comments_url") or "").strip()
+                external = (item.get("url") or "").strip()
                 out.append(
                     RawSignal(
                         source=SourceName.LOBSTERS,
                         external_id=str(item.get("short_id") or ""),
                         title=item.get("title") or "",
                         body=" ".join(str(t) for t in tags) + "\n" + (item.get("description") or ""),
-                        url=item.get("url") or item.get("comments_url") or "",
+                        # Prefer discussion page; keep outbound link in metadata.
+                        url=comments_url or external,
                         author=_author(item),
                         score=int(item.get("score") or 0),
                         comments=int(item.get("comment_count") or 0),
                         created_at=created,
-                        metadata={"tags": tags, "kind": "story"},
+                        metadata={
+                            "tags": tags,
+                            "kind": "story",
+                            "external_url": external if comments_url and external != comments_url else "",
+                        },
                     )
                 )
         return out

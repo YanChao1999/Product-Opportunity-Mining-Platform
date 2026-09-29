@@ -165,20 +165,142 @@ def cluster_signals(
 
 
 def _category_for(keywords: list[str], texts: str) -> str:
-    rules = [
-        ("gaming", ["game", "steam", "mod", "fps", "multiplayer", "deck", "party"]),
-        ("productivity", ["todo", "note", "habit", "calendar", "task", "focus"]),
-        ("fintech", ["budget", "finance", "bank", "invoice", "payment", "crypto"]),
-        ("devtools", ["api", "sdk", "ci", "deploy", "github", "developer", "saas"]),
-        ("health", ["fitness", "calorie", "meditation", "sleep", "health", "diet"]),
-        ("ai", ["ai", "llm", "gpt", "agent", "model", "prompt"]),
-        ("mobile", ["ios", "android", "app store", "iphone"]),
+    """
+    Assign a coarse product category from whole tokens only.
+
+    Never use raw substring matching — short keys like ``ai`` / ``mod`` / ``ci``
+    falsely hit words such as ``running``, ``model``, ``mode``, ``special``.
+    """
+    tokens = {t.lower() for t in keywords} | set(tokenize(texts))
+    blob = texts.lower()
+    # (name, token hits, optional multi-word phrases)
+    rules: list[tuple[str, set[str], tuple[str, ...]]] = [
+        (
+            "ai",
+            {
+                "ai",
+                "llm",
+                "llms",
+                "gpt",
+                "agent",
+                "agents",
+                "chatgpt",
+                "claude",
+                "openai",
+                "prompt",
+                "prompts",
+                "embedding",
+                "embeddings",
+            },
+            ("large language", "language model", "machine learning", "multi-model", "multi agent"),
+        ),
+        (
+            "gaming",
+            {
+                "game",
+                "games",
+                "gaming",
+                "steam",
+                "mod",
+                "mods",
+                "fps",
+                "multiplayer",
+                "steamdeck",
+                "esports",
+                "xbox",
+                "playstation",
+            },
+            ("steam deck", "video game", "game engine"),
+        ),
+        (
+            "devtools",
+            {
+                "api",
+                "apis",
+                "sdk",
+                "cli",
+                "ci",
+                "cd",
+                "deploy",
+                "deployment",
+                "github",
+                "gitlab",
+                "developer",
+                "developers",
+                "devtools",
+                "saas",
+                "devops",
+                "kubernetes",
+                "docker",
+            },
+            ("developer tool", "open source", "feature request"),
+        ),
+        (
+            "productivity",
+            {
+                "todo",
+                "todos",
+                "note",
+                "notes",
+                "habit",
+                "habits",
+                "calendar",
+                "task",
+                "tasks",
+                "focus",
+                "notion",
+                "obsidian",
+                "workflow",
+            },
+            ("to-do", "note taking", "task manager"),
+        ),
+        (
+            "fintech",
+            {
+                "budget",
+                "finance",
+                "financial",
+                "bank",
+                "banking",
+                "invoice",
+                "payment",
+                "payments",
+                "crypto",
+                "bitcoin",
+                "fintech",
+            },
+            ("personal finance", "expense tracker"),
+        ),
+        (
+            "health",
+            {
+                "fitness",
+                "calorie",
+                "calories",
+                "meditation",
+                "sleep",
+                "health",
+                "healthcare",
+                "diet",
+                "workout",
+            },
+            ("mental health", "weight loss"),
+        ),
+        (
+            "mobile",
+            {"ios", "android", "iphone", "ipad", "apk"},
+            ("app store", "play store", "mobile app"),
+        ),
     ]
-    blob = " ".join(keywords) + " " + texts.lower()
-    for name, keys in rules:
-        if any(k in blob for k in keys):
-            return name
-    return "general"
+    best_name = "general"
+    best_score = 0
+    for name, keys, phrases in rules:
+        score = len(tokens & keys)
+        score += sum(1 for p in phrases if p in blob)
+        if score > best_score:
+            best_score = score
+            best_name = name
+    return best_name if best_score > 0 else "general"
 
 
 def _title_from_cluster(cluster: list[tuple[RawSignal, float]]) -> str:
