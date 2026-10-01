@@ -1,9 +1,9 @@
 # Product Opportunity Report
 
-- Scanned at: `2026-09-30T03:18:45.964838+00:00`
-- Raw signals: **300**
-- Opportunities: **46**
-- Sources: app_store=60, chrome_web_store=1, g2=2, github=45, google_play=2, hackernews=60, indie_hackers=2, product_hunt=3, stackexchange=15, steam=60, v2ex=50
+- Scanned at: `2026-10-01T03:25:30.533564+00:00`
+- Raw signals: **318**
+- Opportunities: **50**
+- Sources: app_store=60, chrome_web_store=1, g2=2, github=45, google_play=2, hackernews=60, indie_hackers=2, product_hunt=3, rss=20, stackexchange=15, steam=60, v2ex=48
 
 > Ranking: geometric mean of **需求强度 × 竞争程度↓ × 开发难度↓ × 付费可能性 × 紧迫性 × 市场规模 × 变现速度** (+ hidden dims in JSON).
 
@@ -13,48 +13,52 @@
 | 2 | Looking for an alternative to HubSpot that doesn't force a sales suite | productivity | 64.45 | 10.0 | 2.8 | 5.4 | 9.0 | 4.46 | 4.8 | 7.05 | 1 | `g2` |
 | 3 | I wish there was a Chrome extension that batches LinkedIn outreach ... | general | 63.44 | 10.0 | 2.0 | 2.7 | 7.3 | 4.32 | 4.1 | 8.92 | 1 | `chrome_web_store` |
 | 4 | Why isn't there a lightweight alternative to Jira for 5-person teams? | general | 61.61 | 10.0 | 2.8 | 4.5 | 7.1 | 4.53 | 5.9 | 4.88 | 1 | `g2` |
-| 5 | ReviewGap: Why isn't there an app that mines 1-star App Store revie... | devtools | 61.13 | 10.0 | 2.0 | 5.4 | 8.1 | 4.41 | 4.7 | 5.85 | 1 | `product_hunt` |
-| 6 | Looking for an alternative to manual competitor research before bui... | devtools | 61.09 | 10.0 | 4.4 | 5.4 | 9.5 | 4.34 | 4.7 | 7.05 | 1 | `indie_hackers` |
-| 7 | Ask HN: OpenSEO inspiration for other tools, asking for opinion | devtools | 60.95 | 8.89 | 2.0 | 6.3 | 5.7 | 3.9 | 4.7 | 5.62 | 1 | `hackernews` |
+| 5 | Ask HN: OpenSEO inspiration for other tools, asking for opinion | devtools | 61.14 | 9.16 | 2.0 | 6.3 | 5.7 | 3.9 | 4.7 | 5.62 | 1 | `hackernews` |
+| 6 | ReviewGap: Why isn't there an app that mines 1-star App Store revie... | devtools | 61.13 | 10.0 | 2.0 | 5.4 | 8.1 | 4.41 | 4.7 | 5.85 | 1 | `product_hunt` |
+| 7 | Looking for an alternative to manual competitor research before bui... | devtools | 61.09 | 10.0 | 4.4 | 5.4 | 9.5 | 4.34 | 4.7 | 7.05 | 1 | `indie_hackers` |
 | 8 | I wish there was a fully offline habit tracker without accounts on ... | gaming | 60.17 | 10.0 | 2.0 | 5.4 | 6.0 | 4.43 | 4.6 | 5.85 | 1 | `google_play` |
-| 9 | Seeking 3 pilot users: turn an agent incident into a CI regression ... | devtools | 59.16 | 10.0 | 2.0 | 6.6 | 4.5 | 4.31 | 5.6 | 4.35 | 1 | `github` |
+| 9 | Seeking 3 pilot users: turn an agent incident into a CI regression ... | devtools | 59.17 | 10.0 | 2.0 | 6.6 | 4.5 | 4.32 | 5.6 | 4.35 | 1 | `github` |
 | 10 | Somebody make a Chrome extension that turns 1-star reviews into a r... | general | 58.97 | 10.0 | 2.0 | 2.7 | 3.5 | 4.28 | 5.0 | 6.53 | 1 | `indie_hackers` |
-| 11 | Somebody make a family shared budget app that doesn't sell my data | fintech | 58.72 | 10.0 | 2.0 | 4.5 | 4.8 | 4.37 | 5.9 | 4.88 | 1 | `google_play` |
-| 12 | Ask HN: Allow agents access to cloud files with least privilege? | ai | 58.24 | 7.57 | 2.0 | 2.9 | 4.3 | 4.06 | 4.9 | 5.28 | 1 | `hackernews` |
-| 13 | Tell HN: OpenAI $500 ProMax plan listed in API | devtools | 57.3 | 10.0 | 2.0 | 6.6 | 6.9 | 4.49 | 4.7 | 4.35 | 1 | `hackernews` |
-| 14 | Ask HN: What are you reading? | devtools | 56.72 | 10.0 | 2.0 | 5.4 | 4.5 | 4.8 | 4.7 | 4.65 | 1 | `hackernews` |
-| 15 | [Feature] ability to save and rehash to valid xbox360 save file | ai | 56.3 | 9.03 | 2.0 | 5.4 | 4.3 | 4.14 | 4.9 | 4.65 | 1 | `github` |
-| 16 | Allow disabling of no-new-privileges for the docker driver | ai | 55.93 | 4.59 | 2.0 | 4.5 | 4.3 | 3.9 | 4.9 | 4.88 | 1 | `github` |
-| 17 | IndieStack Audit: Somebody make a tool that rates idea competition ... | general | 55.72 | 10.0 | 2.8 | 4.5 | 3.5 | 4.46 | 5.0 | 4.88 | 1 | `product_hunt` |
-| 18 | [feature request] Consider making `TelemetrySpan` a readonly struct... | devtools | 55.68 | 6.14 | 2.0 | 4.5 | 4.5 | 3.9 | 4.7 | 4.88 | 1 | `github` |
-| 19 | Ask HN: Who's still keeping a DOS machine up because the business d... | gaming | 55.57 | 10.0 | 2.0 | 6.3 | 3.6 | 4.76 | 4.6 | 4.42 | 1 | `hackernews` |
-| 20 | Ask HN: React Native or Flutter when the back end is Node? | general | 55.53 | 10.0 | 2.8 | 2.7 | 3.5 | 4.32 | 4.1 | 5.33 | 1 | `hackernews` |
-| 21 | 有人要收购我开发的 app，朋友们帮忙看看是不是骗子 | mobile | 55.29 | 8.3 | 2.0 | 4.5 | 3.8 | 4.17 | 4.8 | 4.88 | 1 | `v2ex` |
-| 22 | Administration and security: accounts in bulk, an audit log, SSO an... | fintech | 54.99 | 5.5 | 2.0 | 4.6 | 6.0 | 3.9 | 5.9 | 4.85 | 1 | `github` |
-| 23 | [FEATURE]: Add TUI ability to inspect session system messages | gaming | 54.94 | 8.99 | 2.0 | 5.8 | 3.6 | 4.11 | 4.6 | 4.55 | 1 | `github` |
-| 24 | Recent monitor over nvidia GPU doesnt detect | gaming | 54.66 | 7.23 | 2.0 | 3.7 | 3.6 | 4.06 | 4.6 | 5.08 | 1 | `github` |
-| 25 | Unmet need: 和漂亮女孩订婚了 / 中秋前请了两天假 / 和漂亮女孩回老家订婚了 / 不知不觉就到了这个阶段 / 相识 / 了解 | general | 54.64 | 10.0 | 2.0 | 4.5 | 3.5 | 4.64 | 4.1 | 4.88 | 1 | `v2ex` |
-| 26 | U.S. postal inspectors shut down website selling counterfeit postag... | general | 54.6 | 10.0 | 2.0 | 4.5 | 3.5 | 4.6 | 4.1 | 4.88 | 1 | `hackernews` |
-| 27 | 做了个帮 ADHD、拖延、容易走神的人找回专注力的 Mac App，纯本地[送码] | productivity | 54.58 | 6.64 | 2.0 | 4.5 | 4.0 | 4.0 | 4.8 | 4.88 | 1 | `v2ex` |
-| 28 | Phyllotaxis: An audio-reactive LED display | general | 54.46 | 10.0 | 2.0 | 4.5 | 3.5 | 4.47 | 4.1 | 4.88 | 1 | `hackernews` |
-| 29 | Ask HN: How do you get your first users for an MVP? | general | 54.2 | 9.94 | 2.0 | 4.5 | 3.5 | 4.27 | 4.1 | 4.88 | 1 | `hackernews` |
-| 30 | Fix DBot tick gaps and add Universal Forge DBot factory | gaming | 54.13 | 5.04 | 2.0 | 5.8 | 3.6 | 5.2 | 5.5 | 4.55 | 1 | `github` |
-| 31 | Ask HN: Is Opus 5.5 another step change? | devtools | 53.81 | 9.9 | 2.0 | 6.6 | 4.5 | 4.35 | 4.7 | 4.35 | 1 | `hackernews` |
-| 32 | Provide a way of disabling emojis and colors | general | 53.79 | 10.0 | 2.0 | 4.5 | 3.5 | 5.7 | 4.1 | 4.88 | 1 | `github` |
-| 33 | Show HN: Real-time Solar System with 526k asteroids and all tracked... | general | 53.37 | 10.0 | 2.0 | 5.4 | 3.5 | 4.42 | 4.1 | 4.65 | 1 | `hackernews` |
-| 34 | 如果你手头刚好有 A7C2 和 Stick S3 | gaming | 52.66 | 6.23 | 2.0 | 5.4 | 3.6 | 4.0 | 4.6 | 4.65 | 1 | `v2ex` |
-| 35 | Is there a lanscaping tool which can take photos of my garden and m... | gaming | 52.1 | 8.46 | 2.0 | 6.6 | 3.6 | 4.06 | 4.6 | 4.35 | 1 | `hackernews` |
-| 36 | Vase Mode Button | gaming | 52.03 | 7.16 | 2.0 | 4.5 | 3.6 | 4.11 | 4.6 | 4.88 | 1 | `github` |
-| 37 | FEATURE REQUEST: 10040 (My Treasure Map) management page | ai | 52.0 | 5.82 | 2.0 | 5.4 | 4.3 | 3.9 | 4.9 | 4.65 | 1 | `github` |
-| 38 | Drop old boostrap versions themes, only keep bootstrap 5 | general | 51.96 | 9.46 | 2.0 | 4.5 | 3.5 | 4.14 | 4.1 | 4.88 | 1 | `github` |
-| 39 | Feature Request: Change Font Size on automatic translation window | gaming | 51.84 | 6.98 | 2.0 | 4.5 | 3.6 | 4.06 | 4.6 | 4.88 | 1 | `github` |
-| 40 | Ask HN: JEV for K1 Tax Forms | general | 51.81 | 6.85 | 2.0 | 4.5 | 3.5 | 4.0 | 4.1 | 4.88 | 1 | `hackernews` |
-| 41 | Unmet need: license / feature / platform / macos / what / problem | general | 51.6 | 7.35 | 2.0 | 4.5 | 3.5 | 4.0 | 4.1 | 4.88 | 1 | `github` |
-| 42 | [Microsoft To Do] Suggestion | general | 51.29 | 7.36 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `app_store` |
-| 43 | Feature request: `load` functions for extracting scalars of built-i... | general | 51.03 | 6.09 | 2.0 | 5.7 | 3.5 | 4.0 | 4.1 | 4.58 | 1 | `github` |
-| 44 | Feature Request: Manual Reload Action | gaming | 50.96 | 7.8 | 2.0 | 6.6 | 3.6 | 4.06 | 4.6 | 4.35 | 1 | `github` |
-| 45 | Basecamp 5 and Hey Outage Postmortem | general | 50.33 | 5.31 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `hackernews` |
-| 46 | Unmet need: 类型 / 投资交流群选择建议 / 最近想开一个投资交流群 / 想请教一下选什么平台开群更方便 / 目前计划有两... | general | 49.82 | 4.82 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `v2ex` |
+| 11 | Ask HN: What Do to Outside Tech? | productivity | 58.92 | 6.19 | 2.8 | 3.8 | 6.6 | 3.9 | 4.8 | 6.25 | 1 | `rss` |
+| 12 | Suggestion: Reconsider Product name for English people memorability... | gaming | 58.85 | 9.65 | 2.0 | 4.6 | 3.6 | 4.17 | 4.6 | 4.85 | 1 | `github` |
+| 13 | Somebody make a family shared budget app that doesn't sell my data | fintech | 58.72 | 10.0 | 2.0 | 4.5 | 4.8 | 4.37 | 5.9 | 4.88 | 1 | `google_play` |
+| 14 | Unmet need: 节前最后一天 / 被裁员了 / 下午三点 / 正想着待会吃啥 / 人事突然叫我去办公室 / 然后就是宣布裁员 | ai | 58.43 | 10.0 | 2.0 | 4.5 | 4.3 | 4.48 | 4.9 | 4.88 | 1 | `v2ex` |
+| 15 | [FEATURE]: Hot-reload agents, skills and commands. | devtools | 57.89 | 10.0 | 2.0 | 5.4 | 4.5 | 5.69 | 5.6 | 4.65 | 1 | `github` |
+| 16 | [Feature Request]:  Add Go API binding to OpenVINO | devtools | 57.85 | 9.06 | 2.0 | 3.1 | 4.5 | 4.17 | 4.7 | 5.22 | 1 | `github` |
+| 17 | Ask HN: Ex-swe what part time did you pickup? | ai | 57.05 | 8.17 | 1.0 | 5.4 | 4.3 | 4.3 | 5.4 | 4.65 | 2 | `hackernews,rss` |
+| 18 | Ask HN: What are you reading? | devtools | 56.84 | 10.0 | 2.0 | 5.4 | 4.5 | 4.91 | 4.7 | 4.65 | 1 | `hackernews` |
+| 19 | DeepSeek VS GPT, 感觉 deepseek 只是个复读机。 | ai | 56.66 | 7.38 | 2.8 | 4.5 | 4.3 | 4.11 | 4.9 | 4.88 | 1 | `v2ex` |
+| 20 | [FEATURE]: multiple auth profiles per provider | devtools | 56.51 | 10.0 | 2.0 | 4.6 | 4.5 | 4.31 | 5.6 | 4.85 | 1 | `github` |
+| 21 | Gemini 4 Argon 已宣布 | gaming | 56.1 | 9.2 | 2.0 | 6.6 | 5.0 | 4.26 | 4.6 | 4.35 | 1 | `v2ex` |
+| 22 | IndieStack Audit: Somebody make a tool that rates idea competition ... | general | 55.72 | 10.0 | 2.8 | 4.5 | 3.5 | 4.46 | 5.0 | 4.88 | 1 | `product_hunt` |
+| 23 | Show HN: Lathoa, a math app for kids where the AI is wrong on purpose | gaming | 55.64 | 10.0 | 2.0 | 5.5 | 3.6 | 4.32 | 4.6 | 4.62 | 1 | `hackernews` |
+| 24 | Ask HN: What are you reading to your kids? | devtools | 55.57 | 9.69 | 2.0 | 4.5 | 4.5 | 4.26 | 4.7 | 4.88 | 1 | `hackernews` |
+| 25 | Ask HN: Who's still keeping a DOS machine up because the business d... | gaming | 55.57 | 10.0 | 2.0 | 6.3 | 3.6 | 4.76 | 4.6 | 4.42 | 1 | `hackernews` |
+| 26 | [FEATURE]: Information on where the models are hosted | gaming | 54.95 | 10.0 | 2.0 | 5.4 | 3.6 | 4.19 | 4.6 | 4.65 | 1 | `github` |
+| 27 | Gemini 4 Argon | general | 54.9 | 10.0 | 2.0 | 4.5 | 3.5 | 4.89 | 4.1 | 4.88 | 1 | `hackernews` |
+| 28 | AXFeedback – an agent that tests your devtools quickstart on a sche... | ai | 54.64 | 5.95 | 2.0 | 4.5 | 4.3 | 3.9 | 4.9 | 4.88 | 1 | `hackernews` |
+| 29 | Ask HN: Is there a market for AI critics? | devtools | 54.6 | 5.27 | 2.0 | 4.5 | 4.5 | 3.9 | 5.6 | 4.88 | 1 | `rss` |
+| 30 | California bans child marriage, a practice still legal in 32 US states | general | 54.36 | 10.0 | 2.0 | 4.5 | 3.5 | 4.38 | 4.1 | 4.88 | 1 | `hackernews` |
+| 31 | Polytoken is a local-first AI coding agent daemon | ai | 54.33 | 5.46 | 2.0 | 5.4 | 4.3 | 3.9 | 4.9 | 4.65 | 1 | `hackernews` |
+| 32 | Feature Request – Multiple AI Models / Providers | gaming | 54.31 | 6.76 | 2.0 | 6.6 | 3.6 | 4.0 | 5.5 | 4.35 | 1 | `github` |
+| 33 | The briefs speak American English | gaming | 54.19 | 5.2 | 2.0 | 5.4 | 4.8 | 3.9 | 5.5 | 4.65 | 1 | `github` |
+| 34 | [FEATURE] Add QuickSave calibration | productivity | 54.0 | 6.32 | 2.0 | 4.5 | 4.0 | 3.9 | 4.8 | 4.88 | 1 | `github` |
+| 35 | 小区净水器 or 家用净水器选择？ | general | 53.82 | 9.29 | 2.0 | 4.5 | 3.5 | 4.27 | 4.1 | 4.88 | 1 | `v2ex` |
+| 36 | Support lazy sandbox initialization in createBashTool | devtools | 53.54 | 8.4 | 2.0 | 5.8 | 4.5 | 3.9 | 4.7 | 4.55 | 1 | `github` |
+| 37 | Ask HN: How do you get your first users for an MVP? | general | 53.41 | 10.0 | 2.0 | 4.5 | 3.5 | 4.27 | 4.1 | 4.88 | 1 | `hackernews` |
+| 38 | [EPIC] The SSTable tool — detect, salvage, repair, fix, move, diagn... | ai | 53.34 | 9.53 | 2.8 | 6.3 | 4.3 | 4.14 | 4.9 | 4.42 | 1 | `github` |
+| 39 | [Feature]: Add support for ext-background-effects Wayland protocol | devtools | 53.34 | 5.87 | 2.0 | 4.6 | 4.5 | 4.0 | 4.7 | 4.85 | 1 | `github` |
+| 40 | Project management that is fast, privacy-first and flexible, ... po... | general | 52.63 | 6.94 | 2.0 | 4.5 | 3.5 | 4.0 | 4.1 | 4.88 | 1 | `hackernews` |
+| 41 | Show HN: Yantra – an LALR(1) parser generator for C++ | gaming | 52.56 | 7.62 | 2.0 | 5.8 | 3.6 | 3.9 | 4.6 | 4.55 | 1 | `hackernews` |
+| 42 | 求推荐靠谱的海绵耳塞，之前买的安耳悠的戴着有异物感 | general | 52.54 | 7.59 | 2.0 | 4.5 | 3.5 | 4.14 | 4.1 | 4.88 | 1 | `v2ex` |
+| 43 | Feature Request: Allow mobile users to bulk download the entire lib... | mobile | 52.49 | 5.36 | 2.0 | 4.5 | 3.8 | 3.9 | 4.8 | 4.88 | 1 | `github` |
+| 44 | [Feature]: Auto switch to fullscreen player option in settings | gaming | 52.15 | 5.53 | 2.0 | 4.5 | 3.6 | 3.9 | 4.6 | 4.88 | 1 | `github` |
+| 45 | Add options overload parameter to sendFile function | general | 52.05 | 7.11 | 2.0 | 2.7 | 3.5 | 4.11 | 4.1 | 5.33 | 1 | `github` |
+| 46 | Tools: a database browser and editor (view tables, edit and save rows) | gaming | 51.63 | 5.8 | 2.0 | 6.3 | 3.6 | 3.9 | 4.6 | 4.42 | 1 | `github` |
+| 47 | 国庆节快乐！国庆节快乐工作有没有 | general | 51.39 | 6.34 | 2.0 | 4.5 | 3.5 | 4.0 | 4.1 | 4.88 | 1 | `v2ex` |
+| 48 | GPT IMAGE 2 in practice：透明 PNG 的生成、去背景与完整交付 | gaming | 51.36 | 5.02 | 2.0 | 5.4 | 3.6 | 3.9 | 4.6 | 4.65 | 1 | `v2ex` |
+| 49 | Light Range chart, exact volume profile: the served window and the ... | productivity | 50.99 | 4.79 | 2.0 | 5.4 | 4.0 | 3.9 | 4.8 | 4.65 | 1 | `github` |
+| 50 | [Microsoft To Do] Suggestion | general | 50.34 | 7.36 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `app_store` |
 
 ## All dimensions
 
@@ -96,6 +100,12 @@
 
 - [g2] Why isn't there a lightweight alternative to Jira for 5-person teams? (score=200, comments=65) — https://www.g2.com/
 
+### Ask HN: OpenSEO inspiration for other tools, asking for opinion
+
+1 signals across hackernews. Top keywords: openseo, opensource, alternative, ask, hn. Need-confidence=0.98.
+
+- [hackernews] Ask HN: OpenSEO inspiration for other tools, asking for opinion (score=4, comments=0) — https://news.ycombinator.com/item?id=49898465
+
 ### ReviewGap: Why isn't there an app that mines 1-star App Store reviews for feature gaps?
 
 1 signals across product_hunt. Top keywords: feature, reviewgap, why, isn, there. Need-confidence=0.99.
@@ -108,12 +118,6 @@
 
 - [indie_hackers] Looking for an alternative to manual competitor research before building SaaS (score=56, comments=18) — https://www.indiehackers.com/
 
-### Ask HN: OpenSEO inspiration for other tools, asking for opinion
-
-1 signals across hackernews. Top keywords: openseo, opensource, alternative, ask, hn. Need-confidence=0.98.
-
-- [hackernews] Ask HN: OpenSEO inspiration for other tools, asking for opinion (score=3, comments=0) — https://news.ycombinator.com/item?id=49898465
-
 ### I wish there was a fully offline habit tracker without accounts on Android
 
 1 signals across google_play. Top keywords: wish, there, fully, offline, habit. Need-confidence=0.96.
@@ -124,7 +128,7 @@
 
 1 signals across github. Top keywords: agent, pilot, users, turn, incident. Need-confidence=0.94.
 
-- [github] Seeking 3 pilot users: turn an agent incident into a CI regression check (score=0, comments=14) — https://github.com/myfastcat/ACP/issues/3
+- [github] Seeking 3 pilot users: turn an agent incident into a CI regression check (score=0, comments=15) — https://github.com/myfastcat/ACP/issues/3
 
 ### Somebody make a Chrome extension that turns 1-star reviews into a roadmap
 
@@ -132,62 +136,63 @@
 
 - [indie_hackers] Somebody make a Chrome extension that turns 1-star reviews into a roadmap (score=41, comments=12) — https://www.indiehackers.com/
 
+### Ask HN: What Do to Outside Tech?
+
+1 signals across rss. Top keywords: maybe, ai, ask, hn, what. Need-confidence=0.79.
+
+- [rss] Ask HN: What Do to Outside Tech? (score=0, comments=0) — https://news.ycombinator.com/item?id=49907613
+
+### Suggestion: Reconsider Product name for English people memorability / potential naming considerations
+
+1 signals across github. Top keywords: native, suggestion, reconsider, product, name. Need-confidence=0.90.
+
+- [github] Suggestion: Reconsider Product name for English people memorability / potential naming consideration (score=0, comments=5) — https://github.com/ingelibre/ingetrazo/issues/156
+
 ### Somebody make a family shared budget app that doesn't sell my data
 
 1 signals across google_play. Top keywords: somebody, family, shared, budget, doesn. Need-confidence=1.00.
 
 - [google_play] Somebody make a family shared budget app that doesn't sell my data (score=70, comments=22) — https://play.google.com/store/apps
 
-### Ask HN: Allow agents access to cloud files with least privilege?
+### Unmet need: 节前最后一天 / 被裁员了 / 下午三点 / 正想着待会吃啥 / 人事突然叫我去办公室 / 然后就是宣布裁员
 
-1 signals across hackernews. Top keywords: allow, access, privilege, spreadsheet, drive. Need-confidence=0.52.
+1 signals across v2ex. Top keywords: 节前最后一天, 被裁员了, 下午三点, 正想着待会吃啥, 人事突然叫我去办公室. Need-confidence=0.55.
 
-- [hackernews] Ask HN: Allow agents access to cloud files with least privilege? (score=6, comments=2) — https://news.ycombinator.com/item?id=49867620
+- [v2ex] 节前最后一天，被裁员了。 (score=47, comments=47) — https://www.v2ex.com/t/1245891
 
-### Tell HN: OpenAI $500 ProMax plan listed in API
+### [FEATURE]: Hot-reload agents, skills and commands.
 
-1 signals across hackernews. Top keywords: api, openai, promax, plan, https. Need-confidence=0.52.
+1 signals across github. Top keywords: feature, agents, hasn, suggested, request. Need-confidence=0.60.
 
-- [hackernews] Tell HN: OpenAI $500 ProMax plan listed in API (score=29, comments=51) — https://news.ycombinator.com/item?id=49841605
+- [github] [FEATURE]: Hot-reload agents, skills and commands. (score=114, comments=25) — https://github.com/anomalyco/opencode/issues/8751
+
+### [Feature Request]:  Add Go API binding to OpenVINO
+
+1 signals across github. Top keywords: go, request, api, binding, openvino. Need-confidence=0.79.
+
+- [github] [Feature Request]:  Add Go API binding to OpenVINO (score=0, comments=5) — https://github.com/openvinotoolkit/openvino/issues/36140
+
+### Ask HN: Ex-swe what part time did you pickup?
+
+2 signals across hackernews, rss. Top keywords: swe, what, part, time, ask. Need-confidence=0.65.
+
+- [hackernews] Ask HN: Ex-swe what part time did you pickup? (score=2, comments=0) — https://news.ycombinator.com/item?id=49913004
+- [rss] Ask HN: Ex-swe what part time did you pickup? (score=0, comments=0) — https://news.ycombinator.com/item?id=49913004
 
 ### Ask HN: What are you reading?
 
-1 signals across hackernews. Top keywords: ask, hn, what, reading, plowing. Need-confidence=0.65.
+1 signals across hackernews. Top keywords: ask, hn, what, reading, plowing. Need-confidence=0.66.
 
-- [hackernews] Ask HN: What are you reading? (score=164, comments=411) — https://news.ycombinator.com/item?id=49893157
+- [hackernews] Ask HN: What are you reading? (score=431, comments=839) — https://news.ycombinator.com/item?id=49893157
 
-### [Feature] ability to save and rehash to valid xbox360 save file
+### DeepSeek VS GPT, 感觉 deepseek 只是个复读机。
 
-1 signals across github. Top keywords: save, feature, xbox, nice, format. Need-confidence=0.83.
+1 signals across v2ex. Top keywords: deepseek, gpt, 感觉, https, com. Need-confidence=0.51.
 
-- [github] [Feature] ability to save and rehash to valid xbox360 save file (score=0, comments=4) — https://github.com/freefrank/LostOdysseyRecomp/issues/88
+- [v2ex] DeepSeek VS GPT, 感觉 deepseek 只是个复读机。 (score=3, comments=3) — https://www.v2ex.com/t/1245971
 
-### Allow disabling of no-new-privileges for the docker driver
+### [FEATURE]: multiple auth profiles per provider
 
-1 signals across github. Top keywords: user, sandbox, install, apt, allow. Need-confidence=0.50.
+1 signals across github. Top keywords: feature, multiple, profiles, per, hasn. Need-confidence=0.68.
 
-- [github] Allow disabling of no-new-privileges for the docker driver (score=0, comments=0) — https://github.com/NVIDIA/OpenShell/issues/3905
-
-### IndieStack Audit: Somebody make a tool that rates idea competition before you build
-
-1 signals across product_hunt. Top keywords: competition, build, indiestack, audit, somebody. Need-confidence=1.00.
-
-- [product_hunt] IndieStack Audit: Somebody make a tool that rates idea competition before you build (score=210, comments=41) — https://www.producthunt.com/
-
-### [feature request] Consider making `TelemetrySpan` a readonly struct instead of a class
-
-1 signals across github. Top keywords: feature, request, telemetryspan, class, problem. Need-confidence=0.78.
-
-- [github] [feature request] Consider making `TelemetrySpan` a readonly struct instead of a class (score=0, comments=0) — https://github.com/open-telemetry/opentelemetry-dotnet/issues/7852
-
-### Ask HN: Who's still keeping a DOS machine up because the business depends on it?
-
-1 signals across hackernews. Top keywords: who, still, dos, business, ask. Need-confidence=0.63.
-
-- [hackernews] Ask HN: Who's still keeping a DOS machine up because the business depends on it? (score=292, comments=298) — https://news.ycombinator.com/item?id=49848955
-
-### Ask HN: React Native or Flutter when the back end is Node?
-
-1 signals across hackernews. Top keywords: react, native, flutter, back, ask. Need-confidence=0.76.
-
-- [hackernews] Ask HN: React Native or Flutter when the back end is Node? (score=5, comments=15) — https://news.ycombinator.com/item?id=49881846
+- [github] [FEATURE]: multiple auth profiles per provider (score=42, comments=14) — https://github.com/anomalyco/opencode/issues/5391
