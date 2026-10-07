@@ -42,4 +42,11 @@ def load_config(path: str | Path | None = None) -> dict[str, Any]:
         clf["ollama_model"] = os.getenv("OLLAMA_MODEL")
     if os.getenv("CLASSIFIER_BACKEND"):
         clf["backend"] = os.getenv("CLASSIFIER_BACKEND")
+    cat = (data.get("extraction") or {}).setdefault("category", {})
+    if os.getenv("OLLAMA_HOST"):
+        cat.setdefault("ollama_host", os.getenv("OLLAMA_HOST"))
+    if os.getenv("OLLAMA_MODEL"):
+        cat.setdefault("ollama_model", os.getenv("OLLAMA_MODEL"))
+    if os.getenv("CATEGORY_BACKEND"):
+        cat["backend"] = os.getenv("CATEGORY_BACKEND")
     return data

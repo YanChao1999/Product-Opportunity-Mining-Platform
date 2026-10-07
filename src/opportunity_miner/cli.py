@@ -81,9 +81,11 @@ def _print_table(result) -> None:
     for d in spec[:7]:  # keep terminal readable
         table.add_column(d.get("short") or d["id"], justify="right")
     table.add_column("Src")
+    table.add_column("Link", justify="center", no_wrap=True)
 
     for i, o in enumerate(result.opportunities[:30], start=1):
         t = o.title if len(o.title) <= 48 else o.title[:45] + "..."
+        url = next((e.url for e in o.evidence if e.url), "")
         cells = [
             str(i),
             t,
@@ -93,6 +95,7 @@ def _print_table(result) -> None:
         for d in spec[:7]:
             cells.append(f"{o.dimensions.get(d['id']):.1f}")
         cells.append(",".join(s.value[:2] for s in o.sources))
+        cells.append(f"[link={url}]open[/link]" if url else "")
         table.add_row(*cells)
     console.print(table)
 

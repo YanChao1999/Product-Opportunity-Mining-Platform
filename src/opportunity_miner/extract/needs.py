@@ -40,6 +40,91 @@ _COMMIT_TITLE = re.compile(
     r"^(feat|fix|docs|chore|refactor|test|ci|style|perf|build)(\([^)]*\))?:\s+",
     re.IGNORECASE,
 )
+# Language that suggests a *new product* gap, not an in-repo polish request.
+_PRODUCT_GAP_MARKERS = (
+    "i wish",
+    "looking for",
+    "somebody make",
+    "somebody please",
+    "somebody build",
+    "no good alternative",
+    "gap in the market",
+    "would pay",
+    "willing to pay",
+    "is there a",
+    "is there an",
+    "is there any",
+    "why isn't there",
+    "why isnt there",
+    "need a way",
+    "need an app",
+    "need a tool",
+    "need a saas",
+    "has anyone built",
+    "anyone built",
+    "alternative to",
+    "求推荐",
+    "有没有",
+    "希望有",
+    "谁来做",
+    "找不到",
+)
+
+
+def _has_product_gap_language(text: str) -> bool:
+    t = (text or "").lower()
+    return any(m in t for m in _PRODUCT_GAP_MARKERS)
+
+
+def _is_noise_signal(signal: RawSignal) -> bool:
+    """Drop chats, news, launches, and in-repo chores that aren't product opportunities."""
+    kind = (signal.metadata or {}).get("kind")
+    title = (signal.title or "").strip()
+    title_l = title.lower()
+    text = signal.text
+
+    if kind == "pull_request":
+        return True
+    if "/pull/" in (signal.url or "").lower():
+        return True
+    # Bare "Feature Request(s)" with no substance
+    if re.fullmatch(r"\[?feature requests?\]?", title_l or ""):
+        return True
+
+    # GitHub issues: in-product feature asks need explicit *new product* gap language
+    if signal.source == SourceName.GITHUB:
+        if not _has_product_gap_language(text):
+            return True
+
+    # HN / Lobsters / RSS mirrors of HN
+    if title_l.startswith("show hn:"):
+        return True  # already-built product = supply, not unmet need
+    if title_l.startswith("tell hn:") and not _has_product_gap_language(text):
+        return True
+    if title_l.startswith("ask hn:"):
+        if _has_product_gap_language(text):
+            return False
+        # Capability / tool-seeking Ask HN (not chatty threads)
+        ask_needish = (
+            "tool",
+            "app",
+            "saas",
+            "alternative",
+            "access to",
+            "way to",
+            "without ",
+            "support for",
+            "integrate",
+            "self-host",
+            "self host",
+            "offline",
+            "open source",
+        )
+        if any(x in title_l for x in ask_needish):
+            return False
+        return True
+
+    return False
 
 
 def signal_strength(signal: RawSignal, patterns: list[re.Pattern[str]]) -> float:
@@ -88,7 +173,6 @@ def filter_unmet_signals(
         "looking for",
         "somebody make",
         "somebody please",
-        "feature request",
         "is there a",
         "is there an",
         "why isn't there",
@@ -109,6 +193,8 @@ def filter_unmet_signals(
         if kind in _SEED_KINDS and not include_seeds:
             continue
         if s.source == SourceName.GITHUB and _COMMIT_TITLE.match(s.title or ""):
+            continue
+        if _is_noise_signal(s):
             continue
 
         # App Store reviews: only low-star complaints with pattern hits
@@ -164,143 +250,11 @@ def cluster_signals(
     return clusters
 
 
-def _category_for(keywords: list[str], texts: str) -> str:
-    """
-    Assign a coarse product category from whole tokens only.
+def _category_for(keywords: list[str], texts: str, title: str = "") -> str:
+    """Backward-compatible wrapper — prefer CategoryClassifier for new code."""
+    from opportunity_miner.extract.category import classify_category_rules
 
-    Never use raw substring matching — short keys like ``ai`` / ``mod`` / ``ci``
-    falsely hit words such as ``running``, ``model``, ``mode``, ``special``.
-    """
-    tokens = {t.lower() for t in keywords} | set(tokenize(texts))
-    blob = texts.lower()
-    # (name, token hits, optional multi-word phrases)
-    rules: list[tuple[str, set[str], tuple[str, ...]]] = [
-        (
-            "ai",
-            {
-                "ai",
-                "llm",
-                "llms",
-                "gpt",
-                "agent",
-                "agents",
-                "chatgpt",
-                "claude",
-                "openai",
-                "prompt",
-                "prompts",
-                "embedding",
-                "embeddings",
-            },
-            ("large language", "language model", "machine learning", "multi-model", "multi agent"),
-        ),
-        (
-            "gaming",
-            {
-                "game",
-                "games",
-                "gaming",
-                "steam",
-                "mod",
-                "mods",
-                "fps",
-                "multiplayer",
-                "steamdeck",
-                "esports",
-                "xbox",
-                "playstation",
-            },
-            ("steam deck", "video game", "game engine"),
-        ),
-        (
-            "devtools",
-            {
-                "api",
-                "apis",
-                "sdk",
-                "cli",
-                "ci",
-                "cd",
-                "deploy",
-                "deployment",
-                "github",
-                "gitlab",
-                "developer",
-                "developers",
-                "devtools",
-                "saas",
-                "devops",
-                "kubernetes",
-                "docker",
-            },
-            ("developer tool", "open source", "feature request"),
-        ),
-        (
-            "productivity",
-            {
-                "todo",
-                "todos",
-                "note",
-                "notes",
-                "habit",
-                "habits",
-                "calendar",
-                "task",
-                "tasks",
-                "focus",
-                "notion",
-                "obsidian",
-                "workflow",
-            },
-            ("to-do", "note taking", "task manager"),
-        ),
-        (
-            "fintech",
-            {
-                "budget",
-                "finance",
-                "financial",
-                "bank",
-                "banking",
-                "invoice",
-                "payment",
-                "payments",
-                "crypto",
-                "bitcoin",
-                "fintech",
-            },
-            ("personal finance", "expense tracker"),
-        ),
-        (
-            "health",
-            {
-                "fitness",
-                "calorie",
-                "calories",
-                "meditation",
-                "sleep",
-                "health",
-                "healthcare",
-                "diet",
-                "workout",
-            },
-            ("mental health", "weight loss"),
-        ),
-        (
-            "mobile",
-            {"ios", "android", "iphone", "ipad", "apk"},
-            ("app store", "play store", "mobile app"),
-        ),
-    ]
-    best_name = "general"
-    best_score = 0
-    for name, keys, phrases in rules:
-        score = len(tokens & keys)
-        score += sum(1 for p in phrases if p in blob)
-        if score > best_score:
-            best_score = score
-            best_name = name
-    return best_name if best_score > 0 else "general"
+    return classify_category_rules(keywords, texts, title=title)
 
 
 def _title_from_cluster(cluster: list[tuple[RawSignal, float]]) -> str:
@@ -321,9 +275,14 @@ def _title_from_cluster(cluster: list[tuple[RawSignal, float]]) -> str:
 def clusters_to_opportunities(
     clusters: list[list[tuple[RawSignal, float]]],
     need_confidences: dict[str, float] | None = None,
+    *,
+    category_cfg: dict[str, Any] | None = None,
 ) -> list[dict[str, Any]]:
     """Return intermediate opportunity dicts (scoring applied later)."""
+    from opportunity_miner.extract.category import CategoryClassifier
+
     need_confidences = need_confidences or {}
+    cat_clf = CategoryClassifier(category_cfg or {})
     results: list[dict[str, Any]] = []
     for cluster in clusters:
         if not cluster:
@@ -340,17 +299,21 @@ def clusters_to_opportunities(
         oid = hashlib.sha1(title.lower().encode("utf-8")).hexdigest()[:12]
         confs = [need_confidences[s.external_id] for s in signals if s.external_id in need_confidences]
         need_confidence = sum(confs) / len(confs) if confs else (sum(strengths) / len(strengths))
+        cat = cat_clf.classify(title, text_blob, keywords)
         summary = (
             f"{len(signals)} signals across {', '.join(s.value for s in sources)}. "
             f"Top keywords: {', '.join(keywords[:5]) or 'n/a'}. "
-            f"Need-confidence={need_confidence:.2f}."
+            f"Need-confidence={need_confidence:.2f}. "
+            f"Category={cat.category} ({cat.backend}, conf={cat.confidence:.2f})."
         )
         results.append(
             {
                 "id": oid,
                 "title": title,
                 "summary": summary,
-                "category": _category_for(keywords, text_blob),
+                "category": cat.category,
+                "category_backend": cat.backend,
+                "category_confidence": cat.confidence,
                 "sources": sources,
                 "evidence": signals,
                 "keywords": keywords,
@@ -401,6 +364,8 @@ def extract_opportunity_candidates(signals: list[RawSignal], extract_cfg: dict[s
                 continue
             if s.source == SourceName.GITHUB and _COMMIT_TITLE.match(s.title or ""):
                 continue
+            if _is_noise_signal(s):
+                continue
             candidates_raw.append(s)
         classified = clf.filter(candidates_raw, pattern_strengths=pattern_map)
         scored = [(s, max(c.confidence, pattern_map.get(s.external_id, 0.0))) for s, c in classified]
@@ -417,7 +382,15 @@ def extract_opportunity_candidates(signals: list[RawSignal], extract_cfg: dict[s
 
     scored.sort(key=lambda t: t[1], reverse=True)
     clusters = cluster_signals(scored, threshold=threshold)
-    candidates = clusters_to_opportunities(clusters, need_confidences=need_confidences)
+    # Category: prefer extraction.category; inherit Ollama host/model from need classifier
+    category_cfg = dict(extract_cfg.get("category") or {})
+    if not category_cfg.get("ollama_host") and clf_cfg.get("ollama_host"):
+        category_cfg["ollama_host"] = clf_cfg["ollama_host"]
+    if not category_cfg.get("ollama_model") and clf_cfg.get("ollama_model"):
+        category_cfg["ollama_model"] = clf_cfg["ollama_model"]
+    candidates = clusters_to_opportunities(
+        clusters, need_confidences=need_confidences, category_cfg=category_cfg
+    )
     # Attach marketplace listings so competition scoring sees existing supply
     catalog = competition_context(signals)
     if catalog:

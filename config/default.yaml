@@ -74,9 +74,9 @@ sources:
     enabled: true
     per_query: 15
     queries:
-      - '"I wish there was" OR "looking for a tool" in:title,body'
-      - '"feature request" "would be nice" in:title,body'
-      - '"no good alternative" OR "gap in the market" in:title,body'
+      - '"I wish there was" OR "looking for a tool" OR "looking for an app" in:title,body'
+      - '"no good alternative" OR "gap in the market" OR "would pay for" in:title,body'
+      - '"somebody make" OR "somebody build" OR "is there a tool" in:title,body'
 
   lobsters:
     enabled: true
@@ -159,6 +159,14 @@ extraction:
     model_path: data/models/need_nb.json
     ollama_host: "http://127.0.0.1:11434"
     ollama_model: "llama3.2:1b"
+  # Product category labels for ranked opportunities
+  # backends: auto (ollama→nb→rules) | ollama | naive_bayes | rules
+  category:
+    backend: auto
+    ollama_host: "http://127.0.0.1:11434"
+    ollama_model: "llama3.2:1b"
+    min_nb_confidence: 0.35
+    min_ollama_confidence: 0.4
 
 scoring:
   # Geometric mean of contributions. Set invert:true for "higher is worse" dims.

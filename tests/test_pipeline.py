@@ -169,15 +169,107 @@ def test_ensemble_backend_not_string_only():
     assert result.confidence > 0.4
 
 
+def test_category_nb_does_not_force_health_on_unknown_text():
+    from opportunity_miner.extract.category import CategoryClassifier, reset_ollama_cache
+
+    reset_ollama_cache()
+    clf = CategoryClassifier({"backend": "naive_bayes"})
+    assert clf.classify("How I use a single .zshrc file on macOS", "shell tips").category == "general"
+    assert clf.classify("EC2 Autodiscovery rules", "aws infra").category in {"devtools", "general"}
+    assert clf.classify("Adding Floating-Point Decimals for Fun", "math essay").category == "general"
+
+
+def test_category_ollama_falls_back_to_rules_without_model():
+    from opportunity_miner.extract.category import CategoryClassifier, reset_ollama_cache
+
+    reset_ollama_cache()
+    clf = CategoryClassifier(
+        {"backend": "ollama", "ollama_host": "http://127.0.0.1:11434", "ollama_model": "llama3.2:1b"}
+    )
+    r = clf.classify("Ask HN: Allow agents access to cloud files", "least privilege")
+    assert r.category == "ai"
+    assert "rules" in r.backend or r.backend.startswith("ollama")
+
+
+def test_category_classifier_nb_and_rules():
+    from opportunity_miner.extract.category import CategoryClassifier
+
+    rules = CategoryClassifier({"backend": "rules"})
+    assert rules.classify("Firefox on Steam Deck", "browser news").category == "gaming"
+    assert rules.classify("Allow agents access to Drive", "least privilege").category == "ai"
+
+    nb = CategoryClassifier({"backend": "naive_bayes"})
+    r = nb.classify(
+        "I wish there was a local LLM gateway for tool calls",
+        "Would pay for Claude/GPT routing",
+        ["llm", "gateway"],
+    )
+    assert r.category == "ai"
+    assert r.backend.startswith("naive_bayes")
+    assert r.confidence > 0.2
+
+
 def test_category_uses_whole_tokens_not_substrings():
     from opportunity_miner.extract.needs import _category_for
 
     # "ai" must not match inside "running"; "mod" must not match inside "mode"/"model"
     assert _category_for([], "What filesystem are you running on your NAS?") == "general"
     assert _category_for([], "Tell HN: Substack obfuscating text to break reading mode") == "general"
-    assert _category_for(["agent", "access"], "Allow agents access to cloud files") == "ai"
-    assert _category_for(["steam", "mod"], "Steam Workshop mod conflict detector") == "gaming"
-    assert _category_for(["api", "deploy"], "CI deploy API for SaaS developers") == "devtools"
+    assert _category_for(["agent", "access"], "Allow agents access to cloud files", title="Allow agents access") == "ai"
+    assert (
+        _category_for(["steam", "deck"], "Valve Steam Deck browser", title="Firefox on Steam Deck")
+        == "gaming"
+    )
+    assert _category_for(["api", "deploy"], "CI deploy API for SaaS developers", title="SaaS deploy API") == "devtools"
+    # Body-only gaming words shouldn't flip a non-gaming title
+    assert (
+        _category_for(
+            ["share", "mine"],
+            "Ask HN: small victories\nI shipped a steam game mod once",
+            title="Ask HN: Do you have small victories to share?",
+        )
+        == "general"
+    )
+
+
+def test_noise_filter_drops_chatty_ask_and_github_polish():
+    from opportunity_miner.extract.needs import _is_noise_signal
+
+    assert _is_noise_signal(
+        RawSignal(
+            source=SourceName.HACKERNEWS,
+            external_id="1",
+            title="Ask HN: Do you have small victories to share?",
+            body="Celebrate with me",
+        )
+    )
+    assert _is_noise_signal(
+        RawSignal(
+            source=SourceName.GITHUB,
+            external_id="2",
+            title="Feature Request: Auto rename media uploads",
+            body="Please add a rename option in settings.",
+            url="https://github.com/org/repo/issues/1",
+            metadata={"kind": "issue"},
+        )
+    )
+    assert not _is_noise_signal(
+        RawSignal(
+            source=SourceName.HACKERNEWS,
+            external_id="3",
+            title="Ask HN: Allow agents access to cloud files with least privilege?",
+            body="Need a way for agents to read Drive safely.",
+        )
+    )
+    assert not _is_noise_signal(
+        RawSignal(
+            source=SourceName.GITHUB,
+            external_id="4",
+            title="I wish there was a local-first CRM",
+            body="No good alternative. Would pay for this.",
+            metadata={"kind": "issue"},
+        )
+    )
 
 
 def test_live_extract_drops_seed_and_commit_noise():

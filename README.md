@@ -62,6 +62,25 @@ opportunity-miner classify "We're hiring a senior engineer" --backend naive_baye
 
 可与 regex **混合**（`blend_patterns: true`），但分类主路径是 ML 概率，不是 `if "wish" in text`。
 
+### Category labels（本地 AI）
+
+`extraction.category` — 给机会打品类标签（ai / gaming / devtools / …）：
+
+| Backend | 说明 |
+|---------|------|
+| **`auto`**（默认） | Ollama 可用则用本地 LLM，否则 **Naive Bayes**，再否则 rules |
+| **`ollama`** | 本机小模型 JSON 分类，失败回退 NB/rules |
+| **`naive_bayes`** | 纯 Python 多类 NB（种子语料），无网络 |
+| **`rules`** | 标题加权关键词（最快） |
+
+```bash
+# force local LLM categories (requires Ollama running)
+CATEGORY_BACKEND=ollama opportunity-miner scan -v -j 8
+
+# offline local ML only
+CATEGORY_BACKEND=naive_bayes opportunity-miner scan
+```
+
 ## Quick start (uv)
 
 This project is managed with [uv](https://docs.astral.sh/uv/).
@@ -99,7 +118,8 @@ Reports → `data/reports/latest.{md,csv,json}`
 | `PRODUCT_HUNT_API_TOKEN` | Product Hunt GraphQL |
 | `GITHUB_TOKEN` | 提高 GitHub Search 限额 |
 | `CLASSIFIER_BACKEND` | `ensemble` / `naive_bayes` / `logistic` / `ollama` |
-| `OLLAMA_HOST` / `OLLAMA_MODEL` | 本地 LLM 分类 |
+| `CATEGORY_BACKEND` | `auto` / `ollama` / `naive_bayes` / `rules` |
+| `OLLAMA_HOST` / `OLLAMA_MODEL` | 本地 LLM（需求分类 + 品类分类共用） |
 
 ## Architecture
 

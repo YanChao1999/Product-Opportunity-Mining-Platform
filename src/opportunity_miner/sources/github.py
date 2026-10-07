@@ -45,6 +45,7 @@ class GitHubCollector:
                         created = datetime.fromisoformat(item["created_at"].replace("Z", "+00:00"))
                     except ValueError:
                         created = None
+                is_pr = bool(item.get("pull_request"))
                 out.append(
                     RawSignal(
                         source=SourceName.GITHUB,
@@ -61,7 +62,7 @@ class GitHubCollector:
                         metadata={
                             "repo": (item.get("repository_url") or "").split("/")[-1],
                             "state": item.get("state"),
-                            "kind": "issue",
+                            "kind": "pull_request" if is_pr else "issue",
                         },
                     )
                 )
