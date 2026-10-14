@@ -1,9 +1,9 @@
 # Product Opportunity Report
 
-- Scanned at: `2026-10-13T04:49:55.475125+00:00`
-- Raw signals: **319**
+- Scanned at: `2026-10-14T02:58:10.924843+00:00`
+- Raw signals: **320**
 - Opportunities: **50**
-- Sources: app_store=60, chrome_web_store=1, g2=2, github=45, google_play=2, hackernews=60, indie_hackers=2, product_hunt=3, rss=20, stackexchange=15, steam=60, v2ex=49
+- Sources: app_store=60, chrome_web_store=1, g2=2, github=45, google_play=2, hackernews=60, indie_hackers=2, product_hunt=3, rss=20, stackexchange=15, steam=60, v2ex=50
 
 > Ranking: geometric mean of **需求强度 × 竞争程度↓ × 开发难度↓ × 付费可能性 × 紧迫性 × 市场规模 × 变现速度** (+ hidden dims in JSON).
 
@@ -11,54 +11,54 @@
 | ---: | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
 | 1 | GapFinder AI: I wish there was a daily digest of unmet SaaS needs f... | devtools | 65.28 | 10.0 | 2.8 | 5.4 | 9.5 | 4.53 | 5.6 | 7.05 | 1 | `product_hunt` |
 | 2 | Looking for an alternative to HubSpot that doesn't force a sales suite | productivity | 64.45 | 10.0 | 2.8 | 5.4 | 9.0 | 4.46 | 4.8 | 7.05 | 1 | `g2` |
-| 3 | I wish there was a Chrome extension that batches LinkedIn outreach ... | general | 63.44 | 10.0 | 2.0 | 2.7 | 7.3 | 4.32 | 4.1 | 8.92 | 1 | `chrome_web_store` |
-| 4 | Ask HN: What do you run on a $5 VPS that's worth keeping online 24/7? | ai | 63.11 | 10.0 | 2.0 | 3.6 | 6.7 | 4.87 | 4.9 | 6.3 | 1 | `hackernews` |
-| 5 | Why isn't there a lightweight alternative to Jira for 5-person teams? | general | 61.61 | 10.0 | 2.8 | 4.5 | 7.1 | 4.53 | 5.9 | 4.88 | 1 | `g2` |
-| 6 | Ask HN: Fake abuse reports keep auto-blocking my site on Cloudflare | devtools | 61.14 | 8.78 | 2.0 | 5.4 | 7.1 | 5.36 | 4.7 | 5.85 | 1 | `hackernews` |
-| 7 | ReviewGap: Why isn't there an app that mines 1-star App Store revie... | devtools | 61.13 | 10.0 | 2.0 | 5.4 | 8.1 | 4.41 | 4.7 | 5.85 | 1 | `product_hunt` |
-| 8 | Looking for an alternative to manual competitor research before bui... | devtools | 61.09 | 10.0 | 4.4 | 5.4 | 9.5 | 4.34 | 4.7 | 7.05 | 1 | `indie_hackers` |
-| 9 | I wish there was a fully offline habit tracker without accounts on ... | gaming | 60.17 | 10.0 | 2.0 | 5.4 | 6.0 | 4.43 | 4.6 | 5.85 | 1 | `google_play` |
-| 10 | Ask HN: Are there AI models for generating sounds based on a text a... | gaming | 59.81 | 10.0 | 2.0 | 3.6 | 3.6 | 5.64 | 4.6 | 5.1 | 1 | `hackernews` |
-| 11 | Somebody make a Chrome extension that turns 1-star reviews into a r... | general | 58.97 | 10.0 | 2.0 | 2.7 | 3.5 | 4.28 | 5.0 | 6.53 | 1 | `indie_hackers` |
-| 12 | Somebody make a family shared budget app that doesn't sell my data | fintech | 58.72 | 10.0 | 2.0 | 4.5 | 4.8 | 4.37 | 5.9 | 4.88 | 1 | `google_play` |
-| 13 | Ask HN: Do you want a router that has DD-WRT pre-installed? | ai | 58.64 | 10.0 | 2.0 | 6.4 | 4.3 | 4.64 | 5.8 | 4.4 | 1 | `hackernews` |
-| 14 | Ask HN: How does your organization make build vs. buy decisions now? | devtools | 57.46 | 10.0 | 1.0 | 5.4 | 4.5 | 4.4 | 5.2 | 4.65 | 2 | `hackernews,rss` |
-| 15 | Editing scope for added reconciliation services | devtools | 57.26 | 9.1 | 2.0 | 3.6 | 4.5 | 4.19 | 4.7 | 5.1 | 1 | `github` |
-| 16 | Ask HN: Why hasn't AI replaced Tax filing software | ai | 57.14 | 9.59 | 2.0 | 5.4 | 4.3 | 4.39 | 5.8 | 4.65 | 1 | `hackernews` |
-| 17 | Only show candidates in range for best candidate facet | devtools | 56.77 | 8.95 | 2.0 | 2.8 | 4.5 | 4.32 | 4.7 | 5.3 | 1 | `github` |
-| 18 | 我开发了一款服药提醒工具，想让按时服药变成一件轻松，有趣的小事 | mobile | 56.19 | 7.32 | 2.0 | 4.5 | 5.2 | 4.0 | 4.8 | 4.88 | 1 | `v2ex` |
-| 19 | 大厂十年领了大礼包，孑然一身应该如何选择呢？ | gaming | 56.15 | 10.0 | 2.0 | 5.4 | 3.6 | 4.69 | 4.6 | 4.65 | 1 | `v2ex` |
-| 20 | ChatGPT Plugin in Review for Weeks | devtools | 56.08 | 7.68 | 2.0 | 4.5 | 4.5 | 4.06 | 4.7 | 4.88 | 1 | `hackernews` |
-| 21 | IndieStack Audit: Somebody make a tool that rates idea competition ... | general | 55.72 | 10.0 | 2.8 | 4.5 | 3.5 | 4.46 | 5.0 | 4.88 | 1 | `product_hunt` |
-| 22 | 为了防对象，我做了一个 App | mobile | 55.48 | 8.5 | 2.0 | 4.5 | 3.8 | 4.21 | 4.8 | 4.88 | 1 | `v2ex` |
-| 23 | Free and Open-Source Facebook Scraper – Lightweight, No Headless Br... | devtools | 55.22 | 8.93 | 2.0 | 6.3 | 4.5 | 3.9 | 5.6 | 4.42 | 1 | `hackernews` |
-| 24 | feat: Reword run-implying text in sessions without an Actor runner | devtools | 55.1 | 7.13 | 2.0 | 4.8 | 4.5 | 3.9 | 4.7 | 4.8 | 1 | `github` |
-| 25 | I am so tired of startups doing worse than me | gaming | 55.1 | 10.0 | 2.0 | 6.3 | 3.6 | 5.61 | 4.6 | 4.42 | 1 | `hackernews` |
-| 26 | 因为带孩子去医院，医生开的药，家里其实有，所以我开发了一个记录就诊和家庭药箱的 App | health | 55.08 | 10.0 | 2.0 | 4.5 | 3.9 | 4.49 | 4.7 | 4.88 | 1 | `v2ex` |
-| 27 | Unmet need: clunky / when / ui / issue / type / feature | productivity | 55.07 | 6.97 | 2.0 | 2.7 | 4.0 | 3.9 | 4.8 | 5.33 | 1 | `github` |
-| 28 | Show HN: vne – .env util for agents | ai | 55.02 | 6.22 | 2.0 | 4.5 | 4.3 | 4.0 | 4.9 | 4.88 | 1 | `hackernews` |
-| 29 | All startups need is distribution | devtools | 54.97 | 10.0 | 2.0 | 5.7 | 4.5 | 4.21 | 4.7 | 4.58 | 1 | `hackernews` |
-| 30 | [FEATURE] configurable colors for all states of toggleable widgets | devtools | 54.97 | 7.29 | 2.0 | 1.9 | 4.5 | 4.11 | 4.7 | 5.53 | 1 | `github` |
-| 31 | Add "no value" and "unknown value" as possible values for a Wikidat... | devtools | 54.68 | 10.0 | 2.0 | 4.5 | 4.5 | 4.41 | 4.7 | 4.88 | 1 | `github` |
-| 32 | Show HN: GPT-3.5 answered, GPT-4 voided; I built an EOS gate for AGI | ai | 54.57 | 5.88 | 2.0 | 4.5 | 4.3 | 3.9 | 4.9 | 4.88 | 1 | `hackernews` |
-| 33 | [FEATURE] Labwc: Add posibility change window decoration theme | ai | 54.52 | 7.34 | 2.0 | 4.5 | 4.3 | 4.06 | 4.9 | 4.88 | 1 | `github` |
-| 34 | Feature :- Selection Men / Wizard | gaming | 54.27 | 7.9 | 2.0 | 4.5 | 3.6 | 4.0 | 4.6 | 4.88 | 1 | `github` |
-| 35 | Add a man page (again) | devtools | 54.06 | 9.16 | 2.0 | 5.4 | 4.5 | 4.25 | 4.7 | 4.65 | 1 | `github` |
-| 36 | Subagents, Forks and Collapsing Context | ai | 54.0 | 5.32 | 2.0 | 4.5 | 4.3 | 3.9 | 4.9 | 4.88 | 1 | `hackernews` |
-| 37 | Ask HN: What desk chair would you recommend for a home office? | ai | 53.95 | 6.33 | 2.0 | 5.4 | 4.3 | 3.9 | 4.9 | 4.65 | 1 | `rss` |
-| 38 | Vibecoded 3D Game Running on Veda OS | gaming | 53.68 | 7.19 | 2.0 | 5.4 | 3.6 | 4.06 | 5.5 | 4.65 | 1 | `hackernews` |
-| 39 | Ask HN: What's your favorite children's books? | general | 53.61 | 10.0 | 2.0 | 4.5 | 3.5 | 4.45 | 4.1 | 4.88 | 1 | `hackernews` |
-| 40 | Create new Property from OpenRefine | devtools | 53.51 | 7.25 | 2.0 | 5.4 | 4.5 | 4.14 | 5.6 | 4.65 | 1 | `github` |
-| 41 | Show HN: A 3D sky city where my Claude Code agents work and take co... | devtools | 53.49 | 6.09 | 2.0 | 5.4 | 4.5 | 3.9 | 4.7 | 4.65 | 1 | `hackernews` |
-| 42 | Ask HN: Curious, who can afford to buy in SF? | devtools | 53.42 | 5.77 | 2.0 | 5.4 | 4.5 | 3.9 | 5.6 | 4.65 | 1 | `rss` |
-| 43 | Feature request: exportable side-by-side view | gaming | 53.19 | 7.07 | 2.0 | 6.3 | 3.6 | 4.0 | 4.6 | 4.42 | 1 | `github` |
-| 44 | Can we change an AI model's architecture without retraining it from... | gaming | 52.77 | 6.35 | 2.0 | 5.4 | 3.6 | 4.0 | 4.6 | 4.65 | 1 | `hackernews` |
-| 45 | Ask HN: What Happened in DNSSEC Yesterday? | devtools | 52.76 | 4.7 | 2.0 | 5.4 | 4.5 | 5.2 | 4.7 | 4.65 | 1 | `rss` |
-| 46 | Fork-and-Flush: Escaping Idea Basins in Autoresearch Agents | devtools | 52.7 | 6.33 | 2.0 | 5.7 | 4.5 | 3.9 | 4.7 | 4.58 | 1 | `hackernews` |
-| 47 | Tool selection guidance: which of the ten tools do I want? | productivity | 52.62 | 6.67 | 2.8 | 4.5 | 4.0 | 3.9 | 4.8 | 4.88 | 1 | `github` |
-| 48 | Ask HN: How do you build a reputation without social media? | devtools | 52.37 | 4.49 | 2.0 | 5.4 | 4.5 | 3.9 | 4.7 | 4.65 | 1 | `rss` |
-| 49 | Cluster across multiple columns | general | 52.32 | 9.95 | 2.0 | 4.5 | 3.5 | 4.21 | 4.1 | 4.88 | 1 | `github` |
-| 50 | Feature Request: better mouse controls (zoom and panning) | general | 52.31 | 9.8 | 2.0 | 4.5 | 3.5 | 4.28 | 4.1 | 4.88 | 1 | `github` |
+| 3 | Ask HN: Could you find funding if you didn't want to build a $1-10B... | ai | 64.05 | 10.0 | 1.0 | 5.4 | 6.9 | 4.51 | 5.4 | 5.85 | 2 | `hackernews,rss` |
+| 4 | I wish there was a Chrome extension that batches LinkedIn outreach ... | general | 63.44 | 10.0 | 2.0 | 2.7 | 7.3 | 4.32 | 4.1 | 8.92 | 1 | `chrome_web_store` |
+| 5 | Ask HN: What do you run on a $5 VPS that's worth keeping online 24/7? | ai | 62.18 | 10.0 | 2.0 | 3.6 | 6.7 | 4.88 | 4.9 | 6.3 | 1 | `hackernews` |
+| 6 | Why isn't there a lightweight alternative to Jira for 5-person teams? | general | 61.61 | 10.0 | 2.8 | 4.5 | 7.1 | 4.53 | 5.9 | 4.88 | 1 | `g2` |
+| 7 | Ask HN: Fake abuse reports keep auto-blocking my site on Cloudflare | devtools | 61.14 | 8.78 | 2.0 | 5.4 | 7.1 | 5.36 | 4.7 | 5.85 | 1 | `hackernews` |
+| 8 | ReviewGap: Why isn't there an app that mines 1-star App Store revie... | devtools | 61.13 | 10.0 | 2.0 | 5.4 | 8.1 | 4.41 | 4.7 | 5.85 | 1 | `product_hunt` |
+| 9 | Looking for an alternative to manual competitor research before bui... | devtools | 61.09 | 10.0 | 4.4 | 5.4 | 9.5 | 4.34 | 4.7 | 7.05 | 1 | `indie_hackers` |
+| 10 | Tell HN: ChatGPT on macOS grants local computer access to cloud acc... | gaming | 60.44 | 8.22 | 2.0 | 3.7 | 6.2 | 4.0 | 5.5 | 5.08 | 1 | `hackernews` |
+| 11 | I wish there was a fully offline habit tracker without accounts on ... | gaming | 60.17 | 10.0 | 2.0 | 5.4 | 6.0 | 4.43 | 4.6 | 5.85 | 1 | `google_play` |
+| 12 | Ask HN: Are there AI models for generating sounds based on a text a... | gaming | 59.81 | 10.0 | 2.0 | 3.6 | 3.6 | 5.64 | 4.6 | 5.1 | 1 | `hackernews` |
+| 13 | Add MarkupCraft (PDF markup and takeoff for construction, opens Rev... | devtools | 59.55 | 8.13 | 2.0 | 2.7 | 5.9 | 4.0 | 4.7 | 6.53 | 1 | `github` |
+| 14 | Somebody make a Chrome extension that turns 1-star reviews into a r... | general | 58.97 | 10.0 | 2.0 | 2.7 | 3.5 | 4.28 | 5.0 | 6.53 | 1 | `indie_hackers` |
+| 15 | Somebody make a family shared budget app that doesn't sell my data | fintech | 58.72 | 10.0 | 2.0 | 4.5 | 4.8 | 4.37 | 5.9 | 4.88 | 1 | `google_play` |
+| 16 | Ask HN: Do you want a router that has DD-WRT pre-installed? | ai | 58.66 | 10.0 | 2.0 | 6.4 | 4.3 | 4.65 | 5.8 | 4.4 | 1 | `hackernews` |
+| 17 | Scrap hardened/tempered steel is confusing | gaming | 57.58 | 8.13 | 2.0 | 3.6 | 3.6 | 5.3 | 4.6 | 5.1 | 1 | `github` |
+| 18 | OBSRVR Radar: 2026 Q4 proposals | fintech | 57.35 | 7.75 | 2.0 | 4.5 | 6.0 | 4.06 | 5.9 | 4.88 | 1 | `github` |
+| 19 | Piczo 相册照片自动分类 / 送码 | ai | 57.3 | 10.0 | 2.0 | 7.2 | 6.7 | 4.53 | 4.9 | 4.2 | 1 | `v2ex` |
+| 20 | Talk to Ollama: tools, thinking, and a budget that is never optional | gaming | 57.08 | 5.4 | 2.0 | 3.7 | 3.6 | 5.2 | 4.6 | 6.28 | 2 | `github` |
+| 21 | [Feature request] Optional whole-keyword filtering or Regex | ai | 56.74 | 8.12 | 2.0 | 2.8 | 4.3 | 4.0 | 4.9 | 5.3 | 1 | `github` |
+| 22 | backends: qualify show_block recovery when a model emits pseudo too... | gaming | 56.68 | 7.94 | 2.0 | 4.5 | 3.6 | 4.0 | 4.6 | 4.88 | 1 | `github` |
+| 23 | ChatGPT Plugin in Review for Weeks | devtools | 56.48 | 8.13 | 2.0 | 4.5 | 4.5 | 4.11 | 4.7 | 4.88 | 1 | `hackernews` |
+| 24 | Ask HN: How do you build a reputation without social media? | devtools | 56.1 | 8.16 | 2.0 | 5.4 | 4.5 | 4.17 | 4.7 | 4.65 | 1 | `hackernews` |
+| 25 | Gemini 4 Argon | general | 55.75 | 10.0 | 2.0 | 3.7 | 3.5 | 4.9 | 4.1 | 5.08 | 1 | `hackernews` |
+| 26 | IndieStack Audit: Somebody make a tool that rates idea competition ... | general | 55.72 | 10.0 | 2.8 | 4.5 | 3.5 | 4.46 | 5.0 | 4.88 | 1 | `product_hunt` |
+| 27 | Free and Open-Source Facebook Scraper – Lightweight, No Headless Br... | devtools | 55.71 | 9.39 | 2.0 | 6.3 | 4.5 | 4.06 | 5.6 | 4.42 | 1 | `hackernews` |
+| 28 | 最好看最好用的 iOS V2EX 客户端过审了，欢迎 TestFlight 体验打脸 | mobile | 55.69 | 10.0 | 2.0 | 5.4 | 3.8 | 4.5 | 4.8 | 4.65 | 1 | `v2ex` |
+| 29 | Ask HN: How does your organization make build vs. buy decisions now? | devtools | 55.34 | 9.13 | 2.0 | 5.4 | 4.5 | 4.06 | 4.7 | 4.65 | 1 | `hackernews` |
+| 30 | [Feature] Different app logos | devtools | 55.15 | 7.26 | 2.0 | 2.7 | 4.5 | 4.0 | 4.7 | 5.33 | 1 | `github` |
+| 31 | Request for new rule: BlankLineBeforeMethodFixer | devtools | 55.04 | 8.36 | 2.0 | 4.5 | 4.5 | 4.0 | 4.7 | 4.88 | 1 | `github` |
+| 32 | Ask HN: Where has creativity in software gone? | productivity | 54.95 | 8.42 | 2.0 | 6.3 | 4.0 | 4.23 | 6.6 | 4.42 | 1 | `hackernews` |
+| 33 | Support Npatch | gaming | 54.72 | 7.92 | 2.0 | 4.8 | 3.6 | 4.0 | 4.6 | 4.8 | 1 | `github` |
+| 34 | 关于长辈抽烟的问题，有好的解决办法么？ | general | 54.69 | 10.0 | 2.0 | 4.5 | 3.5 | 4.69 | 4.1 | 4.88 | 1 | `v2ex` |
+| 35 | Ask HN: How bad Earth would have to be for terraforming Mars to mak... | ai | 54.56 | 6.05 | 2.0 | 5.4 | 4.3 | 3.9 | 5.8 | 4.65 | 1 | `rss` |
+| 36 | Show one grade, tool counts, and portable baselines | gaming | 54.52 | 5.61 | 2.0 | 4.6 | 3.6 | 3.9 | 4.6 | 4.85 | 1 | `github` |
+| 37 | Unmet need: 求推荐扫地机 / op / 想在双 / 买一个扫地机器人 / 因为没有上下水 / 所以需要支持水箱版的 | general | 54.5 | 10.0 | 2.0 | 4.5 | 3.5 | 4.51 | 4.1 | 4.88 | 1 | `v2ex` |
+| 38 | [Feature Request] Add GitHub Enterprise Support | devtools | 54.5 | 7.4 | 2.0 | 6.6 | 7.1 | 4.06 | 5.6 | 4.35 | 1 | `github` |
+| 39 | Unmet need: 失业求转行建议 / 之前 / gap / 了两年 / 在带孩子 / 自我否认和内耗 | ai | 54.14 | 5.46 | 2.0 | 4.5 | 4.3 | 3.9 | 4.9 | 4.88 | 1 | `v2ex` |
+| 40 | [FEATURE] Add translations. | mobile | 53.98 | 9.2 | 2.0 | 4.5 | 3.8 | 4.14 | 4.8 | 4.88 | 1 | `github` |
+| 41 | Membrane – Structured persistent memory for local LLMs | ai | 53.86 | 6.23 | 2.0 | 5.4 | 4.3 | 3.9 | 4.9 | 4.65 | 1 | `hackernews` |
+| 42 | Ask HN: Need Email Deliverability Expert | ai | 53.75 | 4.79 | 2.0 | 5.4 | 4.3 | 5.2 | 4.9 | 4.65 | 1 | `rss` |
+| 43 | [Feature request] filter comments by word | fintech | 53.74 | 6.95 | 2.0 | 2.0 | 4.8 | 4.06 | 5.0 | 5.5 | 1 | `github` |
+| 44 | [Feature request] Custom `Context` and `AuthContext` classes a la F... | gaming | 53.67 | 7.41 | 2.0 | 6.6 | 3.6 | 5.3 | 5.5 | 4.35 | 1 | `github` |
+| 45 | Unmet need: 关于超长期库存胎购买建议 / 原厂胎跑了 / 目前到了警戒线 / 想换一套新胎 / 咨询了家附近的倍耐力授权经... | general | 53.64 | 9.04 | 2.0 | 4.5 | 3.5 | 4.25 | 4.1 | 4.88 | 1 | `v2ex` |
+| 46 | [Feature Request] Copy thread link | productivity | 53.58 | 6.78 | 2.0 | 5.4 | 4.0 | 4.0 | 4.8 | 4.65 | 1 | `github` |
+| 47 | Show HN: Guitoro, a virtual guitar you strum with your keyboard | general | 53.54 | 10.0 | 2.0 | 5.4 | 3.5 | 4.58 | 4.1 | 4.65 | 1 | `hackernews` |
+| 48 | docs: improve README discoverability for search and AI agents | devtools | 53.49 | 4.59 | 2.0 | 4.5 | 4.5 | 3.9 | 4.7 | 4.88 | 1 | `github` |
+| 49 | [Feature request]: Combine models | gaming | 53.43 | 8.92 | 2.0 | 5.4 | 3.6 | 4.21 | 4.6 | 4.65 | 1 | `github` |
+| 50 | Ask HN: What tools do you use to create 3D print models using AI | gaming | 53.38 | 4.99 | 2.0 | 6.3 | 3.6 | 3.9 | 4.6 | 4.42 | 1 | `rss` |
 
 ## All dimensions
 
@@ -88,6 +88,13 @@
 
 - [g2] Looking for an alternative to HubSpot that doesn't force a sales suite (score=120, comments=40) — https://www.g2.com/
 
+### Ask HN: Could you find funding if you didn't want to build a $1-10B business?
+
+2 signals across hackernews, rss. Top keywords: business, ask, hn, find, funding. Need-confidence=0.77.
+
+- [hackernews] Ask HN: Could you find funding if you didn't want to build a $1-10B business? (score=7, comments=3) — https://news.ycombinator.com/item?id=50080968
+- [rss] Ask HN: Could you find funding if you didn't want to build a $1-10B business? (score=0, comments=0) — https://news.ycombinator.com/item?id=50080968
+
 ### I wish there was a Chrome extension that batches LinkedIn outreach without getting banned
 
 1 signals across chrome_web_store. Top keywords: wish, there, chrome, extension, batches. Need-confidence=1.00.
@@ -98,7 +105,7 @@
 
 1 signals across hackernews. Top keywords: vps, quot, idea, ask, hn. Need-confidence=0.74.
 
-- [hackernews] Ask HN: What do you run on a $5 VPS that's worth keeping online 24/7? (score=423, comments=663) — https://news.ycombinator.com/item?id=49985548
+- [hackernews] Ask HN: What do you run on a $5 VPS that's worth keeping online 24/7? (score=424, comments=669) — https://news.ycombinator.com/item?id=49985548
 
 ### Why isn't there a lightweight alternative to Jira for 5-person teams?
 
@@ -124,6 +131,12 @@
 
 - [indie_hackers] Looking for an alternative to manual competitor research before building SaaS (score=56, comments=18) — https://www.indiehackers.com/
 
+### Tell HN: ChatGPT on macOS grants local computer access to cloud account
+
+1 signals across hackernews. Top keywords: quot, cloud, chatgpt, macos, tell. Need-confidence=0.68.
+
+- [hackernews] Tell HN: ChatGPT on macOS grants local computer access to cloud account (score=6, comments=1) — https://news.ycombinator.com/item?id=50078284
+
 ### I wish there was a fully offline habit tracker without accounts on Android
 
 1 signals across google_play. Top keywords: wish, there, fully, offline, habit. Need-confidence=0.96.
@@ -135,6 +148,12 @@
 1 signals across hackernews. Top keywords: there, text, reference, having, sound. Need-confidence=0.77.
 
 - [hackernews] Ask HN: Are there AI models for generating sounds based on a text and reference? (score=35, comments=18) — https://news.ycombinator.com/item?id=49972125
+
+### Add MarkupCraft (PDF markup and takeoff for construction, opens Revu markups)
+
+1 signals across github. Top keywords: markupcraft, markup, takeoff, construction, revu. Need-confidence=0.90.
+
+- [github] Add MarkupCraft (PDF markup and takeoff for construction, opens Revu markups) (score=0, comments=1) — https://github.com/storytold/craft-launcher/pull/203
 
 ### Somebody make a Chrome extension that turns 1-star reviews into a roadmap
 
@@ -152,47 +171,29 @@
 
 1 signals across hackernews. Top keywords: router, someone, ask, hn, dd. Need-confidence=0.90.
 
-- [hackernews] Ask HN: Do you want a router that has DD-WRT pre-installed? (score=138, comments=139) — https://news.ycombinator.com/item?id=50039291
+- [hackernews] Ask HN: Do you want a router that has DD-WRT pre-installed? (score=153, comments=146) — https://news.ycombinator.com/item?id=50039291
 
-### Ask HN: How does your organization make build vs. buy decisions now?
+### Scrap hardened/tempered steel is confusing
 
-2 signals across hackernews, rss. Top keywords: build, how, vs, buy, now. Need-confidence=0.75.
+1 signals across github. Top keywords: steel, hardened, tempered, scrap, confusing. Need-confidence=0.90.
 
-- [hackernews] Ask HN: How does your organization make build vs. buy decisions now? (score=6, comments=1) — https://news.ycombinator.com/item?id=50059461
-- [rss] Ask HN: How does your organization make build vs. buy decisions now? (score=0, comments=0) — https://news.ycombinator.com/item?id=50059461
+- [github] Scrap hardened/tempered steel is confusing (score=0, comments=1) — https://github.com/CleverRaven/Cataclysm-DDA/issues/89066
 
-### Editing scope for added reconciliation services
+### OBSRVR Radar: 2026 Q4 proposals
 
-1 signals across github. Top keywords: please, editing, scope, added, reconciliation. Need-confidence=0.76.
+1 signals across github. Top keywords: obsrvr, radar, markdownlint, md, network. Need-confidence=0.68.
 
-- [github] Editing scope for added reconciliation services (score=0, comments=6) — https://github.com/OpenRefine/OpenRefine/issues/3373
+- [github] OBSRVR Radar: 2026 Q4 proposals (score=1, comments=2) — https://github.com/SCF-Public-Goods-Maintenance/scf-public-goods-maintenance.github.io/pull/185
 
-### Ask HN: Why hasn't AI replaced Tax filing software
+### Piczo 相册照片自动分类 | 送码
 
-1 signals across hackernews. Top keywords: tax, filing, intuit, ask, hn. Need-confidence=0.50.
+1 signals across v2ex. Top keywords: https, ssl, mzstatic, com, piczo. Need-confidence=0.49.
 
-- [hackernews] Ask HN: Why hasn't AI replaced Tax filing software (score=13, comments=26) — https://news.ycombinator.com/item?id=50004396
+- [v2ex] Piczo 相册照片自动分类 | 送码 (score=67, comments=67) — https://www.v2ex.com/t/1248362
 
-### Only show candidates in range for best candidate facet
+### Talk to Ollama: tools, thinking, and a budget that is never optional
 
-1 signals across github. Top keywords: please, only, show, candidates, range. Need-confidence=0.53.
+2 signals across github. Top keywords: budget, model, talk, ollama, thinking. Need-confidence=0.54.
 
-- [github] Only show candidates in range for best candidate facet (score=0, comments=16) — https://github.com/OpenRefine/OpenRefine/issues/3673
-
-### 我开发了一款服药提醒工具，想让按时服药变成一件轻松，有趣的小事
-
-1 signals across v2ex. Top keywords: 我开发了一款服药提醒工具, 想让按时服药变成一件轻松, 有趣的小事, 最近做了一个小应用, 该吃药了. Need-confidence=0.69.
-
-- [v2ex] 我开发了一款服药提醒工具，想让按时服药变成一件轻松，有趣的小事 (score=1, comments=1) — https://www.v2ex.com/t/1248345
-
-### 大厂十年领了大礼包，孑然一身应该如何选择呢？
-
-1 signals across v2ex. Top keywords: 大厂十年领了大礼包, 孑然一身应该如何选择呢, 一直是, android, 开发. Need-confidence=0.51.
-
-- [v2ex] 大厂十年领了大礼包，孑然一身应该如何选择呢？ (score=190, comments=190) — https://www.v2ex.com/t/1248103
-
-### ChatGPT Plugin in Review for Weeks
-
-1 signals across hackernews. Top keywords: chatgpt, plugin, review, weeks, long. Need-confidence=0.64.
-
-- [hackernews] ChatGPT Plugin in Review for Weeks (score=2, comments=2) — https://news.ycombinator.com/item?id=50065313
+- [github] Talk to Ollama: tools, thinking, and a budget that is never optional (score=0, comments=0) — https://github.com/baphomello/corifeu/pull/17
+- [github] Talk to Ollama: tools, thinking, and a budget that is never optional (score=0, comments=0) — https://github.com/baphomello/corifeu/pull/18
