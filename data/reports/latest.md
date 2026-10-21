@@ -1,9 +1,9 @@
 # Product Opportunity Report
 
-- Scanned at: `2026-10-20T02:51:36.275907+00:00`
-- Raw signals: **319**
+- Scanned at: `2026-10-21T02:45:50.193590+00:00`
+- Raw signals: **320**
 - Opportunities: **50**
-- Sources: app_store=60, chrome_web_store=1, g2=2, github=45, google_play=2, hackernews=60, indie_hackers=2, product_hunt=3, rss=20, stackexchange=15, steam=60, v2ex=49
+- Sources: app_store=60, chrome_web_store=1, g2=2, github=45, google_play=2, hackernews=60, indie_hackers=2, product_hunt=3, rss=20, stackexchange=15, steam=60, v2ex=50
 
 > Ranking: geometric mean of **需求强度 × 竞争程度↓ × 开发难度↓ × 付费可能性 × 紧迫性 × 市场规模 × 变现速度** (+ hidden dims in JSON).
 
@@ -16,49 +16,49 @@
 | 5 | ReviewGap: Why isn't there an app that mines 1-star App Store revie... | devtools | 61.13 | 10.0 | 2.0 | 5.4 | 8.1 | 4.41 | 4.7 | 5.85 | 1 | `product_hunt` |
 | 6 | Looking for an alternative to manual competitor research before bui... | devtools | 61.09 | 10.0 | 4.4 | 5.4 | 9.5 | 4.34 | 4.7 | 7.05 | 1 | `indie_hackers` |
 | 7 | I wish there was a fully offline habit tracker without accounts on ... | gaming | 60.17 | 10.0 | 2.0 | 5.4 | 6.0 | 4.43 | 4.6 | 5.85 | 1 | `google_play` |
-| 8 | Folke PR - plenty new features | gaming | 59.11 | 8.3 | 2.0 | 3.6 | 3.6 | 4.06 | 5.5 | 5.1 | 1 | `github` |
+| 8 | Ask HN: What's your SSH terminal workflow like? | ai | 60.09 | 8.55 | 2.0 | 4.5 | 4.3 | 4.19 | 4.9 | 4.88 | 1 | `hackernews` |
 | 9 | Somebody make a Chrome extension that turns 1-star reviews into a r... | general | 58.97 | 10.0 | 2.0 | 2.7 | 3.5 | 4.28 | 5.0 | 6.53 | 1 | `indie_hackers` |
-| 10 | Somebody make a family shared budget app that doesn't sell my data | fintech | 58.72 | 10.0 | 2.0 | 4.5 | 4.8 | 4.37 | 5.9 | 4.88 | 1 | `google_play` |
-| 11 | feat(mcp): interactive cross-section MCP App in Claude/ChatGPT chats | gaming | 58.59 | 8.99 | 2.0 | 4.5 | 3.6 | 4.06 | 4.6 | 4.88 | 1 | `github` |
-| 12 | Ask HN: Why can't Ukraine use LoRA instead of Starshield? | ai | 58.31 | 9.66 | 1.0 | 5.4 | 4.3 | 4.51 | 5.4 | 4.65 | 2 | `hackernews,rss` |
-| 13 | Tell HN: I picked up knitting while waiting for my AI agent to comp... | ai | 56.31 | 7.09 | 2.0 | 5.4 | 4.3 | 3.9 | 4.9 | 4.65 | 1 | `hackernews` |
-| 14 | [Feature]: allow cross-namespace Database and Role configuration | devtools | 55.96 | 10.0 | 2.0 | 4.5 | 4.5 | 4.42 | 4.7 | 4.88 | 1 | `github` |
-| 15 | Ask HN: How do I stop Gemini Live from asking."Would like to know m... | ai | 55.81 | 7.74 | 2.0 | 4.5 | 4.3 | 4.19 | 4.9 | 4.88 | 1 | `hackernews` |
-| 16 | Design construction gaps found by the reference catalogue: enumerat... | gaming | 55.78 | 9.15 | 2.0 | 6.4 | 3.6 | 5.56 | 4.6 | 4.4 | 1 | `github` |
-| 17 | IndieStack Audit: Somebody make a tool that rates idea competition ... | general | 55.72 | 10.0 | 2.8 | 4.5 | 3.5 | 4.46 | 5.0 | 4.88 | 1 | `product_hunt` |
-| 18 | A import/export feature that does as the name suggests, import/expo... | ai | 55.31 | 8.45 | 2.0 | 4.6 | 4.3 | 4.14 | 4.9 | 4.85 | 1 | `github` |
-| 19 | Feature Requests | general | 55.13 | 9.46 | 2.0 | 4.5 | 3.5 | 4.23 | 4.1 | 4.88 | 1 | `github` |
-| 20 | Ask HN: How do you cap what your coding agents can spend? | productivity | 54.89 | 5.98 | 2.0 | 7.5 | 8.0 | 3.9 | 4.8 | 5.33 | 1 | `rss` |
-| 21 | Request: Halls of Torment | gaming | 54.72 | 6.42 | 2.0 | 2.7 | 3.6 | 3.9 | 4.6 | 5.33 | 1 | `github` |
-| 22 | 备孕 2 年，最后试管生下健康女儿，分享一下经历，顺带吐槽一下深圳市妇幼。 | general | 54.72 | 10.0 | 2.0 | 4.5 | 3.5 | 4.72 | 4.1 | 4.88 | 1 | `v2ex` |
-| 23 | Unmet need: 理想 / 想买电车了求推荐 / 想上电车了 / 需要智驾至少在前三梯队吧 / 坐标上海 / 有固定充电桩 | general | 54.49 | 10.0 | 2.0 | 4.5 | 3.5 | 4.5 | 4.1 | 4.88 | 1 | `v2ex` |
-| 24 | Qbittorrent is unable to download any torrent | devtools | 54.45 | 8.08 | 2.0 | 4.5 | 4.5 | 5.41 | 4.7 | 4.88 | 1 | `github` |
-| 25 | Show HN: Yana – A local-first, human-governed AI runtime and IDE in... | ai | 54.36 | 6.06 | 2.0 | 5.4 | 4.3 | 3.9 | 4.9 | 4.65 | 1 | `hackernews` |
-| 26 | More Powerful Than Ever, (can't find work) | productivity | 54.35 | 9.8 | 2.0 | 7.2 | 4.0 | 4.35 | 5.7 | 4.2 | 1 | `hackernews` |
-| 27 | Ask HN: Bring-your-own-AI hardware | gaming | 54.21 | 7.8 | 1.0 | 6.3 | 3.6 | 4.3 | 5.1 | 4.42 | 2 | `hackernews,rss` |
-| 28 | Add a `list-files` tool that lists every file type | gaming | 53.86 | 6.21 | 2.0 | 4.8 | 3.6 | 3.9 | 4.6 | 4.8 | 1 | `github` |
-| 29 | Unmet need: what / dark / vision / kind / issue / feature | general | 53.57 | 6.19 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `github` |
-| 30 | Ask HN: What Got You into Rust? | devtools | 53.3 | 8.75 | 2.0 | 6.3 | 4.5 | 4.14 | 4.7 | 4.42 | 1 | `hackernews` |
-| 31 | 求推荐 windows 翻译软件（支持截图 ocr），类似 macOS 的 Bob | general | 52.94 | 8.08 | 2.0 | 4.5 | 3.5 | 4.19 | 4.1 | 4.88 | 1 | `v2ex` |
-| 32 | [Feature]: Performance graph labels | general | 52.75 | 7.59 | 2.8 | 2.7 | 3.5 | 4.0 | 4.1 | 5.33 | 1 | `github` |
-| 33 | Ask HN: Is anyone still running Token Ring or FDDI networks? | general | 52.69 | 9.08 | 2.0 | 4.5 | 3.5 | 4.11 | 4.1 | 4.88 | 1 | `hackernews` |
-| 34 | feat: Sidebar menu filter | devtools | 52.61 | 8.19 | 2.0 | 5.4 | 4.5 | 4.14 | 4.7 | 4.65 | 1 | `github` |
-| 35 | Show HN: Approve Sudo with Android Biometrics | mobile | 52.55 | 5.42 | 2.0 | 4.5 | 3.8 | 3.9 | 4.8 | 4.88 | 1 | `hackernews` |
-| 36 | 卖房咨询，有卖房朋友经验的朋友来聊聊 | general | 52.24 | 7.31 | 2.0 | 4.5 | 3.5 | 4.06 | 4.1 | 4.88 | 1 | `v2ex` |
-| 37 | [Feature request] Enable BME680 and BMP085 in default builds for Pr... | ai | 51.89 | 6.88 | 2.0 | 6.3 | 4.3 | 4.0 | 4.9 | 4.42 | 1 | `github` |
-| 38 | Corante – A privacy-first, lightweight news reader without tracking | general | 51.67 | 5.96 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `hackernews` |
-| 39 | Reload from disk for multiple objects | gaming | 51.57 | 6.88 | 2.0 | 4.5 | 3.6 | 3.9 | 4.6 | 4.88 | 1 | `github` |
-| 40 | Two Firefighters Died in Yosemite–For What? | general | 51.5 | 6.47 | 2.0 | 4.5 | 3.5 | 4.0 | 4.1 | 4.88 | 1 | `hackernews` |
-| 41 | 又做了两款工具，一个面向家长利用心理工具管孩子，一个面向大学生学统计 | general | 51.38 | 6.32 | 2.0 | 4.5 | 3.5 | 4.0 | 4.1 | 4.88 | 1 | `v2ex` |
-| 42 | Ask HN: Cheaper ways to estimate age and gender from selfies? | devtools | 51.35 | 5.5 | 2.0 | 6.6 | 4.5 | 3.9 | 4.7 | 4.35 | 1 | `rss` |
-| 43 | Anyone migrate off Google Voice? | general | 51.12 | 6.16 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `hackernews` |
-| 44 | Show HN: URL Shortener – open-source Bitly Alternative | general | 50.87 | 5.88 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `hackernews` |
-| 45 | Show HN: Free text classification piece for Activepieces | general | 50.38 | 5.36 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `hackernews` |
-| 46 | Wearing headphones during surgery may reduce nausea and vomiting af... | general | 50.35 | 5.33 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `hackernews` |
-| 47 | Ask HN: Help to lower AWS bill: CloudFront requests for files that ... | general | 50.18 | 5.16 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `rss` |
-| 48 | Ask HN: Testing Text Posts | general | 49.81 | 4.81 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `rss` |
-| 49 | Ask HN: Optimize a low-end Windows 10 laptop? | general | 49.75 | 4.76 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `rss` |
-| 50 | 整理了 53 款浏览器游戏： PokéBonk、Kanto Tactics，以及手机启动容易踩的坑 | gaming | 49.74 | 4.56 | 2.0 | 6.3 | 3.6 | 3.9 | 4.6 | 4.42 | 1 | `v2ex` |
+| 10 | Ask HN: As developers from low-income countries,how to cope with AI... | devtools | 58.81 | 5.79 | 2.0 | 3.6 | 5.9 | 3.9 | 5.6 | 6.3 | 1 | `rss` |
+| 11 | Somebody make a family shared budget app that doesn't sell my data | fintech | 58.72 | 10.0 | 2.0 | 4.5 | 4.8 | 4.37 | 5.9 | 4.88 | 1 | `google_play` |
+| 12 | feat(landing): Windows server monitoring guide | productivity | 57.88 | 9.51 | 2.0 | 3.6 | 4.0 | 4.21 | 4.8 | 5.1 | 1 | `github` |
+| 13 | Ask HN: How do you cap what your coding agents can spend? | productivity | 56.92 | 8.26 | 2.0 | 7.5 | 8.0 | 4.0 | 4.8 | 5.33 | 1 | `hackernews` |
+| 14 | 给自建 Umami 写了原生 iOS / Android 客户端 SiteGlance：纯端侧直连、支持桌面小组件，单次买断（附兑换码） | devtools | 56.83 | 10.0 | 2.0 | 7.5 | 6.9 | 5.66 | 4.7 | 4.12 | 1 | `v2ex` |
+| 15 | Tell HN: I picked up knitting while waiting for my AI agent to comp... | ai | 56.59 | 7.97 | 2.0 | 5.4 | 4.3 | 4.06 | 4.9 | 4.65 | 1 | `hackernews` |
+| 16 | Ask HN: Why can't Ukraine use LoRA instead of Starshield? | ai | 56.14 | 8.73 | 2.0 | 5.4 | 4.3 | 4.17 | 4.9 | 4.65 | 1 | `hackernews` |
+| 17 | Ask HN: Why HN dosen't have bot problem? | devtools | 55.99 | 8.36 | 2.0 | 4.6 | 4.5 | 4.23 | 4.7 | 4.85 | 1 | `hackernews` |
+| 18 | [Feature]: allow cross-namespace Database and Role configuration | devtools | 55.97 | 10.0 | 2.0 | 4.5 | 4.5 | 4.43 | 4.7 | 4.88 | 1 | `github` |
+| 19 | Ask HN: Are there any programming positions that are safe from AI? | ai | 55.86 | 9.12 | 2.0 | 6.3 | 4.3 | 4.19 | 4.9 | 4.42 | 1 | `hackernews` |
+| 20 | Ask HN: Dark mode for HN please? (2026) | gaming | 55.74 | 9.46 | 2.0 | 6.3 | 3.6 | 4.27 | 5.5 | 4.42 | 1 | `hackernews` |
+| 21 | IndieStack Audit: Somebody make a tool that rates idea competition ... | general | 55.72 | 10.0 | 2.8 | 4.5 | 3.5 | 4.46 | 5.0 | 4.88 | 1 | `product_hunt` |
+| 22 | Feature Request: Change spiders | ai | 55.27 | 8.47 | 2.0 | 5.4 | 4.3 | 4.19 | 4.9 | 4.65 | 1 | `github` |
+| 23 | [FEATURE]: Support generating default uuid v7 | devtools | 55.05 | 8.82 | 2.0 | 5.4 | 5.7 | 4.0 | 4.7 | 4.65 | 1 | `github` |
+| 24 | [Feature Request] Add GitHub Enterprise Support | devtools | 55.03 | 7.99 | 2.0 | 6.6 | 7.1 | 4.14 | 5.6 | 4.35 | 1 | `github` |
+| 25 | Feature request: API access, let users enable their own keys | devtools | 54.94 | 5.89 | 2.0 | 3.9 | 4.5 | 5.2 | 4.7 | 5.03 | 1 | `github` |
+| 26 | Ask HN: Are investors still investing into tech? | general | 54.92 | 8.92 | 1.0 | 4.5 | 3.5 | 4.4 | 4.6 | 4.88 | 2 | `hackernews,rss` |
+| 27 | 最近新开发一个 AI 钓鱼有关系的 app，喜欢钓鱼的朋友可以试一下。 | ai | 54.91 | 7.24 | 2.0 | 5.4 | 4.3 | 4.06 | 4.9 | 4.65 | 1 | `v2ex` |
+| 28 | Show HN: Litedeck – Agentless server management GUI over plain SSH | gaming | 54.87 | 7.15 | 2.0 | 5.4 | 3.6 | 3.9 | 4.6 | 4.65 | 1 | `hackernews` |
+| 29 | Revolut down – Global ATM withdrawals and bank transfers failing | fintech | 54.57 | 9.47 | 2.0 | 6.3 | 4.8 | 4.21 | 5.9 | 4.42 | 1 | `hackernews` |
+| 30 | 卖房咨询，有卖房朋友经验的朋友来聊聊 | general | 54.55 | 10.0 | 2.0 | 4.5 | 3.5 | 4.56 | 4.1 | 4.88 | 1 | `v2ex` |
+| 31 | English colloquial words: formal alternatives (alt=) | gaming | 54.45 | 7.7 | 2.0 | 5.4 | 3.6 | 5.3 | 4.6 | 4.65 | 1 | `github` |
+| 32 | AGI-S – an AI platform I'm building | ai | 54.21 | 6.49 | 2.0 | 5.4 | 4.3 | 4.0 | 4.9 | 4.65 | 1 | `hackernews` |
+| 33 | Easier language priority settings | devtools | 53.94 | 9.34 | 2.0 | 4.5 | 4.5 | 4.11 | 4.7 | 4.88 | 1 | `github` |
+| 34 | Show HN: Unterm – A pure-Rust terminal for humans and AI agents | ai | 53.77 | 5.47 | 2.0 | 5.4 | 4.3 | 3.9 | 4.9 | 4.65 | 1 | `hackernews` |
+| 35 | Add custom parse mode | gaming | 53.73 | 9.39 | 2.0 | 4.5 | 3.6 | 4.28 | 4.6 | 4.88 | 1 | `github` |
+| 36 | [Feature] Add tempo control to MIDI player | devtools | 53.71 | 7.49 | 2.0 | 4.5 | 4.5 | 4.11 | 4.7 | 4.88 | 1 | `github` |
+| 37 | [前端转全栈学 Java ，挑战 30 天独立做项目！望开发大佬指条明路] | general | 53.65 | 9.06 | 2.0 | 4.5 | 3.5 | 4.25 | 4.1 | 4.88 | 1 | `v2ex` |
+| 38 | Ask HN: What are you working on? | general | 53.65 | 8.94 | 2.0 | 4.5 | 3.5 | 4.32 | 4.1 | 4.88 | 1 | `hackernews` |
+| 39 | CPU-native. Deterministic. O(1) processes. – the Old New Coolness | gaming | 53.5 | 8.47 | 2.0 | 6.3 | 3.6 | 4.0 | 5.5 | 4.42 | 1 | `hackernews` |
+| 40 | Let me set a default main monitor | devtools | 53.42 | 6.24 | 2.0 | 3.6 | 4.5 | 3.9 | 4.7 | 5.1 | 1 | `github` |
+| 41 | Add Egress policy docs to your first MCP tools | devtools | 53.39 | 5.59 | 2.0 | 4.5 | 4.5 | 3.9 | 4.7 | 4.88 | 1 | `github` |
+| 42 | [Feature Request] Alternative notification methods | devtools | 53.38 | 7.41 | 2.0 | 5.4 | 4.5 | 4.0 | 4.7 | 4.65 | 1 | `github` |
+| 43 | Never take a copy of OpenADLC's git, pnpm or gh for the real tool, ... | productivity | 53.34 | 8.52 | 2.0 | 6.6 | 4.0 | 4.0 | 4.8 | 4.35 | 1 | `github` |
+| 44 | 把安卓变成小电脑多窗口运行 android / Linux / windows / steam 应用，接上 AR 眼镜就能虚拟空间大屏办公 | gaming | 53.1 | 4.95 | 2.0 | 5.4 | 4.8 | 3.9 | 4.6 | 4.65 | 1 | `v2ex` |
+| 45 | super documentation reading | devtools | 52.97 | 7.52 | 2.0 | 5.4 | 4.5 | 5.36 | 4.7 | 4.65 | 1 | `github` |
+| 46 | Ask HN: Is anyone still running Token Ring or FDDI networks? | general | 52.69 | 9.08 | 2.0 | 4.5 | 3.5 | 4.11 | 4.1 | 4.88 | 1 | `hackernews` |
+| 47 | I wish you didn't want to see Nathan Fielder's Elizabeth Holmes doc... | general | 52.39 | 7.39 | 2.0 | 4.5 | 3.5 | 4.14 | 4.1 | 4.88 | 1 | `hackernews` |
+| 48 | OpenAI – 12 hour cache (API) available and "cache forever" for work... | devtools | 52.18 | 6.95 | 2.0 | 6.6 | 4.5 | 4.06 | 4.7 | 4.35 | 1 | `hackernews` |
+| 49 | Feature Request: add cockpit-compose to HCI | devtools | 52.12 | 5.34 | 2.0 | 5.4 | 4.5 | 3.9 | 4.7 | 4.65 | 1 | `github` |
+| 50 | [Super Productivity] Major major  help | productivity | 51.93 | 7.42 | 2.0 | 5.4 | 4.0 | 3.9 | 4.8 | 4.65 | 1 | `app_store` |
 
 ## All dimensions
 
@@ -118,11 +118,11 @@
 
 - [google_play] I wish there was a fully offline habit tracker without accounts on Android (score=90, comments=33) — https://play.google.com/store/apps
 
-### Folke PR - plenty new features
+### Ask HN: What's your SSH terminal workflow like?
 
-1 signals across github. Top keywords: folke, pr, plenty, new, features. Need-confidence=0.82.
+1 signals across hackernews. Top keywords: ssh, ask, hn, what, terminal. Need-confidence=0.63.
 
-- [github] Folke PR - plenty new features (score=0, comments=2) — https://github.com/buzrr/buzrr/pull/87
+- [hackernews] Ask HN: What's your SSH terminal workflow like? (score=2, comments=6) — https://news.ycombinator.com/item?id=50161254
 
 ### Somebody make a Chrome extension that turns 1-star reviews into a roadmap
 
@@ -130,69 +130,68 @@
 
 - [indie_hackers] Somebody make a Chrome extension that turns 1-star reviews into a roadmap (score=41, comments=12) — https://www.indiehackers.com/
 
+### Ask HN: As developers from low-income countries,how to cope with AI replacement?
+
+1 signals across rss. Top keywords: fine, how, ask, hn, developers. Need-confidence=0.72.
+
+- [rss] Ask HN: As developers from low-income countries,how to cope with AI replacement? (score=0, comments=0) — https://news.ycombinator.com/item?id=50168362
+
 ### Somebody make a family shared budget app that doesn't sell my data
 
 1 signals across google_play. Top keywords: somebody, family, shared, budget, doesn. Need-confidence=1.00.
 
 - [google_play] Somebody make a family shared budget app that doesn't sell my data (score=70, comments=22) — https://play.google.com/store/apps
 
-### feat(mcp): interactive cross-section MCP App in Claude/ChatGPT chats
+### feat(landing): Windows server monitoring guide
 
-1 signals across github. Top keywords: mcp, cross, interactive, section, claude. Need-confidence=0.91.
+1 signals across github. Top keywords: windows, server, monitoring, guide, counters. Need-confidence=0.80.
 
-- [github] feat(mcp): interactive cross-section MCP App in Claude/ChatGPT chats (score=1, comments=2) — https://github.com/roznet/flyfun-weather/pull/820
+- [github] feat(landing): Windows server monitoring guide (score=0, comments=7) — https://github.com/MapleTechLabs/maple/pull/1581
 
-### Ask HN: Why can't Ukraine use LoRA instead of Starshield?
+### Ask HN: How do you cap what your coding agents can spend?
 
-2 signals across hackernews, rss. Top keywords: lora, ukraine, starshield, ask, hn. Need-confidence=0.64.
+1 signals across hackernews. Top keywords: how, coding, agents, ask, hn. Need-confidence=0.78.
 
-- [hackernews] Ask HN: Why can't Ukraine use LoRA instead of Starshield? (score=4, comments=3) — https://news.ycombinator.com/item?id=50156330
-- [rss] Ask HN: Why can't Ukraine use LoRA instead of Starshield? (score=0, comments=0) — https://news.ycombinator.com/item?id=50156330
+- [hackernews] Ask HN: How do you cap what your coding agents can spend? (score=3, comments=1) — https://news.ycombinator.com/item?id=50149426
+
+### 给自建 Umami 写了原生 iOS / Android 客户端 SiteGlance：纯端侧直连、支持桌面小组件，单次买断（附兑换码）
+
+1 signals across v2ex. Top keywords: umami, 给自建, 写了原生, ios, android. Need-confidence=0.73.
+
+- [v2ex] 给自建 Umami 写了原生 iOS / Android 客户端 SiteGlance：纯端侧直连、支持桌面小组件，单次买断（附兑换码） (score=21, comments=21) — https://www.v2ex.com/t/1250493
 
 ### Tell HN: I picked up knitting while waiting for my AI agent to complete
 
-1 signals across hackernews. Top keywords: ai, tell, hn, picked, knitting. Need-confidence=0.53.
+1 signals across hackernews. Top keywords: ai, tell, hn, picked, knitting. Need-confidence=0.54.
 
-- [hackernews] Tell HN: I picked up knitting while waiting for my AI agent to complete (score=6, comments=0) — https://news.ycombinator.com/item?id=50142650
+- [hackernews] Tell HN: I picked up knitting while waiting for my AI agent to complete (score=9, comments=2) — https://news.ycombinator.com/item?id=50142650
+
+### Ask HN: Why can't Ukraine use LoRA instead of Starshield?
+
+1 signals across hackernews. Top keywords: lora, https, en, wikipedia, org. Need-confidence=0.66.
+
+- [hackernews] Ask HN: Why can't Ukraine use LoRA instead of Starshield? (score=4, comments=5) — https://news.ycombinator.com/item?id=50156330
+
+### Ask HN: Why HN dosen't have bot problem?
+
+1 signals across hackernews. Top keywords: hn, simplicity, ask, why, dosen. Need-confidence=0.49.
+
+- [hackernews] Ask HN: Why HN dosen't have bot problem? (score=7, comments=8) — https://news.ycombinator.com/item?id=50153479
 
 ### [Feature]: allow cross-namespace Database and Role configuration
 
 1 signals across github. Top keywords: feature, existing, issue, request, allow. Need-confidence=0.93.
 
-- [github] [Feature]: allow cross-namespace Database and Role configuration (score=66, comments=32) — https://github.com/cloudnative-pg/cloudnative-pg/issues/6043
+- [github] [Feature]: allow cross-namespace Database and Role configuration (score=66, comments=33) — https://github.com/cloudnative-pg/cloudnative-pg/issues/6043
 
-### Ask HN: How do I stop Gemini Live from asking."Would like to know more about..?"
+### Ask HN: Are there any programming positions that are safe from AI?
 
-1 signals across hackernews. Top keywords: how, gemini, live, ask, hn. Need-confidence=0.48.
+1 signals across hackernews. Top keywords: programming, ai, people, interested, ask. Need-confidence=0.71.
 
-- [hackernews] Ask HN: How do I stop Gemini Live from asking."Would like to know more about..?" (score=2, comments=6) — https://news.ycombinator.com/item?id=50131248
+- [hackernews] Ask HN: Are there any programming positions that are safe from AI? (score=4, comments=6) — https://news.ycombinator.com/item?id=50166914
 
-### Design construction gaps found by the reference catalogue: enumeration, native split-plot designs, OMARS and DSD variants
+### Ask HN: Dark mode for HN please? (2026)
 
-1 signals across github. Top keywords: reference, catalogue, design, construction, gaps. Need-confidence=0.66.
+1 signals across hackernews. Top keywords: hn, ask, dark, mode, please. Need-confidence=0.56.
 
-- [github] Design construction gaps found by the reference catalogue: enumeration, native split-plot designs, O (score=0, comments=10) — https://github.com/kgdunn/process-improve/issues/788
-
-### IndieStack Audit: Somebody make a tool that rates idea competition before you build
-
-1 signals across product_hunt. Top keywords: competition, build, indiestack, audit, somebody. Need-confidence=1.00.
-
-- [product_hunt] IndieStack Audit: Somebody make a tool that rates idea competition before you build (score=210, comments=41) — https://www.producthunt.com/
-
-### A import/export feature that does as the name suggests, import/export personal projects
-
-1 signals across github. Top keywords: import, export, feature, name, suggests. Need-confidence=0.72.
-
-- [github] A import/export feature that does as the name suggests, import/export personal projects (score=0, comments=4) — https://github.com/nexu-io/open-design/issues/6627
-
-### Feature Requests
-
-1 signals across github. Top keywords: requests, flashem, slow, feature, few. Need-confidence=0.77.
-
-- [github] Feature Requests (score=0, comments=8) — https://github.com/WizzardSK/flashem-libretro/issues/5
-
-### Ask HN: How do you cap what your coding agents can spend?
-
-1 signals across rss. Top keywords: how, coding, agents, ask, hn. Need-confidence=0.75.
-
-- [rss] Ask HN: How do you cap what your coding agents can spend? (score=0, comments=0) — https://news.ycombinator.com/item?id=50149426
+- [hackernews] Ask HN: Dark mode for HN please? (2026) (score=22, comments=11) — https://news.ycombinator.com/item?id=50160116
