@@ -1,9 +1,9 @@
 # Product Opportunity Report
 
-- Scanned at: `2026-11-05T04:31:45.321262+00:00`
-- Raw signals: **297**
+- Scanned at: `2026-11-06T04:30:48.061042+00:00`
+- Raw signals: **320**
 - Opportunities: **45**
-- Sources: app_store=60, chrome_web_store=1, g2=2, github=45, google_play=2, hackernews=60, indie_hackers=2, product_hunt=3, stackexchange=15, steam=60, v2ex=47
+- Sources: app_store=60, chrome_web_store=1, g2=2, github=45, google_play=2, hackernews=60, indie_hackers=2, product_hunt=3, rss=20, stackexchange=15, steam=60, v2ex=50
 
 > Ranking: geometric mean of **需求强度 × 竞争程度↓ × 开发难度↓ × 付费可能性 × 紧迫性 × 市场规模 × 变现速度** (+ hidden dims in JSON).
 
@@ -15,45 +15,45 @@
 | 4 | Why isn't there a lightweight alternative to Jira for 5-person teams? | general | 61.61 | 10.0 | 2.8 | 4.5 | 7.1 | 4.53 | 5.9 | 4.88 | 1 | `g2` |
 | 5 | ReviewGap: Why isn't there an app that mines 1-star App Store revie... | devtools | 61.13 | 10.0 | 2.0 | 5.4 | 8.1 | 4.41 | 4.7 | 5.85 | 1 | `product_hunt` |
 | 6 | Looking for an alternative to manual competitor research before bui... | devtools | 61.09 | 10.0 | 4.4 | 5.4 | 9.5 | 4.34 | 4.7 | 7.05 | 1 | `indie_hackers` |
-| 7 | I wish there was a fully offline habit tracker without accounts on ... | gaming | 60.17 | 10.0 | 2.0 | 5.4 | 6.0 | 4.43 | 4.6 | 5.85 | 1 | `google_play` |
-| 8 | Somebody make a Chrome extension that turns 1-star reviews into a r... | general | 58.97 | 10.0 | 2.0 | 2.7 | 3.5 | 4.28 | 5.0 | 6.53 | 1 | `indie_hackers` |
-| 9 | Somebody make a family shared budget app that doesn't sell my data | fintech | 58.72 | 10.0 | 2.0 | 4.5 | 4.8 | 4.37 | 5.9 | 4.88 | 1 | `google_play` |
-| 10 | 全球 3.5 万个电台随机听 RoamDial： iOS 版上架了，安卓正在封测，发帖送一波永久 Pro 码 | ai | 58.72 | 10.0 | 2.0 | 7.2 | 6.7 | 5.95 | 4.9 | 4.2 | 1 | `v2ex` |
-| 11 | How did we end up with Frontier Lab oligopoly rather than a monopoly? | devtools | 57.35 | 8.17 | 2.8 | 5.4 | 4.5 | 4.06 | 5.6 | 4.65 | 1 | `hackernews` |
+| 7 | Ask HN: What are forgotten topics in computing that deserve a new r... | ai | 60.18 | 9.82 | 1.0 | 4.6 | 4.3 | 4.54 | 5.4 | 4.85 | 2 | `hackernews,rss` |
+| 8 | I wish there was a fully offline habit tracker without accounts on ... | gaming | 60.17 | 10.0 | 2.0 | 5.4 | 6.0 | 4.43 | 4.6 | 5.85 | 1 | `google_play` |
+| 9 | Somebody make a Chrome extension that turns 1-star reviews into a r... | general | 58.97 | 10.0 | 2.0 | 2.7 | 3.5 | 4.28 | 5.0 | 6.53 | 1 | `indie_hackers` |
+| 10 | Somebody make a family shared budget app that doesn't sell my data | fintech | 58.72 | 10.0 | 2.0 | 4.5 | 4.8 | 4.37 | 5.9 | 4.88 | 1 | `google_play` |
+| 11 | Ask HN: What are some good resources on encoded/encrypted search? | ai | 58.47 | 8.98 | 1.0 | 5.4 | 4.3 | 4.3 | 6.3 | 4.65 | 2 | `hackernews,rss` |
 | 12 | Ask HN: Which TV do you recommend for privacy? | ai | 57.3 | 10.0 | 2.8 | 5.4 | 4.3 | 4.92 | 4.9 | 4.65 | 1 | `hackernews` |
-| 13 | Driver: NocoDB | devtools | 57.03 | 10.0 | 2.0 | 4.5 | 4.5 | 4.21 | 4.7 | 4.88 | 1 | `github` |
-| 14 | UI-B polish (UI-02, UI-03): quieter gaps and clearer source facts | devtools | 56.87 | 6.84 | 2.8 | 4.0 | 4.5 | 3.9 | 4.7 | 6.2 | 1 | `github` |
-| 15 | Tell HN: GitHub Is Down | devtools | 56.46 | 9.98 | 2.0 | 4.5 | 4.5 | 4.32 | 4.7 | 4.88 | 1 | `hackernews` |
-| 16 | Short-lived MAC addresses get pushed as clients | productivity | 56.3 | 9.26 | 2.0 | 5.4 | 4.0 | 4.19 | 4.8 | 4.65 | 1 | `github` |
-| 17 | Ask HN: Which agent harness do you use for working with multiple Mo... | gaming | 56.19 | 7.74 | 2.0 | 4.5 | 3.6 | 4.0 | 4.6 | 4.88 | 1 | `hackernews` |
-| 18 | Ask HN: Credit card and loyalty analytics, where to start? | productivity | 56.16 | 6.94 | 2.0 | 5.4 | 6.6 | 3.9 | 5.7 | 4.65 | 1 | `hackernews` |
-| 19 | [FEATURE] - query each stake snapshot independently [Draft] | gaming | 56.09 | 10.0 | 2.0 | 5.7 | 3.6 | 4.45 | 4.6 | 4.58 | 1 | `github` |
-| 20 | Make gen_ai.tool.call.result an object with value and parts | gaming | 55.93 | 8.61 | 2.0 | 4.8 | 3.6 | 4.0 | 4.6 | 4.8 | 1 | `github` |
-| 21 | [前端必看 2026 版] 前端开发必看的 100 个网站，记得收藏！ | devtools | 55.76 | 10.0 | 2.0 | 5.7 | 4.5 | 4.28 | 4.7 | 4.58 | 1 | `v2ex` |
-| 22 | IndieStack Audit: Somebody make a tool that rates idea competition ... | general | 55.72 | 10.0 | 2.8 | 4.5 | 3.5 | 4.46 | 5.0 | 4.88 | 1 | `product_hunt` |
-| 23 | Ask HN: What is Google Flights' business model and has it changed r... | gaming | 55.34 | 9.56 | 2.0 | 5.4 | 3.6 | 4.21 | 4.6 | 4.65 | 1 | `hackernews` |
-| 24 | Ask HN: Is it still worth building and documenting projects the "ol... | ai | 55.11 | 9.03 | 2.0 | 6.3 | 4.3 | 4.17 | 4.9 | 4.42 | 1 | `hackernews` |
-| 25 | Ask HN: Are you building your own personal webapps? | productivity | 55.11 | 7.78 | 2.0 | 5.4 | 4.0 | 4.06 | 4.8 | 4.65 | 1 | `hackernews` |
-| 26 | [Feature] Support external plugin updates | devtools | 54.95 | 8.24 | 2.0 | 4.5 | 4.5 | 4.0 | 4.7 | 4.88 | 1 | `github` |
-| 27 | 用 google pay 升级 codex plus 为什么无反应 | ai | 54.79 | 4.61 | 2.0 | 4.5 | 5.7 | 3.9 | 4.9 | 4.88 | 1 | `v2ex` |
-| 28 | Ask HN: Is AI good enough for math exercises? | productivity | 54.7 | 8.87 | 2.0 | 5.4 | 4.0 | 4.14 | 4.8 | 4.65 | 1 | `hackernews` |
-| 29 | Write the hygiene, portability and ops references | ai | 54.56 | 7.05 | 2.0 | 5.4 | 4.3 | 3.9 | 4.9 | 4.65 | 1 | `github` |
-| 30 | Entity chunk section change event | ai | 54.45 | 7.64 | 2.0 | 5.4 | 4.3 | 4.0 | 4.9 | 4.65 | 1 | `github` |
-| 31 | Strategy set, sizing and risk limits | productivity | 54.3 | 5.47 | 2.0 | 3.8 | 4.0 | 3.9 | 5.7 | 5.05 | 1 | `github` |
-| 32 | Tell HN: You now need a government id in order to create an Anthrop... | general | 54.22 | 10.0 | 2.0 | 4.5 | 3.5 | 4.26 | 4.1 | 4.88 | 1 | `hackernews` |
-| 33 | Ask HN: Where should I start to do marketing? | productivity | 54.22 | 5.49 | 2.0 | 4.5 | 4.0 | 5.2 | 5.7 | 4.88 | 1 | `hackernews` |
-| 34 | PRD: Friend Reactions, share panel, and AI titles | productivity | 54.07 | 5.41 | 2.0 | 5.4 | 4.0 | 3.9 | 4.8 | 4.65 | 1 | `github` |
-| 35 | [Contribution] Swedish translation | devtools | 53.64 | 9.48 | 2.0 | 6.3 | 4.5 | 4.21 | 4.7 | 4.42 | 1 | `github` |
-| 36 | feat(server): Stricter types for `AnyRouter` etc | devtools | 53.34 | 7.98 | 2.0 | 5.4 | 4.5 | 5.41 | 4.7 | 4.65 | 1 | `github` |
-| 37 | Ask HN: Design My YouTube Feed | gaming | 53.28 | 9.32 | 2.0 | 7.2 | 3.6 | 4.23 | 4.6 | 4.2 | 1 | `hackernews` |
-| 38 | [Feature Request] Ability to specify the AZ when creating NodeGroups | devtools | 52.82 | 9.77 | 2.0 | 6.6 | 4.5 | 4.25 | 4.7 | 4.35 | 1 | `github` |
-| 39 | Show HN: Rendro – fills in security questionnaires and RFPs from yo... | gaming | 52.18 | 5.83 | 2.0 | 5.4 | 3.6 | 3.9 | 4.6 | 4.65 | 1 | `hackernews` |
-| 40 | [Feature request] ATAC count mode for metacell construction | gaming | 52.14 | 5.35 | 2.0 | 3.6 | 3.6 | 3.9 | 4.6 | 5.1 | 1 | `github` |
-| 41 | 做了一个 iOS 本地音乐播放器： Wi-Fi 拖歌、FLAC/DSD、10 段参数 EQ ，发帖送一波永久 pro 送码 | devtools | 51.54 | 8.43 | 2.0 | 8.4 | 5.9 | 4.11 | 4.7 | 3.9 | 1 | `v2ex` |
-| 42 | Why Isn't Retatrutide Approved Yet? | general | 51.54 | 6.65 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `hackernews` |
-| 43 | Show HN: Ryzova UCE – A local-first, rule-based software compatibil... | general | 51.5 | 5.77 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `hackernews` |
-| 44 | Show HN: Hyperb – multiplatform browser for hypereffect apps (iroh,... | general | 50.87 | 5.88 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `hackernews` |
-| 45 | Shorthand Property and Method Names Option | general | 50.53 | 7.47 | 2.0 | 4.5 | 3.5 | 4.0 | 4.1 | 4.88 | 1 | `github` |
+| 13 | Ask HN: Credit card and loyalty analytics, where to start? | productivity | 56.87 | 7.82 | 2.0 | 5.4 | 6.6 | 3.9 | 5.7 | 4.65 | 1 | `hackernews` |
+| 14 | Ask HN: Local AI Models for Coding and General Tasks? | gaming | 56.86 | 9.65 | 1.0 | 5.4 | 3.6 | 4.46 | 5.1 | 4.65 | 2 | `hackernews,rss` |
+| 15 | 做了一款 iOS 阅读器「随阅」，目前限免，欢迎试试 | mobile | 56.78 | 10.0 | 2.0 | 4.5 | 3.8 | 4.51 | 4.8 | 4.88 | 1 | `v2ex` |
+| 16 | Ask HN: Where should I start to do marketing? | productivity | 56.76 | 8.12 | 2.0 | 4.5 | 4.0 | 5.47 | 5.7 | 4.88 | 1 | `hackernews` |
+| 17 | fix(daemon): name code-host tools by their host and act only on tha... | gaming | 56.48 | 7.82 | 2.0 | 3.6 | 3.6 | 3.9 | 4.6 | 5.1 | 1 | `github` |
+| 18 | 上个月在这里求内测的取餐号收集册「杯号」，上架 App Store 了（送 30 个永久 Pro 码） | gaming | 56.27 | 10.0 | 2.0 | 5.4 | 3.6 | 5.63 | 4.6 | 4.65 | 1 | `v2ex` |
+| 19 | IndieStack Audit: Somebody make a tool that rates idea competition ... | general | 55.72 | 10.0 | 2.8 | 4.5 | 3.5 | 4.46 | 5.0 | 4.88 | 1 | `product_hunt` |
+| 20 | OV-184: Say which database the deletion retry is about to act in | devtools | 55.59 | 5.49 | 2.0 | 4.8 | 4.5 | 5.2 | 4.7 | 4.8 | 1 | `github` |
+| 21 | Support database sub-items | productivity | 54.69 | 9.53 | 2.0 | 4.6 | 4.0 | 4.28 | 4.8 | 4.85 | 1 | `github` |
+| 22 | Ask HN: Are there any non-wireless Android devices for sale? | mobile | 54.63 | 6.72 | 2.0 | 4.5 | 3.8 | 3.9 | 5.7 | 4.88 | 1 | `rss` |
+| 23 | Feature request: ability to disable guide/home button opening settings | gaming | 53.74 | 4.62 | 2.0 | 4.5 | 4.8 | 3.9 | 4.6 | 4.88 | 1 | `github` |
+| 24 | Ask HN: Any good AI design tools for pitch decks and visuals? | gaming | 53.73 | 7.54 | 2.0 | 5.4 | 3.6 | 4.0 | 4.6 | 4.65 | 1 | `hackernews` |
+| 25 | 做了一个 Safari 阅读配色扩展「暮览」：四款主题，每个网站单独设置 | gaming | 53.55 | 5.12 | 2.0 | 4.5 | 5.0 | 3.9 | 4.6 | 4.88 | 1 | `v2ex` |
+| 26 | Tell HN: You now need a government id in order to create an Anthrop... | general | 53.42 | 10.0 | 2.0 | 4.5 | 3.5 | 4.28 | 4.1 | 4.88 | 1 | `hackernews` |
+| 27 | feature(Instagram): Separate Download Button/Icon for Reels and Sto... | general | 53.29 | 9.33 | 2.8 | 3.7 | 3.5 | 4.06 | 4.1 | 5.08 | 1 | `github` |
+| 28 | [Feature Request] Add a Key Bind to Take Screenshots and Save Them ... | gaming | 53.25 | 6.01 | 2.0 | 4.6 | 3.6 | 3.9 | 4.6 | 4.85 | 1 | `github` |
+| 29 | [DRAFT/HOLD] V932: extend Korean event-lead search to 30 TCGs witho... | gaming | 53.22 | 5.77 | 2.0 | 5.8 | 4.8 | 3.9 | 4.6 | 4.55 | 1 | `github` |
+| 30 | [FEATURE] Home screen widgets | ai | 53.0 | 6.82 | 2.0 | 5.4 | 4.3 | 4.0 | 4.9 | 4.65 | 1 | `github` |
+| 31 | fix(runtime): a browser turn reads what the request needs, and a re... | gaming | 52.91 | 6.66 | 2.0 | 5.4 | 3.6 | 3.9 | 4.6 | 4.65 | 1 | `github` |
+| 32 | 为什么在 ClashVerge 配置 Antigravity 怎么都不生效？ | general | 52.86 | 8.04 | 2.0 | 4.5 | 3.5 | 4.14 | 4.1 | 4.88 | 1 | `v2ex` |
+| 33 | Ask HN: Does Duolingo block swiping up on iOS? | mobile | 52.27 | 5.15 | 2.0 | 4.5 | 3.8 | 3.9 | 4.8 | 4.88 | 1 | `rss` |
+| 34 | Ask HN: Is it possible for a residential proxy provider to exist et... | general | 52.09 | 7.2 | 2.0 | 4.5 | 3.5 | 4.0 | 4.1 | 4.88 | 1 | `hackernews` |
+| 35 | Feature Request: Live Photo Support | general | 51.85 | 6.9 | 2.0 | 4.5 | 3.5 | 4.0 | 4.1 | 4.88 | 1 | `github` |
+| 36 | Move fast and don't break (safety critical) things | general | 51.68 | 6.69 | 2.0 | 4.5 | 3.5 | 4.0 | 4.1 | 4.88 | 1 | `hackernews` |
+| 37 | Ask HN: Any good AI design tools for pitch decks and visuals? | gaming | 51.46 | 5.11 | 2.0 | 5.4 | 3.6 | 3.9 | 4.6 | 4.65 | 1 | `rss` |
+| 38 | Ask HN: Does Anthropic have live people doing model guardrail checks? | gaming | 51.43 | 5.08 | 2.0 | 5.4 | 3.6 | 3.9 | 4.6 | 4.65 | 1 | `rss` |
+| 39 | feat: add autorekt skill for reading live market data | fintech | 51.33 | 7.18 | 2.0 | 8.4 | 4.8 | 5.3 | 5.9 | 3.9 | 1 | `github` |
+| 40 | Show HN: NextGen WAF – Native Prolog Server and Rule System | general | 51.1 | 6.13 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `hackernews` |
+| 41 | Apple Watch Live Rewind and Siri Recap: Features and Limitations | general | 50.78 | 5.78 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `hackernews` |
+| 42 | [ Feature Request ] Add support with key mapper | general | 50.4 | 5.38 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `github` |
+| 43 | Add OKF knowledgebase to repo | general | 50.32 | 5.3 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `github` |
+| 44 | Ask HN: How do you find out when someone links to your blog? | general | 50.32 | 5.3 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `rss` |
+| 45 | Feature request: Uninstall "known" apps | general | 50.04 | 5.03 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `github` |
 
 ## All dimensions
 
@@ -107,6 +107,13 @@
 
 - [indie_hackers] Looking for an alternative to manual competitor research before building SaaS (score=56, comments=18) — https://www.indiehackers.com/
 
+### Ask HN: What are forgotten topics in computing that deserve a new revisit?
+
+2 signals across hackernews, rss. Top keywords: things, ask, hn, what, forgotten. Need-confidence=0.55.
+
+- [hackernews] Ask HN: What are forgotten topics in computing that deserve a new revisit? (score=10, comments=4) — https://news.ycombinator.com/item?id=50387483
+- [rss] Ask HN: What are forgotten topics in computing that deserve a new revisit? (score=0, comments=0) — https://news.ycombinator.com/item?id=50387483
+
 ### I wish there was a fully offline habit tracker without accounts on Android
 
 1 signals across google_play. Top keywords: wish, there, fully, offline, habit. Need-confidence=0.96.
@@ -125,68 +132,64 @@
 
 - [google_play] Somebody make a family shared budget app that doesn't sell my data (score=70, comments=22) — https://play.google.com/store/apps
 
-### 全球 3.5 万个电台随机听 RoamDial： iOS 版上架了，安卓正在封测，发帖送一波永久 Pro 码
+### Ask HN: What are some good resources on encoded/encrypted search?
 
-1 signals across v2ex. Top keywords: roamdial, https, com, 全球, 万个电台随机听. Need-confidence=0.67.
+2 signals across hackernews, rss. Top keywords: encrypted, some, good, resources, encoded. Need-confidence=0.80.
 
-- [v2ex] 全球 3.5 万个电台随机听 RoamDial： iOS 版上架了，安卓正在封测，发帖送一波永久 Pro 码 (score=145, comments=145) — https://www.v2ex.com/t/1254622
-
-### How did we end up with Frontier Lab oligopoly rather than a monopoly?
-
-1 signals across hackernews. Top keywords: frontier, google, how, end, lab. Need-confidence=0.70.
-
-- [hackernews] How did we end up with Frontier Lab oligopoly rather than a monopoly? (score=3, comments=2) — https://news.ycombinator.com/item?id=50355039
+- [hackernews] Ask HN: What are some good resources on encoded/encrypted search? (score=2, comments=0) — https://news.ycombinator.com/item?id=50380585
+- [rss] Ask HN: What are some good resources on encoded/encrypted search? (score=0, comments=0) — https://news.ycombinator.com/item?id=50380585
 
 ### Ask HN: Which TV do you recommend for privacy?
 
 1 signals across hackernews. Top keywords: tv, which, privacy, display, ask. Need-confidence=0.93.
 
-- [hackernews] Ask HN: Which TV do you recommend for privacy? (score=728, comments=879) — https://news.ycombinator.com/item?id=50328896
-
-### Driver: NocoDB
-
-1 signals across github. Top keywords: nocodb, describe, data, source, driver. Need-confidence=0.96.
-
-- [github] Driver: NocoDB (score=8, comments=7) — https://github.com/metabase/metabase/issues/49180
-
-### UI-B polish (UI-02, UI-03): quieter gaps and clearer source facts
-
-1 signals across github. Top keywords: ui, polish, quieter, gaps, clearer. Need-confidence=0.91.
-
-- [github] UI-B polish (UI-02, UI-03): quieter gaps and clearer source facts (score=0, comments=0) — https://github.com/beng174/Exter-AI/pull/7
-
-### Tell HN: GitHub Is Down
-
-1 signals across hackernews. Top keywords: github, pull, git, repository, tell. Need-confidence=0.58.
-
-- [hackernews] Tell HN: GitHub Is Down (score=29, comments=16) — https://news.ycombinator.com/item?id=50363274
-
-### Short-lived MAC addresses get pushed as clients
-
-1 signals across github. Top keywords: netgear, releases, short, lived, mac. Need-confidence=0.79.
-
-- [github] Short-lived MAC addresses get pushed as clients (score=0, comments=6) — https://github.com/gnacho/netpulse/issues/1818
-
-### Ask HN: Which agent harness do you use for working with multiple Models?
-
-1 signals across hackernews. Top keywords: there, ask, hn, which, agent. Need-confidence=0.65.
-
-- [hackernews] Ask HN: Which agent harness do you use for working with multiple Models? (score=4, comments=1) — https://news.ycombinator.com/item?id=50369140
+- [hackernews] Ask HN: Which TV do you recommend for privacy? (score=728, comments=881) — https://news.ycombinator.com/item?id=50328896
 
 ### Ask HN: Credit card and loyalty analytics, where to start?
 
-1 signals across hackernews. Top keywords: credit, card, loyalty, analytics, ask. Need-confidence=0.69.
+1 signals across hackernews. Top keywords: credit, card, loyalty, analytics, ask. Need-confidence=0.70.
 
-- [hackernews] Ask HN: Credit card and loyalty analytics, where to start? (score=2, comments=0) — https://news.ycombinator.com/item?id=50374845
+- [hackernews] Ask HN: Credit card and loyalty analytics, where to start? (score=5, comments=0) — https://news.ycombinator.com/item?id=50374845
 
-### [FEATURE] - query each stake snapshot independently [Draft]
+### Ask HN: Local AI Models for Coding and General Tasks?
 
-1 signals across github. Top keywords: snapshot, query, stake, each, independently. Need-confidence=0.60.
+2 signals across hackernews, rss. Top keywords: local, ai, coding, tasks, some. Need-confidence=0.68.
 
-- [github] [FEATURE] - query each stake snapshot independently [Draft] (score=3, comments=38) — https://github.com/IntersectMBO/cardano-node/issues/4982
+- [hackernews] Ask HN: Local AI Models for Coding and General Tasks? (score=4, comments=2) — https://news.ycombinator.com/item?id=50381045
+- [rss] Ask HN: Local AI Models for Coding and General Tasks? (score=0, comments=0) — https://news.ycombinator.com/item?id=50381045
 
-### Make gen_ai.tool.call.result an object with value and parts
+### 做了一款 iOS 阅读器「随阅」，目前限免，欢迎试试
 
-1 signals across github. Top keywords: gen, ai, call, result, parts. Need-confidence=0.99.
+1 signals across v2ex. Top keywords: 随阅, 做了一款, ios, 阅读器, 目前限免. Need-confidence=0.73.
 
-- [github] Make gen_ai.tool.call.result an object with value and parts (score=0, comments=1) — https://github.com/open-telemetry/semantic-conventions-genai/pull/676
+- [v2ex] 做了一款 iOS 阅读器「随阅」，目前限免，欢迎试试 (score=58, comments=58) — https://www.v2ex.com/t/1254782
+
+### Ask HN: Where should I start to do marketing?
+
+1 signals across hackernews. Top keywords: am, marketing, now, okay, ask. Need-confidence=0.54.
+
+- [hackernews] Ask HN: Where should I start to do marketing? (score=5, comments=5) — https://news.ycombinator.com/item?id=50375196
+
+### fix(daemon): name code-host tools by their host and act only on that host's repository
+
+1 signals across github. Top keywords: host, code, fix, daemon, name. Need-confidence=0.94.
+
+- [github] fix(daemon): name code-host tools by their host and act only on that host's repository (score=1, comments=0) — https://github.com/agentconnect-md/agentconnect/pull/3656
+
+### 上个月在这里求内测的取餐号收集册「杯号」，上架 App Store 了（送 30 个永久 Pro 码）
+
+1 signals across v2ex. Top keywords: 杯号, store, pro, https, com. Need-confidence=0.67.
+
+- [v2ex] 上个月在这里求内测的取餐号收集册「杯号」，上架 App Store 了（送 30 个永久 Pro 码） (score=17, comments=17) — https://www.v2ex.com/t/1254951
+
+### IndieStack Audit: Somebody make a tool that rates idea competition before you build
+
+1 signals across product_hunt. Top keywords: competition, build, indiestack, audit, somebody. Need-confidence=1.00.
+
+- [product_hunt] IndieStack Audit: Somebody make a tool that rates idea competition before you build (score=210, comments=41) — https://www.producthunt.com/
+
+### OV-184: Say which database the deletion retry is about to act in
+
+1 signals across github. Top keywords: ov, deletion, retry, say, which. Need-confidence=0.66.
+
+- [github] OV-184: Say which database the deletion retry is about to act in (score=0, comments=0) — https://github.com/AmbroseGladwell/youtube-digest/pull/223
