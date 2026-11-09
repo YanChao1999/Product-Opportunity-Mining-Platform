@@ -1,9 +1,9 @@
 # Product Opportunity Report
 
-- Scanned at: `2026-11-08T03:42:27.169649+00:00`
-- Raw signals: **314**
-- Opportunities: **50**
-- Sources: app_store=60, chrome_web_store=1, g2=2, github=45, google_play=2, hackernews=60, indie_hackers=2, product_hunt=3, rss=20, stackexchange=15, steam=60, v2ex=44
+- Scanned at: `2026-11-09T03:55:04.420853+00:00`
+- Raw signals: **299**
+- Opportunities: **49**
+- Sources: app_store=60, chrome_web_store=1, g2=2, github=45, google_play=2, hackernews=60, indie_hackers=2, product_hunt=3, stackexchange=15, steam=60, v2ex=49
 
 > Ranking: geometric mean of **需求强度 × 竞争程度↓ × 开发难度↓ × 付费可能性 × 紧迫性 × 市场规模 × 变现速度** (+ hidden dims in JSON).
 
@@ -13,52 +13,51 @@
 | 2 | Looking for an alternative to HubSpot that doesn't force a sales suite | productivity | 64.45 | 10.0 | 2.8 | 5.4 | 9.0 | 4.46 | 4.8 | 7.05 | 1 | `g2` |
 | 3 | I wish there was a Chrome extension that batches LinkedIn outreach ... | general | 63.44 | 10.0 | 2.0 | 2.7 | 7.3 | 4.32 | 4.1 | 8.92 | 1 | `chrome_web_store` |
 | 4 | Why isn't there a lightweight alternative to Jira for 5-person teams? | general | 61.61 | 10.0 | 2.8 | 4.5 | 7.1 | 4.53 | 5.9 | 4.88 | 1 | `g2` |
-| 5 | OpenClaw SaaS? | productivity | 61.42 | 10.0 | 2.0 | 5.4 | 7.6 | 4.28 | 4.8 | 5.85 | 1 | `hackernews` |
-| 6 | ReviewGap: Why isn't there an app that mines 1-star App Store revie... | devtools | 61.13 | 10.0 | 2.0 | 5.4 | 8.1 | 4.41 | 4.7 | 5.85 | 1 | `product_hunt` |
-| 7 | Looking for an alternative to manual competitor research before bui... | devtools | 61.09 | 10.0 | 4.4 | 5.4 | 9.5 | 4.34 | 4.7 | 7.05 | 1 | `indie_hackers` |
-| 8 | I wish there was a fully offline habit tracker without accounts on ... | gaming | 60.17 | 10.0 | 2.0 | 5.4 | 6.0 | 4.43 | 4.6 | 5.85 | 1 | `google_play` |
-| 9 | Ask HN: How did you convince family and friends to join your XMPP/M... | devtools | 60.15 | 10.0 | 1.0 | 5.4 | 4.5 | 4.94 | 5.2 | 4.65 | 2 | `hackernews,rss` |
-| 10 | Somebody make a Chrome extension that turns 1-star reviews into a r... | general | 58.97 | 10.0 | 2.0 | 2.7 | 3.5 | 4.28 | 5.0 | 6.53 | 1 | `indie_hackers` |
-| 11 | Somebody make a family shared budget app that doesn't sell my data | fintech | 58.72 | 10.0 | 2.0 | 4.5 | 4.8 | 4.37 | 5.9 | 4.88 | 1 | `google_play` |
-| 12 | Ask HN: What is the most secure OS for mobile phone? | ai | 58.49 | 9.12 | 2.0 | 5.4 | 4.3 | 5.47 | 4.9 | 4.65 | 1 | `hackernews` |
-| 13 | Looking for a CTO | ai | 58.28 | 9.26 | 2.0 | 4.6 | 4.3 | 4.26 | 4.9 | 4.85 | 1 | `hackernews` |
-| 14 | acp: the unreadable-MCP-identity refusal says "longer than the tool... | ai | 57.3 | 8.32 | 2.0 | 4.6 | 4.3 | 4.0 | 4.9 | 4.85 | 1 | `github` |
-| 15 | IndieStack Audit: Somebody make a tool that rates idea competition ... | general | 55.72 | 10.0 | 2.8 | 4.5 | 3.5 | 4.46 | 5.0 | 4.88 | 1 | `product_hunt` |
-| 16 | Ask HN: What fun things to do with an iPhone 11? | mobile | 55.55 | 8.64 | 2.0 | 4.5 | 3.8 | 4.19 | 4.8 | 4.88 | 1 | `hackernews` |
-| 17 | extra and trailers with Jellyfin server | ai | 55.53 | 10.0 | 2.0 | 5.4 | 4.3 | 4.3 | 4.9 | 4.65 | 1 | `github` |
-| 18 | Bot: unattended remote access answer when remote_support_* tools ar... | general | 55.5 | 7.74 | 2.0 | 2.8 | 3.5 | 5.3 | 4.1 | 5.3 | 1 | `github` |
-| 19 | I turned an ESP32-S3 into a Tailscale gateway with recovery functions | ai | 55.45 | 8.05 | 2.0 | 5.4 | 4.3 | 4.0 | 4.9 | 4.65 | 1 | `hackernews` |
-| 20 | Add APT Video AI — two photos to APT-style pink-studio duo video | gaming | 55.14 | 10.0 | 2.0 | 6.3 | 3.6 | 4.06 | 5.5 | 4.42 | 8 | `github` |
-| 21 | [Todo - Task List Organizer] Exceptionally Poor Customer Service | productivity | 55.01 | 5.63 | 2.0 | 3.6 | 5.4 | 3.9 | 4.8 | 6.3 | 1 | `app_store` |
-| 22 | Ask HN: How you guys setup multi-models agentic workflow | gaming | 54.97 | 5.53 | 2.0 | 4.5 | 3.6 | 3.9 | 4.6 | 4.88 | 1 | `rss` |
-| 23 | Tell HN: Be Careful with Stripe Connect | devtools | 54.94 | 8.81 | 2.8 | 4.5 | 4.5 | 4.11 | 4.7 | 4.88 | 1 | `hackernews` |
-| 24 | Feature Request- Icon1 and param save for creating a PSP theme | gaming | 53.99 | 5.22 | 2.0 | 5.4 | 3.6 | 6.5 | 4.6 | 4.65 | 1 | `github` |
-| 25 | Ask HN: How do you keep track of the articles, papers and videos yo... | ai | 53.98 | 6.37 | 2.0 | 5.4 | 4.3 | 3.9 | 4.9 | 4.65 | 1 | `rss` |
-| 26 | Audit: Payment Surcharge Accumulation Inconsistencies, Real-Time Ca... | fintech | 53.84 | 5.68 | 2.0 | 7.5 | 8.8 | 3.9 | 6.8 | 5.33 | 1 | `github` |
-| 27 | [Feature Request] Add a Key Bind to Take Screenshots and Save Them ... | gaming | 53.83 | 7.36 | 2.0 | 4.6 | 3.6 | 4.0 | 4.6 | 4.85 | 1 | `github` |
-| 28 | Feature request: pen input/Apple Pencil support in the browser version | devtools | 53.67 | 7.52 | 2.0 | 4.5 | 4.5 | 4.06 | 4.7 | 4.88 | 1 | `github` |
-| 29 | Unmet need: 咸鱼云 / 收个 / saltyfish / 咸鱼云的机 / 有没有不需要的大佬 | general | 53.22 | 8.5 | 2.0 | 4.5 | 3.5 | 4.19 | 4.1 | 4.88 | 1 | `v2ex` |
-| 30 | Show HN: I'm 15 and my personal website looks like iMessage | general | 53.18 | 8.66 | 2.0 | 4.5 | 3.5 | 4.06 | 4.1 | 4.88 | 1 | `hackernews` |
-| 31 | AIG Mistakenly Locks and Erases iPhone and Cannot Resolve After 3 W... | ai | 53.08 | 5.43 | 2.0 | 5.4 | 4.3 | 3.9 | 4.9 | 4.65 | 1 | `hackernews` |
-| 32 | Ask HN: What are you building – I'd try it, pay for it, or even sta... | general | 53.07 | 8.41 | 2.0 | 4.5 | 3.5 | 4.11 | 4.1 | 4.88 | 1 | `hackernews` |
-| 33 | Ask HN: Why does Ant, Open AI even need a datacenter? | ai | 53.01 | 5.36 | 2.0 | 5.4 | 4.3 | 3.9 | 4.9 | 4.65 | 1 | `rss` |
-| 34 | Show HN: LLM weight editing tool made by a 15-year-old | ai | 52.98 | 5.33 | 2.0 | 5.4 | 4.3 | 3.9 | 4.9 | 4.65 | 1 | `hackernews` |
-| 35 | [feature request] Add SolveCraft (now SolidCraft) to the launcher | gaming | 52.84 | 8.48 | 2.0 | 4.5 | 3.6 | 4.0 | 4.6 | 4.88 | 1 | `github` |
-| 36 | I Build Qorqbot – OS Grokbot | general | 52.65 | 7.05 | 2.0 | 3.7 | 3.5 | 3.9 | 4.1 | 5.08 | 1 | `hackernews` |
-| 37 | [Todo - Task List Organizer] Broken Now | productivity | 52.33 | 6.32 | 2.0 | 4.5 | 4.0 | 5.2 | 4.8 | 4.88 | 1 | `app_store` |
-| 38 | Is YouTube starting to protect channel RSS feeds? | general | 52.33 | 7.53 | 2.0 | 4.5 | 3.5 | 4.0 | 4.1 | 4.88 | 1 | `hackernews` |
-| 39 | 做了一个记录生活的 iOS 水印相机：育儿记录、工作打卡、旅游记录等都能用 | devtools | 52.26 | 5.48 | 2.0 | 5.4 | 4.5 | 3.9 | 4.7 | 4.65 | 1 | `v2ex` |
-| 40 | Add more Whisper models | gaming | 51.96 | 7.39 | 2.0 | 4.5 | 3.6 | 3.9 | 4.6 | 4.88 | 1 | `github` |
-| 41 | Ask HN: Banned for Reddit inauthentic ads? | gaming | 51.91 | 5.55 | 2.0 | 5.4 | 3.6 | 3.9 | 4.6 | 4.65 | 1 | `rss` |
-| 42 | [Todo - Task List Organizer] Excellent app, the best | productivity | 51.54 | 7.32 | 2.4 | 4.5 | 4.0 | 3.9 | 4.8 | 4.88 | 1 | `app_store` |
-| 43 | ZapFast: A fast, native WhatsApp client in Rust and egui | general | 51.4 | 6.49 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `hackernews` |
-| 44 | 现在有没有移动套餐通话时长很多的？ | general | 51.38 | 6.32 | 2.0 | 4.5 | 3.5 | 4.0 | 4.1 | 4.88 | 1 | `v2ex` |
-| 45 | 踏马的，上海联通宽带上行被限速到 5mbps，何解？ | general | 51.3 | 6.23 | 2.0 | 4.5 | 3.5 | 4.0 | 4.1 | 4.88 | 1 | `v2ex` |
-| 46 | Add round messages seeking | general | 50.92 | 7.93 | 2.0 | 4.5 | 3.5 | 4.06 | 4.1 | 4.88 | 1 | `github` |
-| 47 | [Feature Request] Button to bring back original settings | general | 50.75 | 6.51 | 2.0 | 4.5 | 3.5 | 4.0 | 4.1 | 4.88 | 1 | `github` |
-| 48 | Addressing protocol security gaps in multi-tenant Kubernetes | general | 50.64 | 5.42 | 2.0 | 5.4 | 3.5 | 3.9 | 4.1 | 4.65 | 1 | `hackernews` |
-| 49 | [FEATURE REQUEST] Stable links for headless epaper dashboards | general | 50.56 | 5.55 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `github` |
-| 50 | Ask HN: What are you building – I'd try it, pay for it, or even sta... | general | 50.53 | 5.51 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `rss` |
+| 5 | ReviewGap: Why isn't there an app that mines 1-star App Store revie... | devtools | 61.13 | 10.0 | 2.0 | 5.4 | 8.1 | 4.41 | 4.7 | 5.85 | 1 | `product_hunt` |
+| 6 | Looking for an alternative to manual competitor research before bui... | devtools | 61.09 | 10.0 | 4.4 | 5.4 | 9.5 | 4.34 | 4.7 | 7.05 | 1 | `indie_hackers` |
+| 7 | I wish there was a fully offline habit tracker without accounts on ... | gaming | 60.17 | 10.0 | 2.0 | 5.4 | 6.0 | 4.43 | 4.6 | 5.85 | 1 | `google_play` |
+| 8 | Feature proposal: an owner curation workflow (review, structure, fa... | productivity | 59.74 | 8.38 | 2.0 | 4.8 | 4.0 | 4.0 | 4.8 | 4.8 | 1 | `github` |
+| 9 | Somebody make a Chrome extension that turns 1-star reviews into a r... | general | 58.97 | 10.0 | 2.0 | 2.7 | 3.5 | 4.28 | 5.0 | 6.53 | 1 | `indie_hackers` |
+| 10 | Somebody make a family shared budget app that doesn't sell my data | fintech | 58.72 | 10.0 | 2.0 | 4.5 | 4.8 | 4.37 | 5.9 | 4.88 | 1 | `google_play` |
+| 11 | Ask HN: How did you convince family and friends to join your XMPP/M... | devtools | 58.52 | 10.0 | 2.0 | 5.4 | 4.5 | 4.58 | 4.7 | 4.65 | 1 | `hackernews` |
+| 12 | Read-only and linked tool lists never point at a tool they hide | gaming | 57.42 | 7.23 | 2.0 | 2.8 | 3.6 | 3.9 | 4.6 | 5.3 | 1 | `github` |
+| 13 | acp: the unreadable-MCP-identity refusal says "longer than the tool... | ai | 57.3 | 8.32 | 2.0 | 4.6 | 4.3 | 4.0 | 4.9 | 4.85 | 1 | `github` |
+| 14 | 大家还有什么古早动图可以分享一下吗 | ai | 56.68 | 8.42 | 2.0 | 5.4 | 4.3 | 4.23 | 4.9 | 4.65 | 1 | `v2ex` |
+| 15 | 半个月前做了一个找程序员创业小需求的工具，居然已经有 30 位朋友订阅邮件了 | ai | 56.51 | 5.81 | 2.0 | 5.4 | 5.7 | 5.2 | 4.9 | 4.65 | 1 | `v2ex` |
+| 16 | Field-test on vercel/ai-chatbot and miurla/morphic, and fix what broke | gaming | 56.19 | 4.59 | 2.0 | 3.7 | 3.6 | 3.9 | 4.6 | 6.28 | 1 | `github` |
+| 17 | Tell HN: A flood of reports of Opus 5.5 being nerfed | gaming | 55.9 | 9.37 | 2.0 | 5.4 | 3.6 | 4.21 | 4.6 | 4.65 | 1 | `hackernews` |
+| 18 | I turned an ESP32-S3 into a Tailscale gateway with recovery functions | ai | 55.85 | 8.51 | 2.0 | 5.4 | 4.3 | 4.06 | 4.9 | 4.65 | 1 | `hackernews` |
+| 19 | Walkthrough: build-14 first run and collapsed widget; keep crash re... | ai | 55.84 | 8.85 | 2.0 | 6.3 | 4.3 | 4.32 | 4.9 | 4.42 | 1 | `github` |
+| 20 | Add scalability for theme addition (Odysee and LBRY) | devtools | 55.76 | 6.52 | 2.0 | 6.6 | 4.5 | 3.9 | 4.7 | 4.35 | 1 | `github` |
+| 21 | IndieStack Audit: Somebody make a tool that rates idea competition ... | general | 55.72 | 10.0 | 2.8 | 4.5 | 3.5 | 4.46 | 5.0 | 4.88 | 1 | `product_hunt` |
+| 22 | fix: exact keyword search on Hacker News (Algolia) | ai | 55.4 | 6.22 | 2.0 | 6.7 | 4.3 | 3.9 | 4.9 | 4.33 | 1 | `github` |
+| 23 | Ask HN: What are you working on? (November 2026) | general | 54.85 | 10.0 | 2.0 | 4.5 | 3.5 | 4.84 | 4.1 | 4.88 | 1 | `hackernews` |
+| 24 | Ask HN: What fun things to do with an iPhone 11? | mobile | 54.84 | 8.81 | 2.0 | 4.5 | 3.8 | 4.21 | 4.8 | 4.88 | 1 | `hackernews` |
+| 25 | Trac #2264: More columns in webui | gaming | 54.77 | 6.56 | 2.0 | 3.6 | 3.6 | 3.9 | 4.6 | 5.1 | 4 | `github` |
+| 26 | 写了个开源工具：手机照片视频无损搬到电脑，局域网直传， PC 不装任何客户端 | devtools | 54.72 | 10.0 | 2.0 | 6.6 | 4.5 | 4.5 | 4.7 | 4.35 | 1 | `v2ex` |
+| 27 | KetchUp – Open-source SketchUp alternative built with Rust and WebGPU | general | 54.55 | 10.0 | 2.0 | 4.5 | 3.5 | 4.56 | 4.1 | 4.88 | 1 | `hackernews` |
+| 28 | Pay per pre-configured GPU hour or per token for open-source LLM in... | ai | 54.27 | 6.7 | 2.0 | 5.4 | 4.3 | 3.9 | 4.9 | 4.65 | 1 | `hackernews` |
+| 29 | Tell HN: Be Careful with Stripe Connect | devtools | 54.23 | 8.96 | 2.8 | 4.5 | 4.5 | 4.14 | 4.7 | 4.88 | 1 | `hackernews` |
+| 30 | Why Doctors in Thailand Fear KFC | ai | 53.9 | 6.28 | 2.0 | 5.4 | 4.3 | 3.9 | 4.9 | 4.65 | 1 | `hackernews` |
+| 31 | feat(i18n): translate in rusian and ukrainian | ai | 53.46 | 7.31 | 2.0 | 5.4 | 4.3 | 4.06 | 4.9 | 4.65 | 1 | `github` |
+| 32 | Everything to automate and make your device,like aPC and phone,smar... | devtools | 53.11 | 5.43 | 2.0 | 4.6 | 4.5 | 3.9 | 4.7 | 4.85 | 1 | `hackernews` |
+| 33 | Unmet need: 找工作 / 月份被裁后 / 出来找工作发现变天了 / 介绍下自己 / 我是 / 年毕业 | general | 52.88 | 8.08 | 2.0 | 4.5 | 3.5 | 4.14 | 4.1 | 4.88 | 1 | `v2ex` |
+| 34 | P2P model hosting and inference WebGPU,libp2p,IPFS | gaming | 52.88 | 6.18 | 2.0 | 4.5 | 3.6 | 4.0 | 4.6 | 4.88 | 1 | `hackernews` |
+| 35 | Allow editing the Style and Lyrics Generator prompt and add support... | gaming | 52.78 | 7.18 | 2.0 | 5.4 | 3.6 | 4.0 | 4.6 | 4.65 | 1 | `github` |
+| 36 | Show HN: I got laid off and built a competitor website change tracker | ai | 52.77 | 5.63 | 2.8 | 5.4 | 4.3 | 3.9 | 4.9 | 4.65 | 1 | `hackernews` |
+| 37 | Is YouTube starting to protect channel RSS feeds? | general | 52.69 | 8.04 | 2.0 | 4.5 | 3.5 | 4.0 | 4.1 | 4.88 | 1 | `hackernews` |
+| 38 | [FEATURE] Use wildcards in CODEOWNERS | devtools | 52.42 | 7.28 | 2.0 | 4.5 | 4.5 | 4.0 | 4.7 | 4.88 | 1 | `github` |
+| 39 | SimStore - iOS 模拟器应用商店 | devtools | 52.28 | 5.24 | 2.0 | 4.5 | 4.5 | 3.9 | 4.7 | 4.88 | 1 | `v2ex` |
+| 40 | 登录 maven central 页面报错无法发布包怎么办，有遇到这个问题的人么，求救 | devtools | 52.21 | 5.43 | 2.0 | 5.4 | 4.5 | 3.9 | 4.7 | 4.65 | 1 | `v2ex` |
+| 41 | B49: Application-outcome signals — the verified category gap | devtools | 52.2 | 7.86 | 2.0 | 6.6 | 4.5 | 4.0 | 5.6 | 4.35 | 1 | `github` |
+| 42 | [Enhancement] Ability to add to more than one playlist at a time | gaming | 52.09 | 5.47 | 2.0 | 4.5 | 3.6 | 3.9 | 4.6 | 4.88 | 1 | `github` |
+| 43 | Evaluate #175 against its own acceptance criteria (docs-only) | devtools | 51.99 | 5.5 | 2.0 | 5.8 | 4.5 | 3.9 | 5.6 | 4.55 | 1 | `github` |
+| 44 | 这一代 iPhone 18 Pro 512G 需要摸奖吗？有没有必要在官方旗舰入手？ | mobile | 51.68 | 4.63 | 2.0 | 4.5 | 3.8 | 3.9 | 4.8 | 4.88 | 1 | `v2ex` |
+| 45 | Audit web/ for leftover controls that look live but do nothing | devtools | 50.25 | 5.88 | 2.0 | 7.2 | 4.5 | 3.9 | 4.7 | 4.2 | 1 | `github` |
+| 46 | [Feature Request] Weapon key bindings | general | 49.65 | 4.67 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `github` |
+| 47 | Feature Request - Auto Updates for pc application | general | 49.51 | 4.54 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `github` |
+| 48 | Zooproxy 住宅 IP 免费送🎁195+国家任选 ⭐动态 $0.38/GB 起⭐静态 $0.9/IP 起 | devtools | 49.36 | 4.85 | 2.0 | 6.6 | 4.5 | 3.9 | 4.7 | 4.35 | 1 | `v2ex` |
+| 49 | A 100KB SVG that does real-time 3D PCA and convex hulls on CMS open... | general | 48.82 | 5.89 | 2.0 | 6.3 | 3.5 | 3.9 | 4.1 | 4.42 | 1 | `hackernews` |
 
 ## All dimensions
 
@@ -100,12 +99,6 @@
 
 - [g2] Why isn't there a lightweight alternative to Jira for 5-person teams? (score=200, comments=65) — https://www.g2.com/
 
-### OpenClaw SaaS?
-
-1 signals across hackernews. Top keywords: saas, openclaw, one, anyone, know. Need-confidence=0.79.
-
-- [hackernews] OpenClaw SaaS? (score=3, comments=12) — https://news.ycombinator.com/item?id=50392586
-
 ### ReviewGap: Why isn't there an app that mines 1-star App Store reviews for feature gaps?
 
 1 signals across product_hunt. Top keywords: feature, reviewgap, why, isn, there. Need-confidence=0.99.
@@ -124,12 +117,11 @@
 
 - [google_play] I wish there was a fully offline habit tracker without accounts on Android (score=90, comments=33) — https://play.google.com/store/apps
 
-### Ask HN: How did you convince family and friends to join your XMPP/Matrix server?
+### Feature proposal: an owner curation workflow (review, structure, fact-check, audit)
 
-2 signals across hackernews, rss. Top keywords: family, friends, xmpp, matrix, open. Need-confidence=0.79.
+1 signals across github. Top keywords: subschema, llc, github, com, feature. Need-confidence=0.95.
 
-- [hackernews] Ask HN: How did you convince family and friends to join your XMPP/Matrix server? (score=78, comments=71) — https://news.ycombinator.com/item?id=50405250
-- [rss] Ask HN: How did you convince family and friends to join your XMPP/Matrix server? (score=0, comments=0) — https://news.ycombinator.com/item?id=50405250
+- [github] Feature proposal: an owner curation workflow (review, structure, fact-check, audit) (score=0, comments=1) — https://github.com/coopers98/mnemon/issues/1
 
 ### Somebody make a Chrome extension that turns 1-star reviews into a roadmap
 
@@ -143,17 +135,17 @@
 
 - [google_play] Somebody make a family shared budget app that doesn't sell my data (score=70, comments=22) — https://play.google.com/store/apps
 
-### Ask HN: What is the most secure OS for mobile phone?
+### Ask HN: How did you convince family and friends to join your XMPP/Matrix server?
 
-1 signals across hackernews. Top keywords: os, more, ask, hn, what. Need-confidence=0.71.
+1 signals across hackernews. Top keywords: family, friends, xmpp, matrix, open. Need-confidence=0.83.
 
-- [hackernews] Ask HN: What is the most secure OS for mobile phone? (score=6, comments=5) — https://news.ycombinator.com/item?id=50390644
+- [hackernews] Ask HN: How did you convince family and friends to join your XMPP/Matrix server? (score=97, comments=91) — https://news.ycombinator.com/item?id=50405250
 
-### Looking for a CTO
+### Read-only and linked tool lists never point at a tool they hide
 
-1 signals across hackernews. Top keywords: cto, looking, quit, head, quant. Need-confidence=0.66.
+1 signals across github. Top keywords: sticker, read, only, list, send. Need-confidence=0.98.
 
-- [hackernews] Looking for a CTO (score=3, comments=10) — https://news.ycombinator.com/item?id=50395015
+- [github] Read-only and linked tool lists never point at a tool they hide (score=0, comments=0) — https://github.com/bluefishforsale/signal-agent/pull/141
 
 ### acp: the unreadable-MCP-identity refusal says "longer than the tool surface admits" for server disagreements and missing identity envelopes 
 
@@ -161,42 +153,44 @@
 
 - [github] acp: the unreadable-MCP-identity refusal says "longer than the tool surface admits" for server disag (score=0, comments=1) — https://github.com/kirodotdev/KiroCrew/issues/32726
 
-### IndieStack Audit: Somebody make a tool that rates idea competition before you build
+### 大家还有什么古早动图可以分享一下吗
 
-1 signals across product_hunt. Top keywords: competition, build, indiestack, audit, somebody. Need-confidence=1.00.
+1 signals across v2ex. Top keywords: gif, ai, 大家还有什么古早动图可以分享一下吗, 最近发现, openai. Need-confidence=0.49.
 
-- [product_hunt] IndieStack Audit: Somebody make a tool that rates idea competition before you build (score=210, comments=41) — https://www.producthunt.com/
+- [v2ex] 大家还有什么古早动图可以分享一下吗 (score=8, comments=8) — https://www.v2ex.com/t/1255476
 
-### Ask HN: What fun things to do with an iPhone 11?
+### 半个月前做了一个找程序员创业小需求的工具，居然已经有 30 位朋友订阅邮件了
 
-1 signals across hackernews. Top keywords: what, fun, things, iphone, ask. Need-confidence=0.57.
+1 signals across v2ex. Top keywords: reddit, 半个月前做了一个找程序员创业小需求的工具, 居然已经有, 位朋友订阅邮件了, 事情是这样的. Need-confidence=0.72.
 
-- [hackernews] Ask HN: What fun things to do with an iPhone 11? (score=8, comments=6) — https://news.ycombinator.com/item?id=50393262
+- [v2ex] 半个月前做了一个找程序员创业小需求的工具，居然已经有 30 位朋友订阅邮件了 (score=0, comments=0) — https://www.v2ex.com/t/1255523
 
-### extra and trailers with Jellyfin server
+### Field-test on vercel/ai-chatbot and miurla/morphic, and fix what broke
 
-1 signals across github. Top keywords: trailers, jellyfin, feature, extra, server. Need-confidence=0.78.
+1 signals across github. Top keywords: vercel, ai, chatbot, field, test. Need-confidence=0.50.
 
-- [github] extra and trailers with Jellyfin server (score=0, comments=13) — https://github.com/l984-451/Rivulet/issues/366
+- [github] Field-test on vercel/ai-chatbot and miurla/morphic, and fix what broke (score=0, comments=0) — https://github.com/Owl-Listener/glassbox/pull/4
 
-### Bot: unattended remote access answer when remote_support_* tools are absent (solo Sagax)
+### Tell HN: A flood of reports of Opus 5.5 being nerfed
 
-1 signals across github. Top keywords: remote, sagax, bot, unattended, access. Need-confidence=0.83.
+1 signals across hackernews. Top keywords: opus, reports, nerfed, https, www. Need-confidence=0.65.
 
-- [github] Bot: unattended remote access answer when remote_support_* tools are absent (solo Sagax) (score=0, comments=1) — https://github.com/pulsatrixtechnologies/sagax/issues/2725
+- [hackernews] Tell HN: A flood of reports of Opus 5.5 being nerfed (score=12, comments=7) — https://news.ycombinator.com/item?id=50419019
 
 ### I turned an ESP32-S3 into a Tailscale gateway with recovery functions
 
 1 signals across hackernews. Top keywords: esp, gateway, tailscale, turned, recovery. Need-confidence=0.65.
 
-- [hackernews] I turned an ESP32-S3 into a Tailscale gateway with recovery functions (score=6, comments=1) — https://news.ycombinator.com/item?id=50403882
+- [hackernews] I turned an ESP32-S3 into a Tailscale gateway with recovery functions (score=8, comments=2) — https://news.ycombinator.com/item?id=50403882
 
-### Add APT Video AI — two photos to APT-style pink-studio duo video
+### Walkthrough: build-14 first run and collapsed widget; keep crash reports
 
-8 signals across github. Top keywords: apt, video, ai, two, photos. Need-confidence=0.87.
+1 signals across github. Top keywords: build, none, walkthrough, run, crash. Need-confidence=0.53.
 
-- [github] Add APT Video AI — two photos to APT-style pink-studio duo video (score=0, comments=0) — https://github.com/tom-otto-engineer/awesome-startup-directories/issues/5
-- [github] Add APT Video AI — two photos to APT-style pink-studio duo video (score=0, comments=0) — https://github.com/bestaidrama/awesome-ai-video-generators/issues/28
-- [github] Add APT Video AI — two photos to APT-style pink-studio duo video (score=0, comments=0) — https://github.com/submit-directories/awesome-startup-directories/issues/26
-- [github] Add APT Video AI — two photos to APT-style pink-studio duo video (score=0, comments=0) — https://github.com/Praneetbrar/startup-launch-platforms/issues/43
-- [github] Add APT Video AI — two photos to APT-style pink-studio duo video (score=0, comments=0) — https://github.com/avinash201199/Awesome-Startup-Launch/issues/17
+- [github] Walkthrough: build-14 first run and collapsed widget; keep crash reports (score=0, comments=15) — https://github.com/modelplan/modelplan/pull/770
+
+### Add scalability for theme addition (Odysee and LBRY)
+
+1 signals across github. Top keywords: lbry, themes, add, scalability, theme. Need-confidence=0.85.
+
+- [github] Add scalability for theme addition (Odysee and LBRY) (score=0, comments=0) — https://github.com/bitcoinbrisbane/lbry-desktop/issues/504
