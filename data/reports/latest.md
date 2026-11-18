@@ -1,6 +1,6 @@
 # Product Opportunity Report
 
-- Scanned at: `2026-11-17T05:55:57.953267+00:00`
+- Scanned at: `2026-11-18T05:24:24.265590+00:00`
 - Raw signals: **320**
 - Opportunities: **50**
 - Sources: app_store=60, chrome_web_store=1, g2=2, github=45, google_play=2, hackernews=60, indie_hackers=2, product_hunt=3, rss=20, stackexchange=15, steam=60, v2ex=50
@@ -15,50 +15,50 @@
 | 4 | Why isn't there a lightweight alternative to Jira for 5-person teams? | general | 61.61 | 10.0 | 2.8 | 4.5 | 7.1 | 4.53 | 5.9 | 4.88 | 1 | `g2` |
 | 5 | ReviewGap: Why isn't there an app that mines 1-star App Store revie... | devtools | 61.13 | 10.0 | 2.0 | 5.4 | 8.1 | 4.41 | 4.7 | 5.85 | 1 | `product_hunt` |
 | 6 | Looking for an alternative to manual competitor research before bui... | devtools | 61.09 | 10.0 | 4.4 | 5.4 | 9.5 | 4.34 | 4.7 | 7.05 | 1 | `indie_hackers` |
-| 7 | [FR] Distinguish data originators, processors, and intermediaries | gaming | 60.7 | 10.0 | 2.0 | 5.5 | 6.2 | 4.19 | 5.5 | 5.83 | 1 | `github` |
-| 8 | I wish there was a fully offline habit tracker without accounts on ... | gaming | 60.17 | 10.0 | 2.0 | 5.4 | 6.0 | 4.43 | 4.6 | 5.85 | 1 | `google_play` |
-| 9 | feat(plan): a tracked buyer prompt whose answer gives a competitor ... | gaming | 60.17 | 6.33 | 2.8 | 3.6 | 6.2 | 4.0 | 5.5 | 6.3 | 1 | `github` |
-| 10 | Somebody make a Chrome extension that turns 1-star reviews into a r... | general | 58.97 | 10.0 | 2.0 | 2.7 | 3.5 | 4.28 | 5.0 | 6.53 | 1 | `indie_hackers` |
-| 11 | Anthropic, can you please make up your mind with your models? | gaming | 58.95 | 8.36 | 2.0 | 3.6 | 5.0 | 4.23 | 4.6 | 6.3 | 1 | `hackernews` |
-| 12 | Ask HN: Most compelling early stage fund pitches? | devtools | 58.75 | 9.58 | 1.3 | 4.5 | 4.5 | 5.81 | 5.2 | 4.88 | 2 | `hackernews,rss` |
-| 13 | Somebody make a family shared budget app that doesn't sell my data | fintech | 58.72 | 10.0 | 2.0 | 4.5 | 4.8 | 4.37 | 5.9 | 4.88 | 1 | `google_play` |
-| 14 | Running coding agents without handing them my credentials | ai | 58.39 | 10.0 | 2.0 | 4.5 | 4.3 | 4.45 | 4.9 | 4.88 | 1 | `hackernews` |
-| 15 | Ask HN: Are iPhone Duo Customers Happy? | mobile | 58.09 | 10.0 | 1.0 | 4.5 | 3.8 | 4.63 | 5.3 | 4.88 | 2 | `hackernews,rss` |
-| 16 | Warning + alternative Signal clients in README.md | ai | 58.03 | 8.59 | 2.0 | 3.6 | 4.3 | 4.11 | 4.9 | 5.1 | 1 | `github` |
-| 17 | Windows 11 Is Collecting Data on Which Coding Agents and Developer ... | devtools | 57.76 | 10.0 | 2.0 | 4.5 | 4.5 | 4.74 | 4.7 | 4.88 | 1 | `hackernews` |
-| 18 | Ask HN: How did you convince family and friends to join your XMPP/M... | devtools | 57.17 | 10.0 | 2.0 | 5.4 | 4.5 | 4.59 | 4.7 | 4.65 | 1 | `hackernews` |
-| 19 | [Feature Request] Let parents cash in a reward for a child from Deduct | ai | 57.14 | 6.02 | 2.0 | 4.6 | 4.3 | 6.5 | 4.9 | 4.85 | 1 | `github` |
-| 20 | Ask HN: Do you still enjoy coding in C++? | general | 56.77 | 10.0 | 2.0 | 2.7 | 3.5 | 4.58 | 4.1 | 6.53 | 1 | `hackernews` |
-| 21 | Break a period's change in value into its drivers | gaming | 56.28 | 8.33 | 2.0 | 6.3 | 3.6 | 4.11 | 5.5 | 4.42 | 1 | `github` |
-| 22 | IndieStack Audit: Somebody make a tool that rates idea competition ... | general | 55.72 | 10.0 | 2.8 | 4.5 | 3.5 | 4.46 | 5.0 | 4.88 | 1 | `product_hunt` |
-| 23 | Why did modems have speakers? (2019) | gaming | 55.72 | 9.54 | 2.0 | 4.5 | 3.6 | 4.3 | 4.6 | 4.88 | 1 | `hackernews` |
-| 24 | [Feature Request] Possibility to not use temp control in GaggiMate | gaming | 55.69 | 7.47 | 2.0 | 4.5 | 4.8 | 4.0 | 5.5 | 4.88 | 1 | `github` |
-| 25 | Ask HN: Why don't operating systems provide complete SSD write acco... | devtools | 55.32 | 8.57 | 2.0 | 4.5 | 4.5 | 4.11 | 4.7 | 4.88 | 1 | `hackernews` |
-| 26 | Tech leaders are convinced that Jensen Huang's exit was a plot agai... | ai | 54.94 | 7.37 | 2.0 | 5.4 | 4.3 | 4.0 | 4.9 | 4.65 | 1 | `hackernews` |
-| 27 | Ask HN: Gemini.Google.Com Changing Effort Level | gaming | 54.93 | 5.41 | 2.0 | 4.5 | 5.0 | 3.9 | 4.6 | 6.08 | 1 | `rss` |
-| 28 | Ask HN: How to bring traffic to new product with out social media p... | devtools | 54.8 | 5.41 | 2.0 | 5.4 | 4.5 | 5.2 | 4.7 | 4.65 | 1 | `rss` |
-| 29 | 跟异性聊天总是没话题，有没有军师指点 | general | 54.55 | 10.0 | 2.0 | 4.5 | 3.5 | 4.56 | 4.1 | 4.88 | 1 | `v2ex` |
-| 30 | gemini macOS 和网页都提示地区不支持，但是 iOS 没问题 | mobile | 54.39 | 7.26 | 2.0 | 4.5 | 3.8 | 4.06 | 4.8 | 4.88 | 1 | `v2ex` |
-| 31 | Feature request - toggle Left analog stick usage as a D-pad on or o... | gaming | 54.34 | 7.9 | 2.0 | 4.5 | 3.6 | 4.06 | 4.6 | 4.88 | 1 | `github` |
-| 32 | 有没有 iPhone 上好用的耳机推荐？听 ASMR 和王菲比较多 | ai | 54.11 | 6.38 | 2.0 | 5.4 | 4.3 | 4.0 | 4.9 | 4.65 | 1 | `v2ex` |
-| 33 | 黑苹果 x86 最后的容光了 | devtools | 53.95 | 7.86 | 2.0 | 5.4 | 4.5 | 4.14 | 4.7 | 4.65 | 1 | `v2ex` |
-| 34 | Show HN: FocusBlock – a local-first website blocker for Edge | productivity | 53.26 | 6.03 | 2.0 | 4.5 | 4.0 | 3.9 | 4.8 | 4.88 | 1 | `hackernews` |
-| 35 | Ask HN: What are you working on? (November 2026) | general | 53.11 | 10.0 | 2.0 | 4.5 | 3.5 | 4.95 | 4.1 | 4.88 | 1 | `hackernews` |
-| 36 | Why 3dfx 1 cards had such a washed out color output? | general | 53.05 | 9.89 | 2.0 | 5.4 | 3.5 | 4.19 | 4.1 | 4.65 | 1 | `hackernews` |
-| 37 | [API Proposal]: Socket.SendFile add offset and length paramenters | gaming | 52.91 | 8.85 | 2.0 | 6.6 | 3.6 | 4.32 | 4.6 | 4.35 | 1 | `github` |
-| 38 | disable gif autoplay (profile picture) | devtools | 52.7 | 7.66 | 2.0 | 4.5 | 4.5 | 4.0 | 4.7 | 4.88 | 1 | `github` |
-| 39 | Show HN: Apple's apps never reached Android. Built in Rust | mobile | 52.55 | 5.42 | 2.0 | 4.5 | 3.8 | 3.9 | 4.8 | 4.88 | 1 | `hackernews` |
-| 40 | 포럼 수집처, PRD 모델 선택·관리자 설정·사용 기록, 내 의견 입력, 기회 지도 | gaming | 52.14 | 5.86 | 2.0 | 6.6 | 3.6 | 3.9 | 4.6 | 4.35 | 1 | `github` |
-| 41 | Ask HN: How to visually edit vibe coded websites? | devtools | 52.14 | 5.33 | 2.0 | 6.3 | 4.5 | 3.9 | 4.7 | 4.42 | 1 | `rss` |
-| 42 | [FEATURE REQUEST]: Heat sensor colors | gaming | 51.95 | 5.33 | 2.0 | 4.5 | 3.6 | 3.9 | 4.6 | 4.88 | 1 | `github` |
-| 43 | HAM icon stays black when using a dark theme in ioBroker | general | 51.87 | 9.29 | 2.0 | 4.5 | 3.5 | 4.14 | 4.1 | 4.88 | 1 | `github` |
-| 44 | Show HN: Blobby – A design canvas that Claude, Cursor or Codex driv... | general | 51.85 | 5.49 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `hackernews` |
-| 45 | Feature request: thinking effort levels for realtime voice mode | gaming | 51.66 | 6.07 | 2.0 | 5.4 | 3.6 | 3.9 | 4.6 | 4.65 | 1 | `github` |
-| 46 | 放弃在访达里翻翻找找！推荐一款极速、无广告的纯本地 Mac 搜索插件 | general | 51.63 | 4.81 | 2.8 | 4.5 | 3.5 | 6.5 | 4.1 | 4.88 | 1 | `v2ex` |
-| 47 | Housing Immobility due to property prices and rate lock-in | fintech | 51.6 | 7.99 | 2.0 | 6.6 | 4.8 | 4.11 | 5.9 | 4.35 | 1 | `github` |
-| 48 | [Feature Request] ability to disable youtube red logo for regular y... | general | 51.36 | 6.3 | 2.0 | 4.5 | 3.5 | 4.0 | 4.1 | 4.88 | 1 | `github` |
-| 49 | Ask HN: Favourite personal blogs and RSS feeds? | general | 51.28 | 6.34 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `rss` |
-| 50 | Ask HN: Hackers/Coders/Builders – Where do you go in NYC to code? | general | 50.87 | 5.88 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `rss` |
+| 7 | I wish there was a fully offline habit tracker without accounts on ... | gaming | 60.17 | 10.0 | 2.0 | 5.4 | 6.0 | 4.43 | 4.6 | 5.85 | 1 | `google_play` |
+| 8 | Gemini Ultra 免费一个月？有 V 友领到了吗，想核对下条件 | ai | 60.09 | 10.0 | 2.0 | 5.4 | 6.7 | 4.51 | 4.9 | 4.65 | 1 | `v2ex` |
+| 9 | Somebody make a Chrome extension that turns 1-star reviews into a r... | general | 58.97 | 10.0 | 2.0 | 2.7 | 3.5 | 4.28 | 5.0 | 6.53 | 1 | `indie_hackers` |
+| 10 | GPT‑6.2 Astra and Sol | ai | 58.89 | 10.0 | 2.0 | 4.5 | 4.3 | 4.89 | 4.9 | 4.88 | 1 | `hackernews` |
+| 11 | Somebody make a family shared budget app that doesn't sell my data | fintech | 58.72 | 10.0 | 2.0 | 4.5 | 4.8 | 4.37 | 5.9 | 4.88 | 1 | `google_play` |
+| 12 | 我解密了电信光猫里的 m01-b01-inner 插件：它能提取手机号、IMEI，能远程执行命令，还能扫描你家内网 | gaming | 57.8 | 10.0 | 2.0 | 5.5 | 3.6 | 5.82 | 4.6 | 4.62 | 1 | `v2ex` |
+| 13 | Ask HN: Do you still enjoy coding in C++? | general | 56.77 | 10.0 | 2.0 | 2.7 | 3.5 | 4.58 | 4.1 | 6.53 | 1 | `hackernews` |
+| 14 | Ask HN: Are iPhone Duo Customers Happy? | mobile | 56.56 | 10.0 | 2.0 | 4.5 | 3.8 | 4.32 | 4.8 | 4.88 | 1 | `hackernews` |
+| 15 | Point a catalog app that is also a chat app to messaging | devtools | 56.34 | 8.73 | 2.0 | 4.6 | 4.5 | 4.31 | 4.7 | 4.85 | 1 | `github` |
+| 16 | Ask HN: Most compelling early stage fund pitches? | devtools | 56.3 | 8.72 | 2.8 | 4.5 | 4.5 | 5.47 | 4.7 | 4.88 | 1 | `hackernews` |
+| 17 | Make gen_ai.tool.call.result an object with value and parts | gaming | 56.12 | 9.63 | 2.0 | 4.8 | 3.6 | 4.11 | 4.6 | 4.8 | 1 | `github` |
+| 18 | 黑苹果 x86 最后的容光了 | devtools | 55.79 | 10.0 | 2.0 | 5.4 | 4.5 | 4.54 | 4.7 | 4.65 | 1 | `v2ex` |
+| 19 | IndieStack Audit: Somebody make a tool that rates idea competition ... | general | 55.72 | 10.0 | 2.8 | 4.5 | 3.5 | 4.46 | 5.0 | 4.88 | 1 | `product_hunt` |
+| 20 | [FEATURE] Desktop app: allow colored text (e.g. red for warnings) i... | gaming | 55.72 | 6.88 | 2.0 | 3.6 | 3.6 | 3.9 | 4.6 | 5.1 | 1 | `github` |
+| 21 | Ask HN: How realistic is an LLM-powered worm that spreads from PC t... | ai | 55.7 | 8.21 | 2.0 | 5.4 | 4.3 | 4.11 | 4.9 | 4.65 | 1 | `hackernews` |
+| 22 | Bluetooth: Controller: LL_SW Support for Connection Subrating | gaming | 55.62 | 8.9 | 2.0 | 4.6 | 3.6 | 4.21 | 4.6 | 4.85 | 1 | `github` |
+| 23 | Break a period's change in value into its drivers | gaming | 55.56 | 8.33 | 2.0 | 6.3 | 3.6 | 4.11 | 5.5 | 4.42 | 1 | `github` |
+| 24 | Ask HN: How do you reach a human at Reddit about a spam-filter shad... | gaming | 55.39 | 5.75 | 2.0 | 5.4 | 4.8 | 3.9 | 4.6 | 4.65 | 1 | `rss` |
+| 25 | lost all my work, for the 2nd time. | ai | 55.34 | 8.4 | 2.0 | 4.6 | 4.3 | 4.19 | 4.9 | 4.85 | 1 | `github` |
+| 26 | Show HN: AgentShield Zero-dep secret redactor and shell firewall fo... | ai | 54.82 | 5.47 | 2.0 | 4.5 | 4.3 | 3.9 | 4.9 | 4.88 | 1 | `hackernews` |
+| 27 | Java4Shell: RCE in OpenJDK when processing Base64 | general | 54.68 | 10.0 | 2.0 | 4.5 | 3.5 | 4.68 | 4.1 | 4.88 | 1 | `hackernews` |
+| 28 | ID.me terms required for IRS sign-in | general | 54.6 | 10.0 | 2.0 | 4.5 | 3.5 | 4.6 | 4.1 | 4.88 | 1 | `hackernews` |
+| 29 | 想买个折叠车，这领域真的是只有大行和其他吗，求推荐 | general | 54.59 | 10.0 | 2.0 | 4.5 | 3.5 | 4.59 | 4.1 | 4.88 | 2 | `v2ex` |
+| 30 | 20 Surprisingly Useful Websites Everyone Should Bookmark | productivity | 54.25 | 5.94 | 2.0 | 5.4 | 4.0 | 3.9 | 5.7 | 4.65 | 1 | `github` |
+| 31 | Protein and amino acid restriction in aging and longevity | devtools | 53.85 | 6.79 | 2.0 | 4.5 | 4.5 | 4.0 | 4.7 | 4.88 | 1 | `hackernews` |
+| 32 | Purpose-Governed Agents: who reviews how an AI agent describes its ... | ai | 53.67 | 5.37 | 2.0 | 5.4 | 4.3 | 3.9 | 4.9 | 4.65 | 1 | `hackernews` |
+| 33 | [EPIC] The SSTable tool — detect, salvage, repair, fix, move, diagn... | ai | 53.66 | 9.98 | 2.8 | 6.3 | 4.3 | 4.19 | 4.9 | 4.42 | 1 | `github` |
+| 34 | Option to Catch all Output Streams | devtools | 53.21 | 6.5 | 2.0 | 5.4 | 4.5 | 3.9 | 4.7 | 4.65 | 1 | `github` |
+| 35 | Ask HN: Aren't the current cyber attacks suspicious? | devtools | 53.18 | 5.76 | 2.0 | 5.4 | 4.5 | 3.9 | 4.7 | 4.65 | 1 | `rss` |
+| 36 | Ask HN: Will foldable phones become mainstream? | ai | 53.15 | 5.5 | 2.0 | 5.4 | 4.3 | 3.9 | 4.9 | 4.65 | 1 | `rss` |
+| 37 | Ask HN: What are you working on? (November 2026) | general | 53.11 | 10.0 | 2.0 | 4.5 | 3.5 | 4.95 | 4.1 | 4.88 | 1 | `hackernews` |
+| 38 | Ask HN: How realistic is an LLM-powered worm that spreads from PC t... | ai | 52.98 | 5.33 | 2.0 | 5.4 | 4.3 | 3.9 | 4.9 | 4.65 | 1 | `rss` |
+| 39 | feature: please add configuration to start in a specific local path | devtools | 52.77 | 5.73 | 2.0 | 4.5 | 4.5 | 3.9 | 4.7 | 4.88 | 1 | `github` |
+| 40 | Ask HN: Flip Phone with Business Capabilities | devtools | 52.19 | 5.41 | 2.0 | 5.4 | 4.5 | 3.9 | 4.7 | 4.65 | 1 | `rss` |
+| 41 | Rule Management buttons | general | 52.0 | 8.63 | 2.0 | 5.7 | 3.5 | 4.25 | 4.1 | 4.58 | 1 | `github` |
+| 42 | [Super Productivity] Major major  help | productivity | 51.93 | 7.42 | 2.0 | 5.4 | 4.0 | 3.9 | 4.8 | 4.65 | 1 | `app_store` |
+| 43 | [Feature request] Option to make the address bar pop up | gaming | 51.87 | 5.51 | 2.0 | 5.4 | 3.6 | 3.9 | 4.6 | 4.65 | 1 | `github` |
+| 44 | Interviewed at a YC startup, found out they used my LinkedIn withou... | general | 51.69 | 6.84 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `hackernews` |
+| 45 | feat: Regarding Secret Chats | general | 51.68 | 7.73 | 2.0 | 4.5 | 3.5 | 4.0 | 4.1 | 4.88 | 1 | `github` |
+| 46 | Feature request – Garage car rotation using the right analog stick | general | 51.67 | 6.59 | 2.0 | 4.5 | 3.5 | 4.06 | 4.1 | 4.88 | 1 | `github` |
+| 47 | [Feature Request] Custom FPS limit | gaming | 51.57 | 4.99 | 2.0 | 5.7 | 3.6 | 5.2 | 4.6 | 4.58 | 1 | `github` |
+| 48 | BiliBili 国际版 APP 部分内容不可见 | general | 51.45 | 6.41 | 2.0 | 4.5 | 3.5 | 4.0 | 4.1 | 4.88 | 1 | `v2ex` |
+| 49 | AV1 vs. AV2: Which Video Codec Should You Use in 2026? | general | 51.44 | 6.53 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `hackernews` |
+| 50 | Show HN: Yantra – an assistant that works in your own browser tab, ... | general | 50.79 | 5.79 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `hackernews` |
 
 ## All dimensions
 
@@ -112,23 +112,17 @@
 
 - [indie_hackers] Looking for an alternative to manual competitor research before building SaaS (score=56, comments=18) — https://www.indiehackers.com/
 
-### [FR] Distinguish data originators, processors, and intermediaries
-
-1 signals across github. Top keywords: data, processors, providers, fr, distinguish. Need-confidence=0.93.
-
-- [github] [FR] Distinguish data originators, processors, and intermediaries (score=0, comments=6) — https://github.com/FinOps-Open-Cost-and-Usage-Spec/FOCUS_Spec/issues/2174
-
 ### I wish there was a fully offline habit tracker without accounts on Android
 
 1 signals across google_play. Top keywords: wish, there, fully, offline, habit. Need-confidence=0.96.
 
 - [google_play] I wish there was a fully offline habit tracker without accounts on Android (score=90, comments=33) — https://play.google.com/store/apps
 
-### feat(plan): a tracked buyer prompt whose answer gives a competitor and not the site proposes an ai_gap topic in its searched words
+### Gemini Ultra 免费一个月？有 V 友领到了吗，想核对下条件
 
-1 signals across github. Top keywords: tracked, buyer, prompt, whose, answer. Need-confidence=0.58.
+1 signals across v2ex. Top keywords: ultra, gemini, 免费一个月, 友领到了吗, 想核对下条件. Need-confidence=0.50.
 
-- [github] feat(plan): a tracked buyer prompt whose answer gives a competitor and not the site proposes an ai_g (score=0, comments=1) — https://github.com/tim-clifford6991/reachkit/pull/2742
+- [v2ex] Gemini Ultra 免费一个月？有 V 友领到了吗，想核对下条件 (score=57, comments=57) — https://www.v2ex.com/t/1257824
 
 ### Somebody make a Chrome extension that turns 1-star reviews into a roadmap
 
@@ -136,18 +130,11 @@
 
 - [indie_hackers] Somebody make a Chrome extension that turns 1-star reviews into a roadmap (score=41, comments=12) — https://www.indiehackers.com/
 
-### Anthropic, can you please make up your mind with your models?
+### GPT‑6.2 Astra and Sol
 
-1 signals across hackernews. Top keywords: anthropic, please, mind, models, fable. Need-confidence=0.50.
+1 signals across hackernews. Top keywords: gpt, astra, sol. Need-confidence=0.55.
 
-- [hackernews] Anthropic, can you please make up your mind with your models? (score=6, comments=8) — https://news.ycombinator.com/item?id=50504061
-
-### Ask HN: Most compelling early stage fund pitches?
-
-2 signals across hackernews, rss. Top keywords: hn, most, early, stage, fund. Need-confidence=0.63.
-
-- [hackernews] Ask HN: Most compelling early stage fund pitches? (score=4, comments=3) — https://news.ycombinator.com/item?id=50520408
-- [rss] Ask HN: Most compelling early stage fund pitches? (score=0, comments=0) — https://news.ycombinator.com/item?id=50520408
+- [hackernews] GPT‑6.2 Astra and Sol (score=1179, comments=741) — https://openai.com/index/introducing-gpt-6-2-astra-sol/
 
 ### Somebody make a family shared budget app that doesn't sell my data
 
@@ -155,45 +142,56 @@
 
 - [google_play] Somebody make a family shared budget app that doesn't sell my data (score=70, comments=22) — https://play.google.com/store/apps
 
-### Running coding agents without handing them my credentials
+### 我解密了电信光猫里的 m01-b01-inner 插件：它能提取手机号、IMEI，能远程执行命令，还能扫描你家内网
 
-1 signals across hackernews. Top keywords: running, coding, agents, without, handing. Need-confidence=0.54.
+1 signals across v2ex. Top keywords: inner, lua, 我解密了电信光猫里的, 插件, 它能提取手机号. Need-confidence=0.83.
 
-- [hackernews] Running coding agents without handing them my credentials (score=79, comments=37) — https://blog.antonio.cx/running-agents-with-lend
-
-### Ask HN: Are iPhone Duo Customers Happy?
-
-2 signals across hackernews, rss. Top keywords: one, ask, hn, iphone, duo. Need-confidence=0.64.
-
-- [hackernews] Ask HN: Are iPhone Duo Customers Happy? (score=13, comments=8) — https://news.ycombinator.com/item?id=50522639
-- [rss] Ask HN: Are iPhone Duo Customers Happy? (score=0, comments=0) — https://news.ycombinator.com/item?id=50522639
-
-### Warning + alternative Signal clients in README.md
-
-1 signals across github. Top keywords: warning, readme, md, alternative, signal. Need-confidence=0.69.
-
-- [github] Warning + alternative Signal clients in README.md (score=5, comments=3) — https://github.com/mollyim/mollyim-android/issues/856
-
-### Windows 11 Is Collecting Data on Which Coding Agents and Developer Tools You Use
-
-1 signals across hackernews. Top keywords: windows, collecting, data, which, coding. Need-confidence=0.52.
-
-- [hackernews] Windows 11 Is Collecting Data on Which Coding Agents and Developer Tools You Use (score=424, comments=269) — https://xusheng.dev/posts/windows-coding-agent-telemetry/
-
-### Ask HN: How did you convince family and friends to join your XMPP/Matrix server?
-
-1 signals across hackernews. Top keywords: family, friends, xmpp, matrix, open. Need-confidence=0.83.
-
-- [hackernews] Ask HN: How did you convince family and friends to join your XMPP/Matrix server? (score=103, comments=99) — https://news.ycombinator.com/item?id=50405250
-
-### [Feature Request] Let parents cash in a reward for a child from Deduct
-
-1 signals across github. Top keywords: request, reward, feature, let, parents. Need-confidence=0.76.
-
-- [github] [Feature Request] Let parents cash in a reward for a child from Deduct (score=0, comments=0) — https://github.com/Highfivery/Pointsy/issues/189
+- [v2ex] 我解密了电信光猫里的 m01-b01-inner 插件：它能提取手机号、IMEI，能远程执行命令，还能扫描你家内网 (score=62, comments=62) — https://www.v2ex.com/t/1257838
 
 ### Ask HN: Do you still enjoy coding in C++?
 
 1 signals across hackernews. Top keywords: its, ask, hn, still, enjoy. Need-confidence=0.67.
 
 - [hackernews] Ask HN: Do you still enjoy coding in C++? (score=67, comments=92) — https://news.ycombinator.com/item?id=50423371
+
+### Ask HN: Are iPhone Duo Customers Happy?
+
+1 signals across hackernews. Top keywords: one, ask, hn, iphone, duo. Need-confidence=0.66.
+
+- [hackernews] Ask HN: Are iPhone Duo Customers Happy? (score=16, comments=16) — https://news.ycombinator.com/item?id=50522639
+
+### Point a catalog app that is also a chat app to messaging
+
+1 signals across github. Top keywords: catalog, chat, bot, point, also. Need-confidence=0.52.
+
+- [github] Point a catalog app that is also a chat app to messaging (score=0, comments=14) — https://github.com/elie222/rakazo/pull/5219
+
+### Ask HN: Most compelling early stage fund pitches?
+
+1 signals across hackernews. Top keywords: hn, most, early, stage, fund. Need-confidence=0.65.
+
+- [hackernews] Ask HN: Most compelling early stage fund pitches? (score=5, comments=5) — https://news.ycombinator.com/item?id=50520408
+
+### Make gen_ai.tool.call.result an object with value and parts
+
+1 signals across github. Top keywords: gen, ai, call, result, parts. Need-confidence=0.99.
+
+- [github] Make gen_ai.tool.call.result an object with value and parts (score=0, comments=3) — https://github.com/open-telemetry/semantic-conventions-genai/pull/676
+
+### 黑苹果 x86 最后的容光了
+
+1 signals across v2ex. Top keywords: 黑苹果, 最后的容光了, 最近两天把原本, 的黑苹果系统升级到, 所有外设全部能用. Need-confidence=0.63.
+
+- [v2ex] 黑苹果 x86 最后的容光了 (score=69, comments=69) — https://www.v2ex.com/t/1257674
+
+### IndieStack Audit: Somebody make a tool that rates idea competition before you build
+
+1 signals across product_hunt. Top keywords: competition, build, indiestack, audit, somebody. Need-confidence=1.00.
+
+- [product_hunt] IndieStack Audit: Somebody make a tool that rates idea competition before you build (score=210, comments=41) — https://www.producthunt.com/
+
+### [FEATURE] Desktop app: allow colored text (e.g. red for warnings) in Claude's replies
+
+1 signals across github. Top keywords: feature, claude, desktop, allow, colored. Need-confidence=0.92.
+
+- [github] [FEATURE] Desktop app: allow colored text (e.g. red for warnings) in Claude's replies (score=0, comments=0) — https://github.com/anthropics/claude-code/issues/110737
