@@ -1,9 +1,9 @@
 # Product Opportunity Report
 
-- Scanned at: `2026-11-20T05:06:59.567794+00:00`
-- Raw signals: **300**
-- Opportunities: **46**
-- Sources: app_store=60, chrome_web_store=1, g2=2, github=45, google_play=2, hackernews=60, indie_hackers=2, product_hunt=3, stackexchange=15, steam=60, v2ex=50
+- Scanned at: `2026-11-21T00:11:23.301099+00:00`
+- Raw signals: **320**
+- Opportunities: **50**
+- Sources: app_store=60, chrome_web_store=1, g2=2, github=45, google_play=2, hackernews=60, indie_hackers=2, product_hunt=3, rss=20, stackexchange=15, steam=60, v2ex=50
 
 > Ranking: geometric mean of **需求强度 × 竞争程度↓ × 开发难度↓ × 付费可能性 × 紧迫性 × 市场规模 × 变现速度** (+ hidden dims in JSON).
 
@@ -16,45 +16,49 @@
 | 5 | ReviewGap: Why isn't there an app that mines 1-star App Store revie... | devtools | 61.13 | 10.0 | 2.0 | 5.4 | 8.1 | 4.41 | 4.7 | 5.85 | 1 | `product_hunt` |
 | 6 | Looking for an alternative to manual competitor research before bui... | devtools | 61.09 | 10.0 | 4.4 | 5.4 | 9.5 | 4.34 | 4.7 | 7.05 | 1 | `indie_hackers` |
 | 7 | I wish there was a fully offline habit tracker without accounts on ... | gaming | 60.17 | 10.0 | 2.0 | 5.4 | 6.0 | 4.43 | 4.6 | 5.85 | 1 | `google_play` |
-| 8 | Somebody make a Chrome extension that turns 1-star reviews into a r... | general | 58.97 | 10.0 | 2.0 | 2.7 | 3.5 | 4.28 | 5.0 | 6.53 | 1 | `indie_hackers` |
-| 9 | Somebody make a family shared budget app that doesn't sell my data | fintech | 58.72 | 10.0 | 2.0 | 4.5 | 4.8 | 4.37 | 5.9 | 4.88 | 1 | `google_play` |
-| 10 | [Feature Request]: Only try to build app binaries when needed | productivity | 58.65 | 8.87 | 2.0 | 3.6 | 4.0 | 4.14 | 4.8 | 5.1 | 1 | `github` |
-| 11 | 我的 App 火了，然后苹果威胁要关闭我的开发者账号 | gaming | 57.43 | 10.0 | 2.0 | 6.3 | 6.0 | 4.64 | 5.5 | 4.42 | 1 | `v2ex` |
-| 12 | Keep the selected market read-only on immediate fills | devtools | 57.4 | 7.07 | 2.0 | 5.4 | 4.5 | 5.3 | 5.6 | 4.65 | 1 | `github` |
-| 13 | Make gen_ai.tool.call.result an object with value and parts | gaming | 56.34 | 9.93 | 2.0 | 4.8 | 3.6 | 4.14 | 4.6 | 4.8 | 1 | `github` |
-| 14 | IndieStack Audit: Somebody make a tool that rates idea competition ... | general | 55.72 | 10.0 | 2.8 | 4.5 | 3.5 | 4.46 | 5.0 | 4.88 | 1 | `product_hunt` |
-| 15 | agent-specs: main agent must pair night-session answers with US close | ai | 55.26 | 5.51 | 2.0 | 5.4 | 4.3 | 3.9 | 5.8 | 4.65 | 1 | `github` |
-| 16 | [送 30 个激活码] 随心听书 2.0.17：冷启动从 2.5 秒降到 1.5 秒，书库秒开，支持 iOS / Android | gaming | 55.24 | 8.57 | 2.0 | 5.4 | 3.6 | 5.49 | 4.6 | 4.65 | 1 | `v2ex` |
-| 17 | Make MenuStrip and ContextMenuStrip look more Windows-native | gaming | 55.09 | 10.0 | 2.0 | 4.6 | 3.6 | 4.28 | 4.6 | 4.85 | 1 | `github` |
-| 18 | Module suggestion: EQ | gaming | 55.03 | 8.99 | 2.0 | 5.4 | 3.6 | 4.25 | 4.6 | 4.65 | 1 | `github` |
-| 19 | [Market Data/PIT] Source or explicitly retire unsupported price kinds | devtools | 55.01 | 7.67 | 2.0 | 6.6 | 4.5 | 4.06 | 5.6 | 4.35 | 1 | `github` |
-| 20 | 3.6.0 audit: tracking issue and proposed work plan | devtools | 54.93 | 5.22 | 2.0 | 4.6 | 4.5 | 5.2 | 4.7 | 4.85 | 1 | `github` |
-| 21 | Reject single-outcome markets and cap label and description lengths... | gaming | 54.83 | 5.64 | 2.0 | 3.6 | 3.6 | 3.9 | 5.5 | 5.1 | 1 | `github` |
-| 22 | Unmet need: 我的悲哀 / 我父母的悲哀 / 要我父母去邻里亲戚问问 / 有没有转行的门路 / 我父妈来一句 / 我们是农民 | general | 54.61 | 10.0 | 2.0 | 4.5 | 3.5 | 4.61 | 4.1 | 4.88 | 1 | `v2ex` |
-| 23 | 老婆就是要买，各位能想想办法吗 | general | 54.5 | 10.0 | 2.0 | 4.5 | 3.5 | 4.51 | 4.1 | 4.88 | 1 | `v2ex` |
-| 24 | 被迫失业，怎么才能不焦虑呢 | devtools | 54.48 | 9.87 | 2.0 | 6.6 | 4.5 | 4.35 | 4.7 | 4.35 | 1 | `v2ex` |
-| 25 | feat(quant): calculate daily exchange limit streaks (#403) | productivity | 54.27 | 6.3 | 2.0 | 4.6 | 4.0 | 3.9 | 5.7 | 4.85 | 1 | `github` |
-| 26 | Vint Cerf on why TCP/IP was never patented | general | 54.19 | 9.92 | 2.0 | 4.5 | 3.5 | 4.27 | 4.1 | 4.88 | 1 | `hackernews` |
-| 27 | Allowlist native_token addresses in create_market | gaming | 53.98 | 5.83 | 2.0 | 4.6 | 3.6 | 3.9 | 5.5 | 4.85 | 1 | `github` |
-| 28 | Sandbox: mise shims fail with EACCES (python -m unittest in a Deck ... | gaming | 53.89 | 5.74 | 2.0 | 4.7 | 3.6 | 3.9 | 4.6 | 4.83 | 1 | `github` |
-| 29 | [Feature request] HA Integration without MQTT | devtools | 53.88 | 7.24 | 2.0 | 4.9 | 4.5 | 3.9 | 4.7 | 4.78 | 1 | `github` |
-| 30 | fix(research): address replay and collector review findings | devtools | 53.63 | 7.7 | 2.0 | 6.6 | 4.5 | 4.06 | 5.6 | 4.35 | 1 | `github` |
-| 31 | Unmet need: 集思广益 / 大家有没有办法 / 上班地方的厕所是一楼层一个 / 类似于公共厕所 / 所以人比较多 / 鱼龙混杂 | general | 53.36 | 8.64 | 2.0 | 4.5 | 3.5 | 4.23 | 4.1 | 4.88 | 1 | `v2ex` |
-| 32 | [Feature Request] In-Game Changelogs | gaming | 53.3 | 6.9 | 2.0 | 5.4 | 3.6 | 4.06 | 4.6 | 4.65 | 1 | `github` |
-| 33 | fix(feishu,core): keep tool input JSON valid when truncating cards | gaming | 53.16 | 7.49 | 2.0 | 6.3 | 3.6 | 4.0 | 4.6 | 4.42 | 1 | `github` |
-| 34 | Ask HN: What are you working on? (November 2026) | general | 53.11 | 10.0 | 2.0 | 4.5 | 3.5 | 4.95 | 4.1 | 4.88 | 1 | `hackernews` |
-| 35 | [FEATURE REQUEST] Mass re-align paragraph style | ai | 53.08 | 5.43 | 2.0 | 5.4 | 4.3 | 3.9 | 4.9 | 4.65 | 1 | `github` |
-| 36 | Convention-based FunctionName & HttpTrigger Routes | productivity | 52.74 | 8.41 | 2.0 | 4.5 | 4.0 | 4.06 | 4.8 | 4.88 | 1 | `github` |
-| 37 | [FEATURE REQUEST]: Heat sensor colors | gaming | 52.51 | 6.69 | 2.0 | 4.5 | 3.6 | 4.0 | 4.6 | 4.88 | 1 | `github` |
-| 38 | Ask HN: When was the last time you thought "that's bad API design"? | productivity | 52.21 | 8.19 | 2.0 | 7.5 | 4.0 | 4.0 | 4.8 | 4.12 | 1 | `hackernews` |
-| 39 | Feature Request: Cover screen support for Foldables (Moto Razr) | general | 51.73 | 6.74 | 2.0 | 4.5 | 3.5 | 4.0 | 4.1 | 4.88 | 1 | `github` |
-| 40 | Add a fuzz target for create_market inputs | gaming | 51.61 | 5.52 | 2.0 | 6.3 | 3.6 | 3.9 | 5.5 | 4.42 | 1 | `github` |
-| 41 | Feature Request: Backport to Minecraft 1.20.1 | gaming | 51.19 | 5.17 | 2.0 | 4.5 | 3.6 | 3.9 | 4.6 | 4.88 | 1 | `github` |
-| 42 | Baaja: Who's in Favor and Who's Opposed? | general | 50.84 | 5.85 | 2.0 | 4.5 | 3.5 | 3.9 | 4.1 | 4.88 | 1 | `hackernews` |
-| 43 | Feature Request : Slides shown unlimited | general | 50.77 | 7.71 | 2.0 | 4.5 | 3.5 | 4.06 | 4.1 | 4.88 | 1 | `github` |
-| 44 | Linux version? | general | 50.51 | 7.23 | 2.0 | 4.5 | 3.5 | 4.14 | 4.1 | 4.88 | 1 | `github` |
-| 45 | Beta shows fewer numbers and no untested quality claims | productivity | 50.23 | 6.4 | 2.0 | 7.2 | 4.0 | 4.0 | 4.8 | 4.2 | 1 | `github` |
-| 46 | Feature Request: "View As ..." for user and role management | gaming | 49.92 | 5.66 | 2.0 | 5.4 | 3.6 | 3.9 | 4.6 | 4.65 | 1 | `github` |
+| 8 | Ask HN: Did books that went viral on HN publish their manuscript? | general | 59.33 | 9.48 | 1.0 | 2.7 | 3.5 | 4.46 | 4.6 | 5.33 | 2 | `hackernews,rss` |
+| 9 | Somebody make a Chrome extension that turns 1-star reviews into a r... | general | 58.97 | 10.0 | 2.0 | 2.7 | 3.5 | 4.28 | 5.0 | 6.53 | 1 | `indie_hackers` |
+| 10 | Somebody make a family shared budget app that doesn't sell my data | fintech | 58.72 | 10.0 | 2.0 | 4.5 | 4.8 | 4.37 | 5.9 | 4.88 | 1 | `google_play` |
+| 11 | not an issue but just a request | gaming | 57.98 | 9.08 | 2.0 | 4.5 | 4.8 | 4.11 | 4.6 | 4.88 | 1 | `github` |
+| 12 | 我的 App 火了，然后苹果威胁要关闭我的开发者账号 | gaming | 57.5 | 10.0 | 2.0 | 6.3 | 6.0 | 4.71 | 5.5 | 4.42 | 1 | `v2ex` |
+| 13 | Ask HN: Should Uber Ratings Decay over Time? | ai | 57.5 | 6.79 | 2.0 | 4.6 | 4.3 | 3.9 | 5.8 | 4.85 | 1 | `hackernews` |
+| 14 | Keep the selected market read-only on immediate fills | devtools | 57.4 | 7.07 | 2.0 | 5.4 | 4.5 | 5.3 | 5.6 | 4.65 | 1 | `github` |
+| 15 | Ask HN: Do you feel developers are more "grumpy" these days? | productivity | 57.34 | 5.47 | 2.0 | 5.4 | 6.6 | 3.9 | 6.6 | 5.85 | 1 | `rss` |
+| 16 | Ask HN: What still makes you proud? | productivity | 57.17 | 10.0 | 1.0 | 5.4 | 4.0 | 4.68 | 5.3 | 4.65 | 2 | `hackernews,rss` |
+| 17 | [💎]: Add an Industrial Heat Gun for clearing snow | gaming | 56.37 | 5.97 | 2.0 | 5.4 | 4.8 | 5.2 | 4.6 | 4.65 | 1 | `github` |
+| 18 | Language Models Can Rewrite Their Own Weights | gaming | 56.33 | 10.0 | 2.0 | 4.5 | 3.6 | 4.6 | 4.6 | 4.88 | 1 | `hackernews` |
+| 19 | Ask HN: Any actual balanced reviews of GTA 6? | devtools | 56.1 | 9.42 | 2.0 | 4.5 | 4.5 | 4.3 | 4.7 | 4.88 | 1 | `hackernews` |
+| 20 | Circular dependencies | devtools | 56.05 | 9.16 | 2.0 | 4.6 | 4.5 | 4.06 | 4.7 | 4.85 | 1 | `github` |
+| 21 | Allowlist native_token addresses in create_market | gaming | 55.93 | 7.88 | 2.0 | 4.6 | 3.6 | 4.06 | 5.5 | 4.85 | 1 | `github` |
+| 22 | I have been unemployed for 2y.15YOE,US.What to do? | ai | 55.81 | 10.0 | 2.0 | 6.3 | 4.3 | 4.26 | 4.9 | 4.42 | 1 | `hackernews` |
+| 23 | Show a market lifecycle timeline reconstructed from contract events | devtools | 55.81 | 8.26 | 2.0 | 5.4 | 4.5 | 4.11 | 5.6 | 4.65 | 1 | `github` |
+| 24 | IndieStack Audit: Somebody make a tool that rates idea competition ... | general | 55.72 | 10.0 | 2.8 | 4.5 | 3.5 | 4.46 | 5.0 | 4.88 | 1 | `product_hunt` |
+| 25 | FEATURE: CC:Tweaked integration ( Smarter automated systems ) | gaming | 55.44 | 6.75 | 2.0 | 5.7 | 3.6 | 3.9 | 4.6 | 4.58 | 1 | `github` |
+| 26 | Short-lived MAC addresses get pushed as clients | productivity | 55.33 | 10.0 | 2.0 | 5.4 | 4.0 | 4.3 | 4.8 | 4.65 | 1 | `github` |
+| 27 | Ask HN: Why no AI-led memory vulns in Python? | ai | 55.27 | 7.8 | 2.0 | 5.4 | 4.3 | 4.0 | 4.9 | 4.65 | 1 | `hackernews` |
+| 28 | [Feature Request] 12-Hour clock for American brains | ai | 54.71 | 7.08 | 2.0 | 5.4 | 4.3 | 4.0 | 4.9 | 4.65 | 1 | `github` |
+| 29 | Design construction gaps found by the reference catalogue: enumerat... | gaming | 54.63 | 9.37 | 2.0 | 6.4 | 3.6 | 5.58 | 4.6 | 4.4 | 1 | `github` |
+| 30 | GTA6 是在 GTA 当力工的日子？ | general | 54.51 | 10.0 | 2.0 | 4.5 | 3.5 | 4.52 | 4.1 | 4.88 | 1 | `v2ex` |
+| 31 | And yet, it moves | general | 54.39 | 10.0 | 2.0 | 4.5 | 3.5 | 4.41 | 4.1 | 4.88 | 1 | `hackernews` |
+| 32 | 想偷偷出钱，做个让爸妈锻炼打卡就能提现的 App，怎么实现？ | general | 54.2 | 9.86 | 2.0 | 4.5 | 3.5 | 4.31 | 4.1 | 4.88 | 1 | `v2ex` |
+| 33 | In case anyone is looking for a fresh open-source CAM tool… 😉 | devtools | 53.78 | 6.86 | 2.0 | 4.5 | 4.5 | 3.9 | 4.7 | 4.88 | 1 | `github` |
+| 34 | 用 AI 做了个图片格式转换工具 HEICase，支持 iPhone 和 Mac，本地处理照片 | ai | 53.66 | 4.54 | 2.0 | 5.4 | 5.7 | 3.9 | 4.9 | 4.65 | 1 | `v2ex` |
+| 35 | Ask HN: How do indie developers test their tools on Mac, without ow... | devtools | 53.2 | 4.62 | 2.0 | 4.5 | 4.5 | 3.9 | 5.6 | 4.88 | 1 | `rss` |
+| 36 | Feature Request: Ability to set filters by item name | ai | 53.19 | 5.53 | 2.0 | 5.4 | 4.3 | 3.9 | 4.9 | 4.65 | 1 | `github` |
+| 37 | Ask HN: What are you working on? (November 2026) | general | 53.11 | 10.0 | 2.0 | 4.5 | 3.5 | 4.95 | 4.1 | 4.88 | 1 | `hackernews` |
+| 38 | feature request: macro editor | general | 52.91 | 8.17 | 2.0 | 4.5 | 3.5 | 4.11 | 4.1 | 4.88 | 1 | `github` |
+| 39 | Feature Request: Cryptomatte implementation | fintech | 52.69 | 10.0 | 2.0 | 6.3 | 4.8 | 4.34 | 5.0 | 4.42 | 1 | `github` |
+| 40 | Feature request: Dev "tools" around Ardia | gaming | 52.68 | 7.96 | 2.0 | 5.4 | 3.6 | 4.11 | 4.6 | 4.65 | 1 | `github` |
+| 41 | Show HN: Park – save and recall work context across repos and machines | general | 52.52 | 7.61 | 2.0 | 4.5 | 3.5 | 4.11 | 4.1 | 4.88 | 1 | `hackernews` |
+| 42 | 开源一个 Agent 长期记忆系统：262k 多跳 48.3%，高于 CAR 论文报告的 41% | devtools | 52.15 | 6.92 | 2.0 | 7.5 | 4.5 | 4.0 | 4.7 | 4.12 | 1 | `v2ex` |
+| 43 | Ask HN: Did you buy hardware for Local AI? | gaming | 51.93 | 6.12 | 2.0 | 6.3 | 3.6 | 3.9 | 4.6 | 4.42 | 1 | `rss` |
+| 44 | Ask HN: Any actual balanced reviews of GTA 6? | devtools | 51.92 | 4.91 | 2.0 | 4.5 | 4.5 | 3.9 | 4.7 | 4.88 | 1 | `rss` |
+| 45 | .cue file decoding | gaming | 51.89 | 7.21 | 2.0 | 5.4 | 3.6 | 3.9 | 4.6 | 4.65 | 1 | `github` |
+| 46 | [BUG] [FEATURE REQUEST] Mailbox VSync causes a black screen and a f... | gaming | 51.69 | 6.94 | 2.0 | 6.6 | 3.6 | 4.0 | 4.6 | 4.35 | 1 | `github` |
+| 47 | Ask HN: How do you identify video samples that were mistakenly dele... | productivity | 51.67 | 5.43 | 2.0 | 5.4 | 4.0 | 3.9 | 4.8 | 4.65 | 1 | `rss` |
+| 48 | [分享发现] 整理旧资料时，我把三年前的图都转了一遍 | devtools | 51.62 | 4.87 | 2.0 | 5.4 | 4.5 | 3.9 | 4.7 | 4.65 | 1 | `v2ex` |
+| 49 | Your target market isn't demographic (2025) | general | 51.39 | 5.42 | 2.0 | 4.5 | 3.5 | 3.9 | 5.0 | 4.88 | 1 | `hackernews` |
+| 50 | Validate outcome_index in POST /markets/{id}/resolve | productivity | 50.99 | 6.87 | 2.0 | 7.5 | 4.0 | 4.06 | 5.7 | 4.12 | 1 | `github` |
 
 ## All dimensions
 
@@ -114,6 +118,13 @@
 
 - [google_play] I wish there was a fully offline habit tracker without accounts on Android (score=90, comments=33) — https://play.google.com/store/apps
 
+### Ask HN: Did books that went viral on HN publish their manuscript?
+
+2 signals across hackernews, rss. Top keywords: hn, publish, manuscript, ask, books. Need-confidence=0.68.
+
+- [hackernews] Ask HN: Did books that went viral on HN publish their manuscript? (score=3, comments=2) — https://news.ycombinator.com/item?id=50572342
+- [rss] Ask HN: Did books that went viral on HN publish their manuscript? (score=0, comments=0) — https://news.ycombinator.com/item?id=50572342
+
 ### Somebody make a Chrome extension that turns 1-star reviews into a roadmap
 
 1 signals across indie_hackers. Top keywords: somebody, chrome, extension, turns, star. Need-confidence=0.99.
@@ -126,17 +137,23 @@
 
 - [google_play] Somebody make a family shared budget app that doesn't sell my data (score=70, comments=22) — https://play.google.com/store/apps
 
-### [Feature Request]: Only try to build app binaries when needed
+### not an issue but just a request
 
-1 signals across github. Top keywords: feature, request, only, when, test. Need-confidence=0.80.
+1 signals across github. Top keywords: im, thing, think, issue, request. Need-confidence=0.89.
 
-- [github] [Feature Request]: Only try to build app binaries when needed (score=0, comments=4) — https://github.com/oppia/oppia-android/issues/5751
+- [github] not an issue but just a request (score=0, comments=3) — https://github.com/ZivvoZ/dashx360/issues/115
 
 ### 我的 App 火了，然后苹果威胁要关闭我的开发者账号
 
-1 signals across v2ex. Top keywords: https, com, andarium, 我的, 火了. Need-confidence=0.73.
+1 signals across v2ex. Top keywords: https, com, andarium, 我的, 火了. Need-confidence=0.77.
 
-- [v2ex] 我的 App 火了，然后苹果威胁要关闭我的开发者账号 (score=136, comments=136) — https://www.v2ex.com/t/1258411
+- [v2ex] 我的 App 火了，然后苹果威胁要关闭我的开发者账号 (score=222, comments=222) — https://www.v2ex.com/t/1258411
+
+### Ask HN: Should Uber Ratings Decay over Time?
+
+1 signals across hackernews. Top keywords: uber, ratings, how, ask, hn. Need-confidence=0.55.
+
+- [hackernews] Ask HN: Should Uber Ratings Decay over Time? (score=4, comments=0) — https://news.ycombinator.com/item?id=50583294
 
 ### Keep the selected market read-only on immediate fills
 
@@ -144,50 +161,39 @@
 
 - [github] Keep the selected market read-only on immediate fills (score=0, comments=1) — https://github.com/arnabnandikgp/rivalt/pull/131
 
-### Make gen_ai.tool.call.result an object with value and parts
+### Ask HN: Do you feel developers are more "grumpy" these days?
 
-1 signals across github. Top keywords: gen, ai, call, result, parts. Need-confidence=0.99.
+1 signals across rss. Top keywords: ask, hn, feel, developers, more. Need-confidence=0.66.
 
-- [github] Make gen_ai.tool.call.result an object with value and parts (score=0, comments=4) — https://github.com/open-telemetry/semantic-conventions-genai/pull/676
+- [rss] Ask HN: Do you feel developers are more "grumpy" these days? (score=0, comments=0) — https://news.ycombinator.com/item?id=50582890
 
-### IndieStack Audit: Somebody make a tool that rates idea competition before you build
+### Ask HN: What still makes you proud?
 
-1 signals across product_hunt. Top keywords: competition, build, indiestack, audit, somebody. Need-confidence=1.00.
+2 signals across hackernews, rss. Top keywords: ask, hn, what, still, makes. Need-confidence=0.69.
 
-- [product_hunt] IndieStack Audit: Somebody make a tool that rates idea competition before you build (score=210, comments=41) — https://www.producthunt.com/
+- [hackernews] Ask HN: What still makes you proud? (score=2, comments=12) — https://news.ycombinator.com/item?id=50569229
+- [rss] Ask HN: What still makes you proud? (score=0, comments=0) — https://news.ycombinator.com/item?id=50569229
 
-### agent-specs: main agent must pair night-session answers with US close
+### [💎]: Add an Industrial Heat Gun for clearing snow
 
-1 signals across github. Top keywords: agent, session, us, specs, main. Need-confidence=0.67.
+1 signals across github. Top keywords: snow, add, heat, gun, clearing. Need-confidence=0.75.
 
-- [github] agent-specs: main agent must pair night-session answers with US close (score=0, comments=0) — https://github.com/wangyuche/xhe/pull/12
+- [github] [💎]: Add an Industrial Heat Gun for clearing snow (score=0, comments=0) — https://github.com/TerraFirmaGreg-Team/Modpack-Modern/issues/5356
 
-### [送 30 个激活码] 随心听书 2.0.17：冷启动从 2.5 秒降到 1.5 秒，书库秒开，支持 iOS / Android
+### Language Models Can Rewrite Their Own Weights
 
-1 signals across v2ex. Top keywords: 随心听书, 秒进入首页, 个激活码, 冷启动从, 秒降到. Need-confidence=0.58.
+1 signals across hackernews. Top keywords: language, models, rewrite, own, weights. Need-confidence=0.49.
 
-- [v2ex] [送 30 个激活码] 随心听书 2.0.17：冷启动从 2.5 秒降到 1.5 秒，书库秒开，支持 iOS / Android (score=6, comments=6) — https://www.v2ex.com/t/1258504
+- [hackernews] Language Models Can Rewrite Their Own Weights (score=322, comments=106) — https://arxiv.org/abs/2611.21885
 
-### Make MenuStrip and ContextMenuStrip look more Windows-native
+### Ask HN: Any actual balanced reviews of GTA 6?
 
-1 signals across github. Top keywords: native, net, core, controls, menustrip. Need-confidence=0.73.
+1 signals across hackernews. Top keywords: any, ask, hn, actual, balanced. Need-confidence=0.60.
 
-- [github] Make MenuStrip and ContextMenuStrip look more Windows-native (score=15, comments=12) — https://github.com/dotnet/winforms/issues/2476
+- [hackernews] Ask HN: Any actual balanced reviews of GTA 6? (score=9, comments=13) — https://news.ycombinator.com/item?id=50573839
 
-### Module suggestion: EQ
+### Circular dependencies
 
-1 signals across github. Top keywords: eq, module, suggestion, practice, last. Need-confidence=0.66.
+1 signals across github. Top keywords: feature, request, duplicate, circular, dependencies. Need-confidence=0.98.
 
-- [github] Module suggestion: EQ (score=0, comments=9) — https://github.com/glvno/matryoshka/issues/1107
-
-### [Market Data/PIT] Source or explicitly retire unsupported price kinds
-
-1 signals across github. Top keywords: market, data, unsupported, kinds, pit. Need-confidence=0.71.
-
-- [github] [Market Data/PIT] Source or explicitly retire unsupported price kinds (score=0, comments=2) — https://github.com/eighred/kanz/issues/1340
-
-### 3.6.0 audit: tracking issue and proposed work plan
-
-1 signals across github. Top keywords: issue, audit, tracking, proposed, work. Need-confidence=0.61.
-
-- [github] 3.6.0 audit: tracking issue and proposed work plan (score=0, comments=0) — https://github.com/citylearn-project/CityLearn/issues/226
+- [github] Circular dependencies (score=0, comments=2) — https://github.com/static-web-server/static-web-server/issues/790
